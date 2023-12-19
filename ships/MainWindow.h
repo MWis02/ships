@@ -3,9 +3,9 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
 #include "resources.h"
-#include "Game.h"
+#include <QVector>
+#include <QLabel>
 
-class Game;
 
 class MainWindow : public QMainWindow
 {
@@ -14,12 +14,46 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    
 
 private:
     Ui:: MainWindow ui;
-    Game* game;
+	resources* Resources;
+	resources* Player_1;
+	resources* Player_2;
+	resources* Bot;
+	int count = 0;
+	int i = 0;
+	/*Zmienne do pobrania koordynatow*/
+	QString CordsFromPlayer_1;
+	QStringList CordsParts_1;
+	QString CordsFromPlayer_2;
+	QStringList CordsParts_2;
+	QString CordsFromPlayer_3;
+	QStringList CordsParts_3;
+	QString CordsFromPlayer_4;
+	QStringList CordsParts_4;
+	QVector<QVector<QLabel*>> Board_Vector; /*wektor do zwizualizowania planszy do gry*/
+	void initialize_Border();
+	void resetGame();
+	void cords_for_bot();
+
     
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
+	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/
+	void on_pushButton_Ch_2_clicked(); /*dwuoosobowa gra*/
+	void on_pushButton_clicked(); /*Powrót*/
+	void on_pushButton_2_clicked(); /*Zamkniêcie aplikacji*/
+	void on_pushButton_3_clicked(); /*Graj*/
+	void on_pushButton_4_clicked(); /*statek 1_1*/
+	void on_pushButton_5_clicked(); /*statek 2_1*/
+	void on_pushButton_6_clicked(); /*statek 3_1*/
+	void on_pushButton_7_clicked(); /*statek 4_1*/
+	void on_pushButton_8_clicked(); /*statek 1_2*/
+	void on_pushButton_9_clicked(); /*statek 2_2*/
+	void on_pushButton_10_clicked(); /*statek 3_2*/
+	void on_pushButton_11_clicked(); /*statek 1_3*/
+	void on_pushButton_12_clicked(); /*statek 2_3 */
+	void on_pushButton_13_clicked(); /*statek 1_4 */
+	void on_pushButton_14_clicked(); /*dodanie 2 gracza*/
 };

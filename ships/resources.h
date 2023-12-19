@@ -6,7 +6,7 @@ class resources
 {
 private:
 
-	int gamespace[10][10] = {}; //ustawienie pola gry
+	int gamespace[10][10]; //ustawienie pola gry
 	int check_shot(int x, int y) const; //sprawdzenie gdzie trafi³ nasz strza³
 	
 public:
