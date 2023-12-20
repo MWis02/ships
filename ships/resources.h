@@ -16,6 +16,7 @@ public:
 	int(&reviev())[10][10]; //podgl¹d tablicy
 	int cordsX_to_numbers(const char* x); //zmiana koordynatów X na dane zgodne z tablicami
 	int cordsY_to_numbers(int y); //zmiana koordynatów Y na dane zgodne z tablicami
+	const char* cordsX_for_Bot(int x); //zmiana koordynat liczbowych na wskaŸnik dla bota
 	void set_to_defaults(); //funkcja przywracajaca tablice do wartosci podstawowych
 	void set_gamespace(const char* x, int y, int value); //funkcja do ustawiania statków
 	void set_gamespace_after_shoot(const char* x, int y, int value); //funkcja do zmienienia tablicy po wykonaniu ruchu
