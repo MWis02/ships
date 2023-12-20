@@ -154,46 +154,8 @@ int resources::cordsY_to_numbers(int y)/*Funkcja zmieniaj¹ca wartoœæ koordynat Y
 	int value_of_y = y - 1;
 	if (y >= 0 and y <= 10) return value_of_y;
 	else return -1;
-
-	/*int value_of_y = y;
-	switch (value_of_y)
-	{
-	case 1:
-		y = 0;
-		break;
-	case 2:
-		y = 1;
-		break;
-	case 3:
-		y = 2;
-		break;
-	case 4:
-		y = 3;
-		break;
-	case 5:
-		y = 4;
-		break;
-	case 6:
-		y = 5;
-		break;
-	case 7:
-		y = 6;
-		break;
-	case 8:
-		y = 7;
-		break;
-	case 9:
-		y = 8;
-		break;
-	case 10:
-		y = 9;
-		break;
-	default:
-		return y = -1;
-		break;
-	}
-	return y;*/
 }
+
 const char* resources::cordsX_for_Bot(int x)/*Funkcja zmieniaj¹ca wartoœæ koordynat Y, na liczby zgodne z tablic¹*/ 
 {	
 	const char* X;
@@ -235,6 +197,7 @@ const char* resources::cordsX_for_Bot(int x)/*Funkcja zmieniaj¹ca wartoœæ koordy
 	}
 	return X;
 }
+
 bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
 	/*pêtla iteruje po komorkach 1 w gore, i w dó³ od podanych koordyntów, 
 	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek*/
@@ -248,19 +211,30 @@ bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek
 	return true;  //Brak statku w otaczaj¹cych komórkach
 }
 
-bool resources :: test_correct_positioning(int x, int y, int x1, int y1)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {
+bool resources :: test_correct_positioning(int x, int y, int x1, int y1, int height)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {
 	if (y == -1 or y1 == -1 or x == -1 or x1 == -1) {
 		return false;
 	}
-	if (x == x1){
-		if (y + 1 == y1 or y - 1 == y1) {
-			return true; 
-		}
+	if (x == x1) {
+		int y_diff = abs(y - y1);
+		if (height == 2 and y_diff == 1) return true;
+		if (height == 3 and y_diff == 2) return true;
+		if (height == 4 and y_diff == 3) return true;
 	}
-	else if (x + 1 == x1 or x == x1 + 1) {
-		if (y == y1) {
-			return true;
-		}
+	else if (y == y1) {
+		int x_diff = abs(x - x1);
+		if (height == 2 and x_diff == 1) return true;
+		if (height == 3 and x_diff == 2) return true;
+		if (height == 4 and x_diff == 3) return true;
 	}
 	return false;
+}
+
+int resources::check_cord_for_Bot(int x, int y) {
+	if (gamespace[y][x] == 0) {
+		return 0; //pustê miejsce 
+	}
+	else if (gamespace[y][x] == 1) {
+		return 1; //statek  
+	}
 }
