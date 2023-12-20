@@ -16,16 +16,6 @@ resources::resources(const resources& other) {
 	}
 }
 
-resources& resources::operator=(const resources& other) {
-	if (this != &other) {
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++)
-				this->gamespace[j][i] = other.gamespace[j][i];
-		}
-	}
-	return *this;
-}
-
 void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
@@ -38,7 +28,7 @@ void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
 void resources::set_gamespace(const char* x, int y, int value)/*funkcja s³u¿aca do ustawiania koordynat*/ {
 	int x1 = cordsX_to_numbers(x);
 	int y1 = cordsY_to_numbers(y);
-	if (x1 == -1 || y1 == -1) {
+	if (x1 == -1 or y1 == -1) {
 		return;
 	}
 	gamespace[y1][x1] = value;
@@ -194,7 +184,47 @@ int resources::cordsY_to_numbers(int y)/*Funkcja zmieniaj¹ca wartoœæ koordynat Y
 	}
 	return y;*/
 }
-
+const char* resources::cordsX_for_Bot(int x)/*Funkcja zmieniaj¹ca wartoœæ koordynat Y, na liczby zgodne z tablic¹*/ 
+{	
+	const char* X;
+	switch (x)
+	{
+	case 0:
+		X = "A";
+		break;
+	case 1:
+		X = "B";
+		break;
+	case 2:
+		X = "C";
+		break;
+	case 3:
+		X = "D";
+		break;
+	case 4:
+		X = "E";
+		break;
+	case 5:
+		X = "F";
+		break;
+	case 6:
+		X = "G";
+		break;
+	case 7:
+		X = "H";
+		break;
+	case 8:
+		X = "I";
+		break;
+	case 9:
+		X = "J";
+		break;
+	default:
+		return X = "X";
+		break;
+	}
+	return X;
+}
 bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
 	/*pêtla iteruje po komorkach 1 w gore, i w dó³ od podanych koordyntów, 
 	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek*/
