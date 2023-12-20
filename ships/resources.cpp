@@ -16,6 +16,16 @@ resources::resources(const resources& other) {
 	}
 }
 
+resources& resources::operator=(const resources& other) {
+	if (this != &other) {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++)
+				this->gamespace[j][i] = other.gamespace[j][i];
+		}
+	}
+	return *this;
+}
+
 void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
@@ -25,17 +35,25 @@ void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
 	return;
 }
  
-void resources::set_gamespace(const char* x, int y, int value)/*funkcja s³u¿aca do ustawiania koordynat*/ {
-	int x1 = cordsX_to_numbers(x);
-	int y1 = cordsY_to_numbers(y);
-	if (x1 == -1 or y1 == -1) {
-		return;
+void resources::set_gamespace(const char* x, int y, int value, int pointer)/*funkcja s³u¿aca do ustawiania koordynat*/ {
+	if (pointer == 1) {
+		int x1 = cordsX_to_numbers(x);
+		int y1 = cordsY_to_numbers(y);
+		if (x1 == -1 or y1 == -1) {
+			return;
+		}
+		gamespace[y1][x1] = value;
 	}
-	gamespace[y1][x1] = value;
+	else if (pointer == 2)
+	{
+		int x1 = cordsX_to_numbers(x);
+		gamespace[y][x1] = value;
+
+	}
 	return;
 }
 
-void resources::set_gamespace_after_shoot(const char* x, int y, int value)/*Ustawienie tablicy wartoœci po strzale*/ {
+void resources::set_gamespace_after_shoot(const char* x, int y, int value, int pointer)/*Ustawienie tablicy wartoœci po strzale*/ {
 
 	int x1 = cordsX_to_numbers(x);
 	int y1 = cordsY_to_numbers(y);
@@ -45,13 +63,13 @@ void resources::set_gamespace_after_shoot(const char* x, int y, int value)/*Usta
 	switch (check_S)
 	{
 		case 0:
-			set_gamespace(x, y, 3);
+			set_gamespace(x, y, 3, pointer);
 			break;
 		case 1:
-			set_gamespace(x, y, 2);
+			set_gamespace(x, y, 2, pointer);
 			break;
 		case 2:
-			set_gamespace(x, y, 2);
+			set_gamespace(x, y, 2, pointer);
 			break;
 		default:
 			break;
@@ -144,92 +162,52 @@ int resources::cordsY_to_numbers(int y)/*Funkcja zmieniaj¹ca wartoœæ koordynat Y
 	int value_of_y = y - 1;
 	if (y >= 0 and y <= 10) return value_of_y;
 	else return -1;
-
-	/*int value_of_y = y;
-	switch (value_of_y)
-	{
-	case 1:
-		y = 0;
-		break;
-	case 2:
-		y = 1;
-		break;
-	case 3:
-		y = 2;
-		break;
-	case 4:
-		y = 3;
-		break;
-	case 5:
-		y = 4;
-		break;
-	case 6:
-		y = 5;
-		break;
-	case 7:
-		y = 6;
-		break;
-	case 8:
-		y = 7;
-		break;
-	case 9:
-		y = 8;
-		break;
-	case 10:
-		y = 9;
-		break;
-	default:
-		return y = -1;
-		break;
-	}
-	return y;*/
 }
+
 const char* resources::cordsX_for_Bot(int x)/*Funkcja zmieniaj¹ca wartoœæ koordynat Y, na liczby zgodne z tablic¹*/ 
 {	
-	const char* X;
+	const char* Char;
 	switch (x)
 	{
 	case 0:
-		X = "A";
+		Char = "A";
 		break;
 	case 1:
-		X = "B";
+		Char = "B";
 		break;
 	case 2:
-		X = "C";
+		Char = "C";
 		break;
 	case 3:
-		X = "D";
+		Char = "D";
 		break;
 	case 4:
-		X = "E";
+		Char = "E";
 		break;
 	case 5:
-		X = "F";
+		Char = "F";
 		break;
 	case 6:
-		X = "G";
+		Char = "G";
 		break;
 	case 7:
-		X = "H";
+		Char = "H";
 		break;
 	case 8:
-		X = "I";
+		Char = "I";
 		break;
 	case 9:
-		X = "J";
-		break;
-	default:
-		return X = "X";
+		Char = "J";
 		break;
 	}
-	return X;
+	return Char;
 }
+
 bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
 	/*pêtla iteruje po komorkach 1 w gore, i w dó³ od podanych koordyntów, 
 	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek*/
-	for (int i = max(0, x - 1); i <= min(10, x + 1); ++i)/*max(...), min(...) unikniecie wyjscia poza tablicê*/ {
-		for (int j = max(0, y - 1); j <= min(10, y + 1); ++j) {
+	for (int i = max(0, x - 1); i <= min(9, x + 1); ++i)/*max(...), min(...) unikniecie wyjscia poza tablicê*/ {
+		for (int j = max(0, y - 1); j <= min(9, y + 1); ++j) {
 			if (gamespace[j][i] == 1) {
 				return false;  //Statek jest obecny w otaczaj¹cych komórkach
 			}
@@ -238,19 +216,32 @@ bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek
 	return true;  //Brak statku w otaczaj¹cych komórkach
 }
 
-bool resources :: test_correct_positioning(int x, int y, int x1, int y1)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {
+bool resources :: test_correct_positioning(int x, int y, int x1, int y1, int height)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {
 	if (y == -1 or y1 == -1 or x == -1 or x1 == -1) {
 		return false;
 	}
-	if (x == x1){
-		if (y + 1 == y1 or y - 1 == y1) {
-			return true; 
-		}
+	if (x == x1) {
+		int y_diff = abs(y - y1);
+		if (height == 2 and y_diff == 1) return true;
+		if (height == 3 and y_diff == 2) return true;
+		if (height == 4 and y_diff == 3) return true;
+		if (y == y1) return false;
 	}
-	else if (x + 1 == x1 or x == x1 + 1) {
-		if (y == y1) {
-			return true;
-		}
+	else if (y == y1) {
+		int x_diff = abs(x - x1);
+		if (height == 2 and x_diff == 1) return true;
+		if (height == 3 and x_diff == 2) return true;
+		if (height == 4 and x_diff == 3) return true;
+		if (x == x1) return false;
 	}
 	return false;
+}
+
+int resources::check_cord_for_Bot(int x, int y) {
+	if (gamespace[y][x] == 0) {
+		return 0; //pustê miejsce 
+	}
+	else if (gamespace[y][x] == 1) {
+		return 1; //statek  
+	}
 }

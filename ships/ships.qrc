@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="ships">
+    <file>ship1.png</file>
     <file>warships_gen.png</file>
     <file>warships_gen_1.png</file>
     <file>Background_2.png</file>
