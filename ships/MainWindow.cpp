@@ -15,9 +15,6 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {
 	delete Resources;
-	delete Player_1;
-	delete Player_2;
-	delete Bot;
 }
 
 void MainWindow::on_pushButton_Ch_1_clicked() {
@@ -47,10 +44,7 @@ void MainWindow::on_pushButton_2_clicked() {
 void MainWindow::on_pushButton_3_clicked() {
 	if (count == 0) {
 		Player_1 = new resources(*Resources);
-
-		Resources->set_to_defaults();
 		cords_for_bot();
-
 		Bot = new resources(*Resources);
 	}
 	else {
@@ -75,7 +69,7 @@ void MainWindow::on_pushButton_4_clicked() {
 	if (flag == true and X_tmp != -1 and Y_tmp != -1) {
 		Resources->set_gamespace(X1.c_str(), Y1, 1); /*X.c_str() wy³uskanie wskaŸnika "const char*"*/
 		ui.pushButton_4->setDisabled(true);
-		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("Background-color: yellow;");
+		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
 	}
 	else return;
 }
@@ -400,13 +394,14 @@ void MainWindow::on_pushButton_13_clicked() {
 }
 
 void MainWindow::on_pushButton_14_clicked() {
+<<<<<<< HEAD
 	ui.pushButton_14->setDisabled(true);
 	
+=======
+>>>>>>> cd6f6dd495d37999f0d08e4ebf732c6be2e0684c
 	Player_1 = new resources(*Resources);
-
 	count = 1;
 	resetGame();
-	
 }
 
 void MainWindow::initialize_Border() {
@@ -467,9 +462,63 @@ void MainWindow::resetGame() {
 			Board_Vector[j][i]->setStyleSheet("");
 		}
 	}
-	//return;
 }
 
 void MainWindow::cords_for_bot() {
+	Resources->set_to_defaults();
+
+	srand(time(NULL));
+	while (1) {
+
+		int X = rand() % 10;
+		int Y = rand() % 10;
+
+		bool flag_2 = Resources->check_the_ships(X, Y);
+
+		if (flag_2 == true) {
+			const char* tmp = Resources->cordsX_for_Bot(X);
+			Resources->set_gamespace(tmp, Y, 1);
+		}
+		break;
+	}
+	while (1) {
+
+		int X = rand() % 10;
+		int Y = rand() % 10;
+
+		bool flag_2 = Resources->check_the_ships(X, Y);
+
+		if (flag_2 == true) {
+			const char* tmp = Resources->cordsX_for_Bot(X);
+			Resources->set_gamespace(tmp, Y, 1);
+		}
+		break;
+	}
+	while (1) {
+
+		int X = rand() % 10;
+		int Y = rand() % 10;
+
+		bool flag_2 = Resources->check_the_ships(X, Y);
+
+		if (flag_2 == true) {
+			const char* tmp = Resources->cordsX_for_Bot(X);
+			Resources->set_gamespace(tmp, Y, 1);
+		}
+		break;
+	}
+	while (1) {
+
+		int X = rand() % 10;
+		int Y = rand() % 10;
+
+		bool flag_2 = Resources->check_the_ships(X, Y);
+
+		if (flag_2 == true) {
+			const char* tmp = Resources->cordsX_for_Bot(X);
+			Resources->set_gamespace(tmp, Y, 1);
+		}
+		break;
+	}
 	return;
 }
