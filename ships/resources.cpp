@@ -16,6 +16,16 @@ resources::resources(const resources& other) {
 	}
 }
 
+resources& resources::operator=(const resources& other) {
+	if (this != &other) {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++)
+				this->gamespace[j][i] = other.gamespace[j][i];
+		}
+	}
+	return *this;
+}
+
 void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {

@@ -400,7 +400,8 @@ void MainWindow::on_pushButton_13_clicked() {
 }
 
 void MainWindow::on_pushButton_14_clicked() {
-
+	ui.pushButton_14->setDisabled(true);
+	
 	Player_1 = new resources(*Resources);
 
 	count = 1;
