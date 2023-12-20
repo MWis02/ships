@@ -5,6 +5,7 @@
 #include "resources.h"
 #include <QVector>
 #include <QLabel>
+#include <QlineEdit>
 
 
 class MainWindow : public QMainWindow
@@ -23,7 +24,7 @@ private:
 	resources* Player_2;
 	resources* Bot;
 	int count = 0;
-	int i = 0;
+	int counter = 0;
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;
 	QStringList CordsParts_1;
@@ -34,9 +35,12 @@ private:
 	QString CordsFromPlayer_4;
 	QStringList CordsParts_4;
 	QVector<QVector<QLabel*>> Board_Vector; /*wektor do zwizualizowania planszy do gry*/
+	QVector<QLineEdit*> LineEdits_Vector; /*wektor do zwizualizowania planszy do gry*/
 	void initialize_Border();
+	void initialize_Labels();
 	void resetGame();
 	void cords_for_bot();
+	void gen_Ships_for_players();
 
     
 private slots:
@@ -56,4 +60,6 @@ private slots:
 	void on_pushButton_12_clicked(); /*statek 2_3 */
 	void on_pushButton_13_clicked(); /*statek 1_4 */
 	void on_pushButton_14_clicked(); /*dodanie 2 gracza*/
+	void on_pushButton_gen_clicked(); /*generowanie randomowo staków*/
+	void on_pushButton_res_clicked(); /*resetowanie ustawienia*/
 };

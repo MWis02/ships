@@ -3844,7 +3844,7 @@ background-color: rgba(225, 225, 225, 0.65);
           <number>6</number>
          </property>
          <item row="1" column="4">
-          <widget class="QLineEdit" name="lineEdit_3">
+          <widget class="QLineEdit" name="lineEdit_2">
            <property name="enabled">
             <bool>true</bool>
            </property>
@@ -3895,7 +3895,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="2">
-          <widget class="QLineEdit" name="lineEdit_2">
+          <widget class="QLineEdit" name="lineEdit_1">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -3934,7 +3934,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="6">
-          <widget class="QLineEdit" name="lineEdit_4">
+          <widget class="QLineEdit" name="lineEdit_3">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4030,7 +4030,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLineEdit" name="lineEdit_1">
+          <widget class="QLineEdit" name="lineEdit_0">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4069,7 +4069,7 @@ background-color: rgba(225, 225, 225, 0.65);
           <number>3</number>
          </property>
          <item row="1" column="6">
-          <widget class="QLineEdit" name="lineEdit_9">
+          <widget class="QLineEdit" name="lineEdit_8">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4093,30 +4093,6 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="3">
-          <widget class="QLineEdit" name="lineEdit_7">
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
           <widget class="QLineEdit" name="lineEdit_6">
            <property name="minimumSize">
             <size>
@@ -4140,8 +4116,32 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="1" column="1">
           <widget class="QLineEdit" name="lineEdit_5">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="lineEdit_4">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4166,7 +4166,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="7">
-          <widget class="QLineEdit" name="lineEdit_10">
+          <widget class="QLineEdit" name="lineEdit_9">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4190,7 +4190,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="4">
-          <widget class="QLineEdit" name="lineEdit_8">
+          <widget class="QLineEdit" name="lineEdit_7">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4310,32 +4310,23 @@ background-color: rgba(225, 225, 225, 0.65);
          <property name="horizontalSpacing">
           <number>3</number>
          </property>
-         <item row="1" column="3">
-          <widget class="QPushButton" name="pushButton_11">
-           <property name="minimumSize">
-            <size>
-             <width>136</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>136</width>
-             <height>36</height>
-            </size>
-           </property>
+         <item row="0" column="0" colspan="12">
+          <widget class="QLabel" name="label_4">
            <property name="font">
             <font>
              <pointsize>16</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
+           </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Podaj koordynaty dla statków trzymasztowych</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="6">
-          <widget class="QLineEdit" name="lineEdit_16">
+         <item row="1" column="5">
+          <widget class="QLineEdit" name="lineEdit_14">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4358,8 +4349,8 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="lineEdit_13">
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="lineEdit_10">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4406,79 +4397,7 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLineEdit" name="lineEdit_11">
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="4">
-          <widget class="QLineEdit" name="lineEdit_14">
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="5">
-          <widget class="QLineEdit" name="lineEdit_15">
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
+         <item row="1" column="2">
           <widget class="QLineEdit" name="lineEdit_12">
            <property name="minimumSize">
             <size>
@@ -4502,18 +4421,99 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="0" column="0" colspan="12">
-          <widget class="QLabel" name="label_4">
+         <item row="1" column="6">
+          <widget class="QLineEdit" name="lineEdit_15">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
            <property name="font">
             <font>
-             <pointsize>16</pointsize>
+             <pointsize>13</pointsize>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">background: none;</string>
            </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="pushButton_11">
+           <property name="minimumSize">
+            <size>
+             <width>136</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>136</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
            <property name="text">
-            <string>Podaj koordynaty dla statków trzymasztowych</string>
+            <string>Dodaj Statki</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QLineEdit" name="lineEdit_13">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_11">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
            </property>
           </widget>
          </item>
@@ -4551,7 +4551,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="3">
-          <widget class="QLineEdit" name="lineEdit_20">
+          <widget class="QLineEdit" name="lineEdit_19">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4575,7 +4575,7 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLineEdit" name="lineEdit_17">
+          <widget class="QLineEdit" name="lineEdit_16">
            <property name="minimumSize">
             <size>
              <width>41</width>
@@ -4599,6 +4599,30 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
          <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_17">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
           <widget class="QLineEdit" name="lineEdit_18">
            <property name="minimumSize">
             <size>
@@ -4622,8 +4646,38 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="0" column="0" colspan="8">
+         <item row="1" column="7">
+          <widget class="QPushButton" name="pushButton_gen">
+           <property name="minimumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Generuj statki</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="6">
           <widget class="QLabel" name="label_5">
+           <property name="maximumSize">
+            <size>
+             <width>450</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>16</pointsize>
@@ -4637,27 +4691,27 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="lineEdit_19">
+         <item row="1" column="6">
+          <widget class="QPushButton" name="pushButton_res">
            <property name="minimumSize">
             <size>
-             <width>41</width>
-             <height>36</height>
+             <width>156</width>
+             <height>41</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>41</width>
-             <height>36</height>
+             <width>156</width>
+             <height>41</height>
             </size>
            </property>
            <property name="font">
             <font>
-             <pointsize>13</pointsize>
+             <pointsize>16</pointsize>
             </font>
            </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
+           <property name="text">
+            <string>Resetuj</string>
            </property>
           </widget>
          </item>
