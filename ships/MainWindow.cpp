@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget* parent)
 	initialize_Border_GP();
 	initialize_Buttons_GP();
 	srand(time(NULL));
-	setlocale(LC_ALL, "pl-PL");
-
 	connect(BotShot, &QTimer::timeout, this, &MainWindow::schot_for_bot);
 	connect(PlayerShot, &QTimer::timeout, this, &MainWindow::shot_for_player);
 }
@@ -65,6 +63,14 @@ void MainWindow::on_pushButton_3_clicked() {
 
 		ui.widget_GS->hide();
 		ui.widget_GP->show();
+		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (Player_1->check_shot(i, j) == 1) {
+					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+				}
+			}
+		}
 		return;
 	}
 	else {
@@ -807,7 +813,6 @@ void MainWindow::on_pushButton_res_clicked() {
 void MainWindow::shot_for_player() {
 	if (count == 0) {
 		BotShot->stop();
-
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				Buttons_Vector_GP[j][i]->setDisabled(false);
@@ -826,16 +831,18 @@ void MainWindow::shot_for_player() {
 			}
 		}
 		else {
-			Buttons_Vector_GP[y][x]->setStyleSheet("Background-color: green;");
+			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
 			Player_1->counter += 1;
 			if (Player_1->counter == 20) {
 				ui.widget_GP->hide();
 				ui.widget_EG->show();
 				ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Win_1.png);");
-				ui.label_11->setText("Gratulacje wygra³eœ");
+				ui.label_11->setText("Gratulacje wygrales");
 				return;
 			}
 		}
+		shot += 1;
+		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
 	}
 	else {
 
@@ -859,13 +866,13 @@ void MainWindow::schot_for_bot() {
 		return;
 	}
 	else if (check == 1){
-		Board_Vector_GP[Y][X]->setStyleSheet("Background-color: green;");
+		Board_Vector_GP[Y][X]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
 		Bot->counter += 1;
 		if (Bot->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
 			ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Lose_2.png);");
-			ui.label_11->setText("Niestety tym razem przegra³eœ");
+			ui.label_11->setText("Niestety tym razem przegrales");
 			return;
 		}
 		BotShot->start(1500);

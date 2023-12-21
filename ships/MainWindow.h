@@ -28,6 +28,8 @@ private:
 	QTimer* PlayerShot;
 	int count = 0;
 	int x, y;
+	int shot = 0;
+	QLocale polishLng;
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;
 	QStringList CordsParts_1;
