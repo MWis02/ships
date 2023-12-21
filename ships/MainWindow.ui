@@ -4844,12 +4844,6 @@ oraz odziel &quot;,&quot;</string>
           </widget>
          </item>
         </layout>
-        <zorder>pushButton_3</zorder>
-        <zorder>pushButton</zorder>
-        <zorder>pushButton_2</zorder>
-        <zorder>label_7</zorder>
-        <zorder>label_6</zorder>
-        <zorder>pushButton_14</zorder>
        </widget>
       </item>
      </layout>
@@ -8532,6 +8526,126 @@ background-color: rgba(225, 225, 225, 0.85);
        </widget>
       </item>
      </layout>
+     <zorder>GP_2_83</zorder>
+     <zorder>GSN_40</zorder>
+     <zorder>GP_2_37</zorder>
+     <zorder>GP_2_18</zorder>
+     <zorder>GP_2_80</zorder>
+     <zorder>GP_2_63</zorder>
+     <zorder>GP_2_36</zorder>
+     <zorder>GP_2_64</zorder>
+     <zorder>GSN_33</zorder>
+     <zorder>GP_2_25</zorder>
+     <zorder>GP_2_72</zorder>
+     <zorder>GP_2_81</zorder>
+     <zorder>GP_2_08</zorder>
+     <zorder>GP_2_87</zorder>
+     <zorder>GSN_30</zorder>
+     <zorder>GSN_34</zorder>
+     <zorder>GP_2_46</zorder>
+     <zorder>GP_2_38</zorder>
+     <zorder>GP_2_56</zorder>
+     <zorder>GSN_37</zorder>
+     <zorder>GP_2_54</zorder>
+     <zorder>GSN_22</zorder>
+     <zorder>GP_2_21</zorder>
+     <zorder>GP_2_44</zorder>
+     <zorder>GP_2_66</zorder>
+     <zorder>GP_2_26</zorder>
+     <zorder>GP_2_49</zorder>
+     <zorder>GP_2_14</zorder>
+     <zorder>GP_2_29</zorder>
+     <zorder>GP_2_86</zorder>
+     <zorder>GSN_36</zorder>
+     <zorder>GP_2_27</zorder>
+     <zorder>GP_2_43</zorder>
+     <zorder>GP_2_12</zorder>
+     <zorder>GP_2_34</zorder>
+     <zorder>GP_2_03</zorder>
+     <zorder>GP_2_95</zorder>
+     <zorder>GSN_25</zorder>
+     <zorder>GSN_23</zorder>
+     <zorder>GP_2_82</zorder>
+     <zorder>GP_2_91</zorder>
+     <zorder>GP_2_06</zorder>
+     <zorder>GP_2_75</zorder>
+     <zorder>GP_2_28</zorder>
+     <zorder>GP_2_50</zorder>
+     <zorder>GP_2_62</zorder>
+     <zorder>GP_2_89</zorder>
+     <zorder>GP_2_48</zorder>
+     <zorder>GP_2_70</zorder>
+     <zorder>GP_2_59</zorder>
+     <zorder>GP_2_23</zorder>
+     <zorder>GP_2_32</zorder>
+     <zorder>GP_2_17</zorder>
+     <zorder>GSN_26</zorder>
+     <zorder>GP_2_31</zorder>
+     <zorder>GP_2_41</zorder>
+     <zorder>GP_2_45</zorder>
+     <zorder>GP_2_09</zorder>
+     <zorder>GP_2_02</zorder>
+     <zorder>GP_2_93</zorder>
+     <zorder>GP_2_85</zorder>
+     <zorder>GP_2_10</zorder>
+     <zorder>GP_2_88</zorder>
+     <zorder>GP_2_00</zorder>
+     <zorder>GP_2_71</zorder>
+     <zorder>GP_2_51</zorder>
+     <zorder>GP_2_52</zorder>
+     <zorder>GP_2_07</zorder>
+     <zorder>GP_2_30</zorder>
+     <zorder>GP_2_55</zorder>
+     <zorder>GP_2_05</zorder>
+     <zorder>GP_2_74</zorder>
+     <zorder>GP_2_90</zorder>
+     <zorder>GP_2_69</zorder>
+     <zorder>GP_2_94</zorder>
+     <zorder>GP_2_19</zorder>
+     <zorder>GSN_39</zorder>
+     <zorder>GP_2_53</zorder>
+     <zorder>GP_2_65</zorder>
+     <zorder>GP_2_13</zorder>
+     <zorder>GP_2_78</zorder>
+     <zorder>GP_2_42</zorder>
+     <zorder>GSN_21</zorder>
+     <zorder>GSN_31</zorder>
+     <zorder>GP_2_73</zorder>
+     <zorder>GSN_28</zorder>
+     <zorder>GSN_24</zorder>
+     <zorder>GP_2_76</zorder>
+     <zorder>GP_2_11</zorder>
+     <zorder>GP_2_58</zorder>
+     <zorder>GP_2_96</zorder>
+     <zorder>GP_2_22</zorder>
+     <zorder>GP_2_60</zorder>
+     <zorder>GP_2_40</zorder>
+     <zorder>GP_2_33</zorder>
+     <zorder>GSN_27</zorder>
+     <zorder>GP_2_61</zorder>
+     <zorder>GSN_38</zorder>
+     <zorder>GP_2_47</zorder>
+     <zorder>GP_2_15</zorder>
+     <zorder>GP_2_39</zorder>
+     <zorder>GP_2_01</zorder>
+     <zorder>GP_2_57</zorder>
+     <zorder>GSN_32</zorder>
+     <zorder>GP_2_77</zorder>
+     <zorder>GP_2_84</zorder>
+     <zorder>GP_2_68</zorder>
+     <zorder>GP_2_16</zorder>
+     <zorder>GP_2_99</zorder>
+     <zorder>GP_2_98</zorder>
+     <zorder>GP_2_24</zorder>
+     <zorder>GSN_29</zorder>
+     <zorder>GP_2_92</zorder>
+     <zorder>GP_2_04</zorder>
+     <zorder>GP_2_20</zorder>
+     <zorder>GP_2_35</zorder>
+     <zorder>GP_2_79</zorder>
+     <zorder>GSN_35</zorder>
+     <zorder>GP_2_67</zorder>
+     <zorder>GP_2_97</zorder>
     </widget>
     <widget class="QWidget" name="widget_3" native="true">
      <property name="geometry">
@@ -11163,7 +11277,7 @@ background-color: rgba(225, 225, 225, 0.85);
     </property>
     <property name="styleSheet">
      <string notr="true">QWidget{
-	background-image: url(:/ships/Background.png);
+	background-image: url(:/ships/Background_2.png);
 }
 QPushButton ,QLabel{
 background: none;
@@ -11322,11 +11436,11 @@ ntext-align: center;
      </property>
     </widget>
    </widget>
-   <zorder>widget_GP</zorder>
-   <zorder>widget_GS</zorder>
-   <zorder>widget_blank</zorder>
-   <zorder>widget_EG</zorder>
    <zorder>widget_title</zorder>
+   <zorder>widget_EG</zorder>
+   <zorder>widget_GP</zorder>
+   <zorder>widget_blank</zorder>
+   <zorder>widget_GS</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
