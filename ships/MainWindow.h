@@ -6,7 +6,9 @@
 #include <QVector>
 #include <QLabel>
 #include <QlineEdit>
-
+#include <QpushButton>
+#include <QSignalMapper>
+#include <Qtimer>
 
 class MainWindow : public QMainWindow
 {
@@ -22,8 +24,10 @@ private:
 	resources* Player_1;
 	resources* Player_2;
 	resources* Bot;
+	QTimer* BotShot;
+	QTimer* PlayerShot;
 	int count = 0;
-	int counter = 0;
+	int x, y;
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;
 	QStringList CordsParts_1;
@@ -34,12 +38,18 @@ private:
 	QString CordsFromPlayer_4;
 	QStringList CordsParts_4;
 	QVector<QVector<QLabel*>> Board_Vector; /*wektor do zwizualizowania planszy do gry*/
-	QVector<QLineEdit*> LineEdits_Vector; /*wektor do zwizualizowania planszy do gry*/
+	QVector<QLineEdit*> LineEdits_Vector; /*wektor do podejrzenia wygenerowanej planszy do gry*/
+	QVector<QVector<QLabel*>> Board_Vector_GP; /*wektor do zwizualizowania planszy do gry*/
+	QVector<QVector<QPushButton*>> Buttons_Vector_GP; /*wektor do zwizualizowania planszy do gry*/
 	void initialize_Border();
 	void initialize_Labels();
+	void initialize_Border_GP();
+	void initialize_Buttons_GP();
 	void resetGame();
 	void cords_for_bot();
 	void gen_Ships_for_players();
+	void shot_for_player();
+	void schot_for_bot();
 
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/

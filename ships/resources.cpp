@@ -7,6 +7,7 @@ resources::resources() {
 		for (int j = 0; j < 10; j++)
 			gamespace[i][j] = 0;
 	}
+	counter = 0;
 }
 
 resources::resources(const resources& other) {
@@ -53,27 +54,9 @@ void resources::set_gamespace(const char* x, int y, int value, int pointer)/*fun
 	return;
 }
 
-void resources::set_gamespace_after_shoot(const char* x, int y, int value, int pointer)/*Ustawienie tablicy wartoœci po strzale*/ {
+void resources::set_gamespace_after_shoot(int x, int y, int value)/*Ustawienie tablicy wartoœci po strzale*/ {
 
-	int x1 = cordsX_to_numbers(x);
-	int y1 = cordsY_to_numbers(y);
-
-	int check_S = check_shot(x1, y1);
-
-	switch (check_S)
-	{
-		case 0:
-			set_gamespace(x, y, 3, pointer);
-			break;
-		case 1:
-			set_gamespace(x, y, 2, pointer);
-			break;
-		case 2:
-			set_gamespace(x, y, 2, pointer);
-			break;
-		default:
-			break;
-	}
+	
 }
 
 int(&resources::reviev())[10][10]/*funkcja do sprawdzenia tablicy*/{
@@ -86,12 +69,6 @@ int resources::check_shot(int x, int y) const/*Funkcja sprawdzaj¹ca czy strza³ z
 	}
 	else if (gamespace[y][x] == 1) {
 		return 1; //statek  
-	}
-	else if (gamespace[y][x] == 2) {
-		return 2; //trafiony statek
-	}
-	else if (gamespace[y][x] == 3) {
-		return 3; //trafione puste pole
 	}
 }
 
