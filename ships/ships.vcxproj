@@ -59,16 +59,18 @@
     <Import Project="$(QtMsBuild)\Qt.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="QtDeploy" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtDeploy>true</QtDeploy>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <CustomBuildStep>
       <Command>cmd.exe</Command>
     </CustomBuildStep>
     <ClCompile>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
