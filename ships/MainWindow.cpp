@@ -48,6 +48,7 @@ void MainWindow::on_pushButton_3_clicked() {
 		Player_1 = new resources(*Resources);
 		cords_for_bot();
 		Bot = new resources(*Resources);
+		return;
 	}
 	else {
 		Player_2 = new resources(*Resources);
@@ -164,7 +165,7 @@ void MainWindow::on_pushButton_8_clicked() {
 	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
 	bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
 	bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-
+	 
 	if (flag and flag_1 and flag_2) {
 		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
 		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);

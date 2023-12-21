@@ -154,7 +154,6 @@ int resources::cordsX_to_numbers(const char* x)/*Funkcja zmieniaj¹ca wartoœæ koo
 		return x1 = -1;
 		break;
 	}
-
 	return x1;
 }
 

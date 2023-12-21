@@ -85,6 +85,11 @@ background-color: rgba(225, 225, 225, 0.65);
        <height>181</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
@@ -105,6 +110,11 @@ ntext-align: center;</string>
        <width>531</width>
        <height>181</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background: none;
@@ -139,7 +149,8 @@ ntext-align: center;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/ships/warships_gen.png);</string>
+     <string notr="true">background-image: url(:/ships/warships_gen.png);
+</string>
     </property>
     <widget class="QWidget" name="widget" native="true">
      <property name="geometry">
@@ -4302,6 +4313,16 @@ background-color: rgba(225, 225, 225, 0.65);
           </widget>
          </item>
         </layout>
+        <zorder>lineEdit_8</zorder>
+        <zorder>lineEdit_6</zorder>
+        <zorder>lineEdit_4</zorder>
+        <zorder>lineEdit_9</zorder>
+        <zorder>lineEdit_7</zorder>
+        <zorder>pushButton_9</zorder>
+        <zorder>pushButton_8</zorder>
+        <zorder>label_3</zorder>
+        <zorder>pushButton_10</zorder>
+        <zorder>lineEdit_5</zorder>
        </widget>
       </item>
       <item>
@@ -4842,7 +4863,7 @@ background-color: rgba(225, 225, 225, 0.65);
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../question_1.png</pixmap>
+            <pixmap>../../../../../../.designer/question_1.png</pixmap>
            </property>
           </widget>
          </item>

@@ -15,7 +15,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    
 
 private:
     Ui:: MainWindow ui;
@@ -42,7 +41,6 @@ private:
 	void cords_for_bot();
 	void gen_Ships_for_players();
 
-    
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/
 	void on_pushButton_Ch_2_clicked(); /*dwuoosobowa gra*/

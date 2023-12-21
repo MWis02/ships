@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="ships">
+    <file>hitted-ship.png</file>
+    <file>hitted-ship_1.png</file>
     <file>ship1.png</file>
     <file>warships_gen.png</file>
     <file>warships_gen_1.png</file>
