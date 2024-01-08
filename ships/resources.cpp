@@ -55,8 +55,7 @@ void resources::set_gamespace(const char* x, int y, int value, int pointer)/*fun
 }
 
 void resources::set_gamespace_after_shoot(int x, int y, int value)/*Ustawienie tablicy wartoœci po strzale*/ {
-
-	
+	gamespace[y][x] = value;
 }
 
 int(&resources::reviev())[10][10]/*funkcja do sprawdzenia tablicy*/{
@@ -70,6 +69,13 @@ int resources::check_shot(int x, int y) const/*Funkcja sprawdzaj¹ca czy strza³ z
 	else if (gamespace[y][x] == 1) {
 		return 1; //statek  
 	}
+	else if (gamespace[y][x] == 2) {
+		return 2; //trafione puste miejsce
+	}
+	else if (gamespace[y][x] == 3) {
+		return 3; //trafiony statek
+	}
+	return -1;
 }
 
 int resources::cordsX_to_numbers(const char* x)/*Funkcja zmieniaj¹ca wartoœæ koordynat X, na liczby zgodne z tablic¹*/ {
@@ -190,6 +196,19 @@ bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek
 		}
 	}
 	return true;  //Brak statku w otaczaj¹cych komórkach
+}
+
+bool resources::check_for_other_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
+	/*pêtla iteruje po komorkach 1 w gore, i w dó³ od podanych koordyntów,
+	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek*/
+	for (int i = max(0, x - 1); i <= min(9, x + 1); i++)/*max(...), min(...) unikniecie wyjscia poza tablicê*/ {
+		for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
+			if (gamespace[j][i] == 1 and (i != x and j != y)) {
+				return true;  //Statek jest obecny w otaczaj¹cych komórkach
+			}
+		}
+	}
+	return false;  //Brak statku w otaczaj¹cych komórkach
 }
 
 bool resources :: test_correct_positioning(int x, int y, int x1, int y1, int height)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {

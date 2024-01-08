@@ -813,14 +813,7 @@ void MainWindow::on_pushButton_res_clicked() {
 void MainWindow::shot_for_player() {
 	if (count == 0) {
 		BotShot->stop();
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				Buttons_Vector_GP[j][i]->setDisabled(false);
-			}
-		}
 		int check = Bot->check_shot(x, y);
-		Buttons_Vector_GP[y][x]->setDisabled(true);
-
 		if (check == 0) {
 			Buttons_Vector_GP[y][x]->setStyleSheet("Background-color: grey;");
 			BotShot->start(1500);
@@ -829,25 +822,40 @@ void MainWindow::shot_for_player() {
 					Buttons_Vector_GP[j][i]->setDisabled(true);
 				}
 			}
+			Bot->set_gamespace_after_shoot(x, y, 2);
 		}
-		else {
-			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+		else if (check == 1){
 			Player_1->counter += 1;
 			if (Player_1->counter == 20) {
 				ui.widget_GP->hide();
 				ui.widget_EG->show();
-				ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Win_1.png);");
+				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
 				ui.label_11->setText("Gratulacje wygrales");
 				return;
 			}
+			/*
+			bool flag = Bot->check_for_other_ships(x, y);
+			if (flag == false) {
+				for (int i = max(0, x - 1); i <= min(9, x + 1); i++) {
+					for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
+						Buttons_Vector_GP[j][i]->setStyleSheet("background-color: grey;");
+						Buttons_Vector_GP[j][i]->setDisabled(true);
+						Bot->set_gamespace_after_shoot(i, j, 2);
+					}
+				}
+				Bot->set_gamespace_after_shoot(x, y, 3);
+				Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+				Buttons_Vector_GP[y][x]->setDisabled(true);
+			}
+			*/	
+			Bot->set_gamespace_after_shoot(x, y, 3);
+			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+			Buttons_Vector_GP[y][x]->setDisabled(true);
+
 		}
 		shot += 1;
 		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
-	}
-	else {
-
-	}
-	
+	}	
 }
 
 void MainWindow::schot_for_bot() {
@@ -857,12 +865,22 @@ void MainWindow::schot_for_bot() {
 	int check = Player_1->check_shot(X, Y);
 	if (check == 0) {
 		Board_Vector_GP[Y][X]->setStyleSheet("Background-color: grey;");
-		BotShot->stop();
+		Player_1->set_gamespace_after_shoot(X,Y, 2);
+
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
-				Buttons_Vector_GP[j][i]->setDisabled(false);
+				int tmp = Bot->check_shot(i, j);
+				if (tmp == 2 or tmp == 3) {
+					Buttons_Vector_GP[j][i]->setDisabled(true);
+				}
+				else {
+					Buttons_Vector_GP[j][i]->setDisabled(false);
+				}
+				
 			}
 		}
+
+		BotShot->stop();
 		return;
 	}
 	else if (check == 1){
@@ -875,6 +893,10 @@ void MainWindow::schot_for_bot() {
 			ui.label_11->setText("Niestety tym razem przegrales");
 			return;
 		}
+		Player_1->set_gamespace_after_shoot(X, Y, 3);
+		BotShot->start(1500);
+	}
+	else if (check == 2 or check == 3) {
 		BotShot->start(1500);
 	}
 }
