@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+	int LastHitX, LastHitY;
+	bool lastShotHit;
 
 private:
     Ui:: MainWindow ui;
@@ -26,9 +28,7 @@ private:
 	resources* Bot;
 	QTimer* BotShot;
 	QTimer* PlayerShot;
-	int count = 0;
-	int x, y;
-	int shot = 0;
+	int count, x, y, shot, BotX, BotY;
 	QLocale polishLng;
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;

@@ -9,6 +9,16 @@ MainWindow::MainWindow(QWidget* parent)
 	BotShot(new QTimer),
 	PlayerShot(new QTimer)
 {   
+	count = 0;
+	x = 0;
+	y = 0;
+	shot = 0;
+	LastHitX = 0;
+	LastHitY = 0;
+	lastShotHit = false;
+	BotX = 0;
+	BotY = 0;
+
     ui.setupUi(this);
 	ui.widget_GS->hide();
 	ui.widget_blank->hide();
@@ -27,6 +37,18 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {
 	delete Resources;
+	delete BotShot;
+	delete PlayerShot;
+
+	count = 0;
+	x = 0;
+	y = 0;
+	shot = 0;
+	LastHitX = 0;
+	LastHitY = 0;
+	lastShotHit = false;
+	BotX = 0;
+	BotY = 0;
 }
 
 void MainWindow::on_pushButton_Ch_1_clicked() {
@@ -860,13 +882,24 @@ void MainWindow::shot_for_player() {
 }
 
 void MainWindow::schot_for_bot() {
-	int X = rand() % 10;
-	int Y = rand() % 10;
+	
 
-	int check = Player_1->check_shot(X, Y);
+	if (lastShotHit) {
+		/*Zawê¿enie obszaru strza³u do pola 3x3*/
+		BotX = max(0, min(LastHitX + rand() % 3 - 1, 9));
+		BotY = max(0, min(LastHitY + rand() % 3 - 1, 9));
+	}
+	else
+	{
+		BotX = rand() % 10;
+		BotY = rand() % 10;
+	}
+
+	int check = Player_1->check_shot(BotX, BotY);
 	if (check == 0) {
-		Board_Vector_GP[Y][X]->setStyleSheet("Background-color: grey;");
-		Player_1->set_gamespace_after_shoot(X,Y, 2);
+		Board_Vector_GP[BotY][BotX]->setStyleSheet("Background-color: grey;");
+		Player_1->set_gamespace_after_shoot(BotX, BotY, 2);
+		lastShotHit = false;
 
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
@@ -885,8 +918,11 @@ void MainWindow::schot_for_bot() {
 		return;
 	}
 	else if (check == 1){
-		Board_Vector_GP[Y][X]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
+		Board_Vector_GP[BotY][BotX]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
 		Bot->counter += 1;
+		LastHitX = BotX;
+		LastHitY = BotY;
+		lastShotHit = true;
 		if (Bot->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
@@ -894,7 +930,7 @@ void MainWindow::schot_for_bot() {
 			ui.label_11->setText("Niestety tym razem przegrales");
 			return;
 		}
-		Player_1->set_gamespace_after_shoot(X, Y, 3);
+		Player_1->set_gamespace_after_shoot(BotX, BotY, 3);
 		BotShot->start(1500);
 	}
 	else if (check == 2 or check == 3) {
