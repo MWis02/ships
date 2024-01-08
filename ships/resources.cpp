@@ -16,6 +16,7 @@ resources::resources(const resources& other) {
 		for (int j = 0; j < 10; j++)
 			this->gamespace[j][i] = other.gamespace[j][i];
 	}
+	this->counter = other.counter;
 }
 
 resources& resources::operator=(const resources& other) {
