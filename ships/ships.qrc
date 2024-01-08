@@ -1,9 +1,20 @@
 <RCC>
-  <qresource prefix="ships">
+  <qresource prefix="/ships">
+    <file>Background.png</file>
+    <file>EG_Lose_2.png</file>
+    <file>EG_Win_1.png</file>
+    <file>EG_Lose_1.png</file>
+    <file>EG_Lose.png</file>
+    <file>EG_Win.png</file>
+    <file>question.png</file>
+    <file>question_1.png</file>
+    <file>GP-image.png</file>
+    <file>hitted-ship.png</file>
+    <file>hitted-ship_1.png</file>
     <file>ship1.png</file>
     <file>warships_gen.png</file>
     <file>warships_gen_1.png</file>
     <file>Background_2.png</file>
-    <file>Background_1.png</file>
+    <file>Background.png</file>
   </qresource>
 </RCC>

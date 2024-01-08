@@ -2,39 +2,100 @@
 
 using namespace std;
 
+
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
-	Resources(new resources)
+	Resources(new resources),
+	BotShot(new QTimer)
 {   
+	count = 0;
+	x = 0;
+	y = 0;
+	shot = 0;
+	shot_1 = 0;
+	LastHitX = 0;
+	LastHitY = 0;
+	lastShotHit = false;
+	BotX = 0;
+	BotY = 0;
+
     ui.setupUi(this);
 	ui.widget_GS->hide();
 	ui.widget_blank->hide();
+	ui.widget_GP->hide();
+	ui.widget_GP_1->hide();
+	ui.widget_NS->hide();
+	ui.widget_EG->hide();
 	initialize_Border();
 	initialize_Labels();
+	initialize_Border_GP();
+	initialize_Buttons_GP();
+	initialize_Border_GP_1();
+	initialize_Buttons_GP_1();
+	srand(time(NULL));
+	connect(BotShot, &QTimer::timeout, this, &MainWindow::schot_for_bot);
 }
 
 MainWindow::~MainWindow()
 {
 	delete Resources;
+	delete BotShot;
+
+	count = 0;
+	x = 0;
+	y = 0;
+	shot = 0;
+	shot_1 = 0;
+	LastHitX = 0;
+	LastHitY = 0;
+	lastShotHit = false;
+	BotX = 0;
+	BotY = 0;
 }
 
 void MainWindow::on_pushButton_Ch_1_clicked() {
 	ui.widget_title->hide();
-	ui.widget_GS->show();
-	ui.pushButton_14->hide();
+	ui.widget_NS->show();
+	ui.label_17->hide();
+	ui.Edit_name_2->hide();
+	ui.label_15->setText("Wpisz nazwe dla gracza");
+	count = 0;
 	resetGame();
 }
 
 void MainWindow::on_pushButton_Ch_2_clicked() {
 	ui.widget_title->hide();
-	ui.widget_GS->show();
+	ui.widget_NS->show();
 	ui.pushButton_14->show();
+	ui.label_17->show();
+	ui.Edit_name_2->show();
+	ui.label_15->setText("Wpisz nazwy dla graczy");
+	count = 1;
 	resetGame();
+}
+
+void MainWindow::on_pushButton_NS_1_clicked() {
+	ui.widget_title->show();
+	ui.widget_NS->hide();
+}
+
+void MainWindow::on_pushButton_NS_2_clicked() {
+	if (count == 0) {
+		ui.widget_NS->hide();
+		ui.widget_GS->show();
+		ui.pushButton_14->hide();
+	}
+	else {
+		ui.widget_NS->hide();
+		ui.widget_GS->show();
+		ui.Edit_name_2->show();
+	}
 }
 
 void MainWindow::on_pushButton_clicked() {
 	ui.widget_GS->hide();
 	ui.widget_title->show();
+	ui.pushButton_14->setEnabled(true);
 	return;
 }
 
@@ -48,9 +109,35 @@ void MainWindow::on_pushButton_3_clicked() {
 		Player_1 = new resources(*Resources);
 		cords_for_bot();
 		Bot = new resources(*Resources);
+
+		ui.widget_GS->hide();
+		ui.widget_GP->show();
+		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (Player_1->check_shot(i, j) == 1) {
+					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+				}
+			}
+		}
+		return;
 	}
 	else {
 		Player_2 = new resources(*Resources);
+		ui.widget_GS->hide();
+		ui.widget_GP->show();
+		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (Player_1->check_shot(i, j) == 1) {
+					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+				}
+				if (Player_2->check_shot(i, j) == 1) {
+					Board_Vector_GP_1[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+				}
+			}
+		}
+		return;
 	}
 	return;
 }
@@ -164,7 +251,7 @@ void MainWindow::on_pushButton_8_clicked() {
 	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
 	bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
 	bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-
+	 
 	if (flag and flag_1 and flag_2) {
 		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
 		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
@@ -422,7 +509,6 @@ void MainWindow::on_pushButton_13_clicked() {
 void MainWindow::on_pushButton_14_clicked() {
 	ui.pushButton_14->setDisabled(true);
 	Player_1 = new resources(*Resources);
-	count = 1;
 	resetGame();
 }
 
@@ -437,7 +523,6 @@ void MainWindow::initialize_Border() {
 		}
 		Board_Vector.push_back(columnLabel);
 	}
-	return;
 }
 
 void MainWindow::initialize_Labels() {
@@ -446,6 +531,86 @@ void MainWindow::initialize_Labels() {
 		QLineEdit* Line_S = findChild<QLineEdit*>(Line_N);
 		LineEdits_Vector.push_back(Line_S);
 	}
+}
+
+void MainWindow::initialize_Border_GP() {
+	for (int i = 0; i < 10; i++) {
+		QVector<QLabel*> columnLabel;
+		for (int j = 0; j < 10; j++) {
+			QString Label_N = "GP_2_" + QString::number(j) + QString::number(i);
+			QLabel* Label_S = findChild<QLabel*>(Label_N);
+
+			columnLabel.push_back(Label_S);
+		}
+		Board_Vector_GP.push_back(columnLabel);
+	}
+	return;
+}
+
+void MainWindow::initialize_Buttons_GP() {
+	QSignalMapper* signalMapper = new QSignalMapper(this);
+	for (int i = 0; i < 10; i++) {
+		QVector<QPushButton*> columnLabel;
+		for (int j = 0; j < 10; j++) {
+			QString Button_N = "GP_1_" + QString::number(j) + QString::number(i);
+			QPushButton* Button_S = findChild<QPushButton*>(Button_N);
+
+			columnLabel.push_back(Button_S);
+		}
+		Buttons_Vector_GP.push_back(columnLabel);
+	}
+	/*Po³¹czenie vectora z przyciskami 
+	i przekazanie wartoœci który przycik zosta³ wciœniêty dalej*/
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			connect(Buttons_Vector_GP[j][i], &QPushButton::clicked, this, [this, j, i]() {
+				x = i;
+				y = j;
+				shot_for_player();
+			});
+		}
+	}
+	return;
+}
+
+void MainWindow::initialize_Border_GP_1(){
+	for (int i = 0; i < 10; i++) {
+		QVector<QLabel*> columnLabel;
+		for (int j = 0; j < 10; j++) {
+			QString Label_N = "GP_4_" + QString::number(j) + QString::number(i);
+			QLabel* Label_S = findChild<QLabel*>(Label_N);
+
+			columnLabel.push_back(Label_S);
+		}
+		Board_Vector_GP_1.push_back(columnLabel);
+	}
+	return;
+}
+
+void MainWindow::initialize_Buttons_GP_1(){
+	QSignalMapper* signalMapper = new QSignalMapper(this);
+	for (int i = 0; i < 10; i++) {
+		QVector<QPushButton*> columnLabel;
+		for (int j = 0; j < 10; j++) {
+			QString Button_N = "GP_3_" + QString::number(j) + QString::number(i);
+			QPushButton* Button_S = findChild<QPushButton*>(Button_N);
+
+			columnLabel.push_back(Button_S);
+		}
+		Buttons_Vector_GP_1.push_back(columnLabel);
+	}
+	/*Po³¹czenie vectora z przyciskami
+	i przekazanie wartoœci który przycik zosta³ wciœniêty dalej*/
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			connect(Buttons_Vector_GP_1[j][i], &QPushButton::clicked, this, [this, j, i]() {
+				x = i;
+				y = j;
+				schot_for_second_player();
+				});
+		}
+	}
+	return;
 }
 
 void MainWindow::resetGame() {
@@ -478,8 +643,7 @@ void MainWindow::resetGame() {
 }
 
 void MainWindow::cords_for_bot() {
-	resetGame();
-	srand(time(NULL));
+	Resources->set_to_defaults();
 
 	for (int i = 0; i < 4; ) {
 		int X = rand() % 10;
@@ -610,7 +774,6 @@ void MainWindow::gen_Ships_for_players() {
 	}
 
 	/*Generowanie losowych koordynatów*/
-	srand(time(NULL));
 	for (int i = 0; i < 4; ) {
 		int X = rand() % 10;
 		int Y = rand() % 10;
@@ -746,4 +909,233 @@ void MainWindow::on_pushButton_gen_clicked() {
 
 void MainWindow::on_pushButton_res_clicked() {
 	resetGame();
+}
+
+void MainWindow::shot_for_player() {
+	if (count == 0) {
+		BotShot->stop();
+		int check = Bot->check_shot(x, y);
+		if (check == 0) {
+			Buttons_Vector_GP[y][x]->setStyleSheet("Background-color: grey;");
+			BotShot->start(1500);
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					Buttons_Vector_GP[j][i]->setDisabled(true);
+				}
+			}
+			Bot->set_gamespace_after_shoot(x, y, 2);
+		}
+		else if (check == 1){
+			Player_1->counter += 1;
+			if (Player_1->counter == 20) {
+				ui.widget_GP->hide();
+				ui.widget_EG->show();
+				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+				ui.label_11->setText("Gratulacje wygrales");
+				return;
+			}
+			/*
+			bool flag = Bot->check_for_other_ships(x, y);
+			if (flag == false) {
+				for (int i = max(0, x - 1); i <= min(9, x + 1); i++) {
+					for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
+						Buttons_Vector_GP[j][i]->setStyleSheet("background-color: grey;");
+						Buttons_Vector_GP[j][i]->setDisabled(true);
+						Bot->set_gamespace_after_shoot(i, j, 2);
+					}
+				}
+				Bot->set_gamespace_after_shoot(x, y, 3);
+				Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+				Buttons_Vector_GP[y][x]->setDisabled(true);
+			}
+			*/	
+			Bot->set_gamespace_after_shoot(x, y, 3);
+			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+			Buttons_Vector_GP[y][x]->setDisabled(true);
+
+		}
+		shot += 1;
+		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
+	}
+	else {
+		int check = Player_2->check_shot(x, y);
+		if (check == 0) {
+			Buttons_Vector_GP[y][x]->setStyleSheet("Background-color: grey;");
+			Player_2->set_gamespace_after_shoot(x, y, 2);
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					if (Player_2->check_shot(i, j) == 1) {
+						Board_Vector_GP_1[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+					}
+					else if (Player_2->check_shot(i, j) == 2) {
+						Board_Vector_GP_1[j][i]->setStyleSheet("background-color: grey");
+					}
+					else if (Player_2->check_shot(i, j) == 3) {
+						Board_Vector_GP_1[j][i]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+					}
+					if (Player_1->check_shot(i, j) == 3) {
+						Buttons_Vector_GP_1[j][i]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+						Buttons_Vector_GP_1[j][i]->setEnabled(false);
+					}
+					else if (Player_1->check_shot(i, j) == 2) {
+						Buttons_Vector_GP_1[j][i]->setStyleSheet("background-color: grey");
+						Buttons_Vector_GP_1[j][i]->setEnabled(false);
+					}
+					else Buttons_Vector_GP_1[j][i]->setEnabled(true);
+				}
+			}
+			ui.widget_GP->hide();
+			ui.widget_GP_1->show();
+		}
+		else if (check == 1) {
+			Player_1->counter += 1;
+			if (Player_1->counter == 20) {
+				ui.widget_GP->hide();
+				ui.widget_EG->show();
+				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+				ui.label_11->setText("Gratulacje wygrales");
+				return;
+			}
+			/*
+			bool flag = Bot->check_for_other_ships(x, y);
+			if (flag == false) {
+				for (int i = max(0, x - 1); i <= min(9, x + 1); i++) {
+					for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
+						Buttons_Vector_GP[j][i]->setStyleSheet("background-color: grey;");
+						Buttons_Vector_GP[j][i]->setDisabled(true);
+						Bot->set_gamespace_after_shoot(i, j, 2);
+					}
+				}
+				Bot->set_gamespace_after_shoot(x, y, 3);
+				Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+				Buttons_Vector_GP[y][x]->setDisabled(true);
+			}
+			*/
+			Player_2->set_gamespace_after_shoot(x, y, 3);
+			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+			Buttons_Vector_GP[y][x]->setDisabled(true);
+
+		}
+		shot += 1;
+		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
+	}
+}
+
+void MainWindow::schot_for_second_player() {
+	int check = Player_1->check_shot(x, y);
+	if (check == 0) {
+		Buttons_Vector_GP_1[y][x]->setStyleSheet("Background-color: grey;");
+		Player_1->set_gamespace_after_shoot(x, y, 2);
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (Player_1->check_shot(i, j) == 1) {
+					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+				}
+				else if (Player_1->check_shot(i, j) == 2) {
+					Board_Vector_GP[j][i]->setStyleSheet("background-color: grey");
+				}
+				else if (Player_1->check_shot(i, j) == 3) {
+					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+				}
+				if (Player_2->check_shot(i, j) == 3) {
+					Buttons_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+					Buttons_Vector_GP[j][i]->setEnabled(false);
+				}
+				else if (Player_2->check_shot(i, j) == 2) {
+					Buttons_Vector_GP[j][i]->setStyleSheet("background-color: grey");
+					Buttons_Vector_GP[j][i]->setEnabled(false);
+				}
+				else Buttons_Vector_GP[j][i]->setEnabled(true);
+			}
+		}
+		ui.widget_GP_1->hide();
+		ui.widget_GP->show();
+	}
+	else if (check == 1) {
+		Player_2->counter += 1;
+		if (Player_2->counter == 20) {
+			ui.widget_GP->hide();
+			ui.widget_EG->show();
+			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+			ui.label_11->setText("Gratulacje wygrales");
+			return;
+		}
+		/*
+		bool flag = Bot->check_for_other_ships(x, y);
+		if (flag == false) {
+			for (int i = max(0, x - 1); i <= min(9, x + 1); i++) {
+				for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
+					Buttons_Vector_GP[j][i]->setStyleSheet("background-color: grey;");
+					Buttons_Vector_GP[j][i]->setDisabled(true);
+					Bot->set_gamespace_after_shoot(i, j, 2);
+				}
+			}
+			Bot->set_gamespace_after_shoot(x, y, 3);
+			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+			Buttons_Vector_GP[y][x]->setDisabled(true);
+		}
+		*/
+		Player_1->set_gamespace_after_shoot(x, y, 3);
+		Buttons_Vector_GP_1[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
+		Buttons_Vector_GP_1[y][x]->setDisabled(true);
+
+	}
+	shot_1 += 1;
+	ui.textBrowser_1->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot_1));
+}
+
+void MainWindow::schot_for_bot() {
+	if (lastShotHit) {
+		/*Zawê¿enie obszaru strza³u do pola 3x3*/
+		/*LastHitX + rand() % 3 - 1 - dodaje -1, 0 lub 1 do aktualnego strz³u*/
+		/*min(LastHitX + rand() % 3 - 1, 9) wyznaczenie górnego zakresu losowania liczb, 9 by liczby nie wyszly poza indeksy tablicy*/
+		/*max(0,... wyznacznie dolnego zakresu losowania, 0 by liczby nie wyszly poza indeksy tablicy*/
+		BotX = max(0, min(LastHitX + rand() % 3 - 1, 9));
+		BotY = max(0, min(LastHitY + rand() % 3 - 1, 9));
+	}
+	else
+	{
+		BotX = rand() % 10;
+		BotY = rand() % 10;
+	}
+	int check = Player_1->check_shot(BotX, BotY);
+	if (check == 0) {
+		Board_Vector_GP[BotY][BotX]->setStyleSheet("Background-color: grey;");
+		Player_1->set_gamespace_after_shoot(BotX, BotY, 2);
+		lastShotHit = false;
+
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				int tmp = Bot->check_shot(i, j);
+				if (tmp == 2 or tmp == 3) {
+					Buttons_Vector_GP[j][i]->setDisabled(true);
+				}
+				else {
+					Buttons_Vector_GP[j][i]->setDisabled(false);
+				}
+				
+			}
+		}
+		BotShot->stop();
+		return;
+	}
+	else if (check == 1){
+		Board_Vector_GP[BotY][BotX]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
+		Bot->counter += 1;
+		LastHitX = BotX;
+		LastHitY = BotY;
+		lastShotHit = true;
+		if (Bot->counter == 20) {
+			ui.widget_GP->hide();
+			ui.widget_EG->show();
+			ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Lose_2.png);");
+			ui.label_11->setText("Niestety tym razem przegrales");
+			return;
+		}
+		Player_1->set_gamespace_after_shoot(BotX, BotY, 3);
+		BotShot->start(1500);
+	}
+	else if (check == 2 or check == 3) {
+		BotShot->start(1500);
+	}
 }
