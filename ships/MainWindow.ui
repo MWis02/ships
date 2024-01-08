@@ -82,6 +82,11 @@ border:none;
 QLabel#label_7{
 image: url(:/ships/question_1.png);
 background: none;
+}
+QPushButton{
+background: none;
+background-color: rgba(225, 225, 225, 0.85);
+ntext-align: center;
 }</string>
     </property>
     <widget class="QWidget" name="widget_1" native="true">
@@ -17784,7 +17789,11 @@ background: none;
 background-color: rgba(225, 225, 225, 0.85);
 ntext-align: center;
 }
-</string>
+QPushButton{
+background: none;
+background-color: rgba(225, 225, 225, 0.85);
+ntext-align: center;
+}</string>
     </property>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
