@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget* parent)
 	srand(time(NULL));
 	connect(BotShot, &QTimer::timeout, this, &MainWindow::schot_for_bot);
 	connect(PlayerShot, &QTimer::timeout, this, &MainWindow::shot_for_player);
+	/*tetetetet*/
 }
 
 MainWindow::~MainWindow()
