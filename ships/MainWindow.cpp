@@ -886,6 +886,9 @@ void MainWindow::schot_for_bot() {
 
 	if (lastShotHit) {
 		/*Zawê¿enie obszaru strza³u do pola 3x3*/
+		/*LastHitX + rand() % 3 - 1 - dodaje -1, 0 lub 1 do aktualnego strz³u*/
+		/*min(LastHitX + rand() % 3 - 1, 9) wyznaczenie górnego zakresu losowania liczb, 9 by liczby nie wyszly poza indeksy tablicy*/
+		/*max(0,... wyznacznie dolnego zakresu losowania, 0 by liczby nie wyszly poza indeksy tablicy*/
 		BotX = max(0, min(LastHitX + rand() % 3 - 1, 9));
 		BotY = max(0, min(LastHitY + rand() % 3 - 1, 9));
 	}
