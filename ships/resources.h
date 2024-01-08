@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 
 class resources
@@ -23,5 +24,6 @@ public:
 	bool check_the_ships(int x, int y); //sprawdzenie czy statek mo¿e zostaæ postawiony w danym miejscu
 	int check_cord_for_Bot(int x, int y); //sprawdzenie czy mo¿e byæ ustawiony statek dla bota
 	int check_shot(int x, int y) const; //sprawdzenie gdzie trafi³ nasz strza³
-	int counter = 0;
+	int counter;
+	//string name;
 };

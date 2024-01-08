@@ -8,6 +8,7 @@ resources::resources() {
 			gamespace[i][j] = 0;
 	}
 	counter = 0;
+	//name = "Quest";
 }
 
 resources::resources(const resources& other) {
