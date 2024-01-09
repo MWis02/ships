@@ -6,7 +6,8 @@ using namespace std;
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
 	Resources(new resources),
-	BotShot(new QTimer)
+	BotShot(new QTimer),
+	score(new ScoreBoard)
 {   
 	count = 0;
 	x = 0;
@@ -16,6 +17,7 @@ MainWindow::MainWindow(QWidget* parent)
 	LastHitX = 0;
 	LastHitY = 0;
 	lastShotHit = false;
+	botcounter = 0;
 	BotX = 0;
 	BotY = 0;
 
@@ -96,6 +98,7 @@ void MainWindow::on_pushButton_clicked() {
 	ui.widget_GS->hide();
 	ui.widget_title->show();
 	ui.pushButton_14->setEnabled(true);
+	Resources->set_to_defaults();
 	return;
 }
 
@@ -120,6 +123,7 @@ void MainWindow::on_pushButton_3_clicked() {
 				}
 			}
 		}
+		score->game_time = time(NULL);
 		return;
 	}
 	else {
@@ -645,117 +649,101 @@ void MainWindow::resetGame() {
 void MainWindow::cords_for_bot() {
 	Resources->set_to_defaults();
 
-	for (int i = 0; i < 4; ) {
-		int X = rand() % 10;
-		int Y = rand() % 10;
-		const char* tmp = Resources->cordsX_for_Bot(X);
-		bool flag = Resources->check_the_ships(X, Y);
-		if (flag) {
-			
-			if (Resources->check_cord_for_Bot(Y, X) == 0) {
-				Resources->set_gamespace(tmp, Y, 1, 2);
-				i += 1;
-			}
-			else if (Resources->check_cord_for_Bot(Y, X) == 1){}
-		}
-		flag = false;
-	}
-	for (int i = 0; i < 3; ) {
-		int X1 = rand() % 10;
-		int Y1 = rand() % 10; 
-		int X2 = rand() % 10;
-		int Y2 = rand() % 10;
+	for (int i = 0; i < 10; ) {
+		if (i < 4) {
+			int X = rand() % 10;
+			int Y = rand() % 10;
+			const char* tmp = Resources->cordsX_for_Bot(X);
+			bool flag = Resources->check_the_ships(X, Y);
+			if (flag) {
 
-		bool flag = Resources->check_the_ships(X1, Y1);
-		bool flag_1 = Resources->check_the_ships(X2, Y2);
-		bool flag_2 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-
-		if (flag and flag_1 and flag_2) {
-			if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0) {
-				const char* tmp = Resources->cordsX_for_Bot(X1);
-				const char* tmp_1 = Resources->cordsX_for_Bot(X2);
-				Resources->set_gamespace(tmp, Y1, 1, 2);
-				Resources->set_gamespace(tmp_1, Y2, 1, 2);
-				i += 1;
+				if (Resources->check_cord_for_Bot(Y, X) == 0) {
+					Resources->set_gamespace(tmp, Y, 1, 2);
+					i += 1;
+				}
+				else if (Resources->check_cord_for_Bot(Y, X) == 1) {}
 			}
 		}
-		flag = false;
-		flag_1 = false;
-		flag_2 = false;
-	}
-	for (int i = 0; i < 2; ) {
-		int X1 = rand() % 10;
-		int Y1 = rand() % 10;
-		int X2 = rand() % 10;
-		int Y2 = rand() % 10;
-		int X3 = rand() % 10;
-		int Y3 = rand() % 10;
+		else if (i < 7) {
+			int X1 = rand() % 10;
+			int Y1 = rand() % 10;
+			int X2 = rand() % 10;
+			int Y2 = rand() % 10;
 
-		bool flag = Resources->check_the_ships(X1, Y1);
-		bool flag_1 = Resources->check_the_ships(X2, Y2);
-		bool flag_2 = Resources->check_the_ships(X3, Y3);
-		bool flag_3 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-		bool flag_4 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
-		bool flag_5 = Resources->test_correct_positioning(X1, Y1, X3, Y3, 3);
-		
-		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
-			if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0) {
-				const char* tmp = Resources->cordsX_for_Bot(X1);
-				const char* tmp_1 = Resources->cordsX_for_Bot(X2);
-				const char* tmp_2 = Resources->cordsX_for_Bot(X3);
-				Resources->set_gamespace(tmp, Y1, 1, 2);
-				Resources->set_gamespace(tmp_1, Y2, 1, 2);
-				Resources->set_gamespace(tmp_2, Y3, 1, 2);
-				i += 1;
+			bool flag = Resources->check_the_ships(X1, Y1);
+			bool flag_1 = Resources->check_the_ships(X2, Y2);
+			bool flag_2 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+
+			if (flag and flag_1 and flag_2) {
+				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0) {
+					const char* tmp = Resources->cordsX_for_Bot(X1);
+					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
+					Resources->set_gamespace(tmp, Y1, 1, 2);
+					Resources->set_gamespace(tmp_1, Y2, 1, 2);
+					i += 1;
+				}
 			}
 		}
-		flag = false;
-		flag_1 = false;
-		flag_2 = false;
-		flag_3 = false;
-		flag_4 = false;
-		flag_5 = false;
-	}
-	for (int i = 0; i < 1; ) {
-		int X1 = rand() % 10;
-		int Y1 = rand() % 10;
-		int X2 = rand() % 10;
-		int Y2 = rand() % 10;
-		int X3 = rand() % 10;
-		int Y3 = rand() % 10;
-		int X4 = rand() % 10;
-		int Y4 = rand() % 10;
+		else if (i < 9) {
+			int X1 = rand() % 10;
+			int Y1 = rand() % 10;
+			int X2 = rand() % 10;
+			int Y2 = rand() % 10;
+			int X3 = rand() % 10;
+			int Y3 = rand() % 10;
 
-		bool flag = Resources->check_the_ships(X1, Y1);
-		bool flag_1 = Resources->check_the_ships(X2, Y2);
-		bool flag_2 = Resources->check_the_ships(X3, Y3);
-		bool flag_3 = Resources->check_the_ships(X4, Y4);
-		bool flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-		bool flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
-		bool flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
-		bool flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+			bool flag = Resources->check_the_ships(X1, Y1);
+			bool flag_1 = Resources->check_the_ships(X2, Y2);
+			bool flag_2 = Resources->check_the_ships(X3, Y3);
+			bool flag_3 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+			bool flag_4 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+			bool flag_5 = Resources->test_correct_positioning(X1, Y1, X3, Y3, 3);
 
-		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
-			if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
-				const char* tmp = Resources->cordsX_for_Bot(X1);
-				const char* tmp_1 = Resources->cordsX_for_Bot(X2);
-				const char* tmp_2 = Resources->cordsX_for_Bot(X3);
-				const char* tmp_3 = Resources->cordsX_for_Bot(X4);
-				Resources->set_gamespace(tmp, Y1, 1, 2);
-				Resources->set_gamespace(tmp_1, Y2, 1, 2);
-				Resources->set_gamespace(tmp_2, Y3, 1, 2);
-				Resources->set_gamespace(tmp_3, Y4, 1, 2);
-				i += 1;
+			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
+				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0) {
+					const char* tmp = Resources->cordsX_for_Bot(X1);
+					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
+					const char* tmp_2 = Resources->cordsX_for_Bot(X3);
+					Resources->set_gamespace(tmp, Y1, 1, 2);
+					Resources->set_gamespace(tmp_1, Y2, 1, 2);
+					Resources->set_gamespace(tmp_2, Y3, 1, 2);
+					i += 1;
+				}
 			}
 		}
-		flag = false;
-		flag_1 = false;
-		flag_2 = false;
-		flag_3 = false;
-		flag_4 = false;
-		flag_5 = false;
-		flag_6 = false;
-		flag_7 = false;
+		else if (i == 9) {
+			int X1 = rand() % 10;
+			int Y1 = rand() % 10;
+			int X2 = rand() % 10;
+			int Y2 = rand() % 10;
+			int X3 = rand() % 10;
+			int Y3 = rand() % 10;
+			int X4 = rand() % 10;
+			int Y4 = rand() % 10;
+
+			bool flag = Resources->check_the_ships(X1, Y1);
+			bool flag_1 = Resources->check_the_ships(X2, Y2);
+			bool flag_2 = Resources->check_the_ships(X3, Y3);
+			bool flag_3 = Resources->check_the_ships(X4, Y4);
+			bool flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+			bool flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+			bool flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
+			bool flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+
+			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
+				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
+					const char* tmp = Resources->cordsX_for_Bot(X1);
+					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
+					const char* tmp_2 = Resources->cordsX_for_Bot(X3);
+					const char* tmp_3 = Resources->cordsX_for_Bot(X4);
+					Resources->set_gamespace(tmp, Y1, 1, 2);
+					Resources->set_gamespace(tmp_1, Y2, 1, 2);
+					Resources->set_gamespace(tmp_2, Y3, 1, 2);
+					Resources->set_gamespace(tmp_3, Y4, 1, 2);
+					i += 1;
+				}
+			}
+		}
 	}
 	return;
 }
@@ -772,119 +760,121 @@ void MainWindow::gen_Ships_for_players() {
 		LineEdits_Vector[i]->clear();
 		LineEdits_Vector[i]->setDisabled(true);
 	}
-
+	int j = 0;
 	/*Generowanie losowych koordynatów*/
-	for (int i = 0; i < 4; ) {
-		int X = rand() % 10;
-		int Y = rand() % 10;
-		const char* tmp = Resources->cordsX_for_Bot(X);
-		bool flag = Resources->check_the_ships(X, Y);
-		if (flag) {
-			if (Resources->check_cord_for_Bot(Y, X) == 0) {
-				Resources->set_gamespace(tmp, Y, 1, 2);
-				Board_Vector[Y][X]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				LineEdits_Vector[i]->setText(QString(tmp) + "," + QString::number(Y + 1));
-				i += 1;
+	for (int i = 0; i < 10; ) {
+		if (i < 4) {
+			int X = rand() % 10;
+			int Y = rand() % 10;
+			const char* tmp = Resources->cordsX_for_Bot(X);
+			bool flag = Resources->check_the_ships(X, Y);
+			if (flag) {
+				if (Resources->check_cord_for_Bot(Y, X) == 0) {
+					Resources->set_gamespace(tmp, Y, 1, 2);
+					Board_Vector[Y][X]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					LineEdits_Vector[i]->setText(QString(tmp) + "," + QString::number(Y + 1));
+					i += 1;
+					j += 1;
+				}
 			}
 		}
-	}
-	int j = 4;
-	for (int i = 0; i < 3; ) {
-		int X1 = rand() % 10;
-		int Y1 = rand() % 10;
-		int X2 = rand() % 10;
-		int Y2 = rand() % 10;
-		bool flag = Resources->check_the_ships(X1, Y1);
-		bool flag_1 = Resources->check_the_ships(X2, Y2);
-		bool flag_2 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+		else if (i < 7) {
+			int X1 = rand() % 10;
+			int Y1 = rand() % 10;
+			int X2 = rand() % 10;
+			int Y2 = rand() % 10;
+			bool flag = Resources->check_the_ships(X1, Y1);
+			bool flag_1 = Resources->check_the_ships(X2, Y2);
+			bool flag_2 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
 
-		if (flag and flag_1 and flag_2) {
-			if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0) {
-				const char* tmp = Resources->cordsX_for_Bot(X1);
-				const char* tmp_1 = Resources->cordsX_for_Bot(X2);
-				Resources->set_gamespace(tmp, Y1, 1, 2);
-				Resources->set_gamespace(tmp_1, Y2, 1, 2);
-				Board_Vector[Y1][X1]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				Board_Vector[Y2][X2]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				LineEdits_Vector[j]->setText(QString(tmp) + "," + QString::number(Y1 + 1));
-				LineEdits_Vector[j + 1]->setText(QString(tmp_1) + "," + QString::number(Y2 + 1));
-				i += 1;
-				j += 2;
+			if (flag and flag_1 and flag_2) {
+				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0) {
+					const char* tmp = Resources->cordsX_for_Bot(X1);
+					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
+					Resources->set_gamespace(tmp, Y1, 1, 2);
+					Resources->set_gamespace(tmp_1, Y2, 1, 2);
+					Board_Vector[Y1][X1]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					Board_Vector[Y2][X2]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					LineEdits_Vector[j]->setText(QString(tmp) + "," + QString::number(Y1 + 1));
+					LineEdits_Vector[j + 1]->setText(QString(tmp_1) + "," + QString::number(Y2 + 1));
+					i += 1;
+					j += 2;
+				}
 			}
 		}
-	}
-	for (int i = 0; i < 2; ) {
-		int X1 = rand() % 10;
-		int Y1 = rand() % 10;
-		int X2 = rand() % 10;
-		int Y2 = rand() % 10;
-		int X3 = rand() % 10;
-		int Y3 = rand() % 10;
+		else if (i < 9) {
+			int X1 = rand() % 10;
+			int Y1 = rand() % 10;
+			int X2 = rand() % 10;
+			int Y2 = rand() % 10;
+			int X3 = rand() % 10;
+			int Y3 = rand() % 10;
 
-		bool flag = Resources->check_the_ships(X1, Y1);
-		bool flag_1 = Resources->check_the_ships(X2, Y2);
-		bool flag_2 = Resources->check_the_ships(X3, Y3);
-		bool flag_3 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-		bool flag_4 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
-		bool flag_5 = Resources->test_correct_positioning(X1, Y1, X3, Y3, 3);
+			bool flag = Resources->check_the_ships(X1, Y1);
+			bool flag_1 = Resources->check_the_ships(X2, Y2);
+			bool flag_2 = Resources->check_the_ships(X3, Y3);
+			bool flag_3 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+			bool flag_4 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+			bool flag_5 = Resources->test_correct_positioning(X1, Y1, X3, Y3, 3);
 
-		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
-			if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0) {
-				const char* tmp = Resources->cordsX_for_Bot(X1);
-				const char* tmp_1 = Resources->cordsX_for_Bot(X2);
-				const char* tmp_2 = Resources->cordsX_for_Bot(X3);
-				Resources->set_gamespace(tmp, Y1, 1, 2);
-				Resources->set_gamespace(tmp_1, Y2, 1, 2);
-				Resources->set_gamespace(tmp_2, Y3, 1, 2);
-				Board_Vector[Y1][X1]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				Board_Vector[Y2][X2]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				Board_Vector[Y3][X3]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				LineEdits_Vector[j]->setText(QString(tmp) + "," + QString::number(Y1 + 1));
-				LineEdits_Vector[j + 1]->setText(QString(tmp_1) + "," + QString::number(Y2 + 1));
-				LineEdits_Vector[j + 2]->setText(QString(tmp_2) + "," + QString::number(Y3 + 1));
-				i += 1;
-				j += 3;
+			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
+				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0) {
+					const char* tmp = Resources->cordsX_for_Bot(X1);
+					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
+					const char* tmp_2 = Resources->cordsX_for_Bot(X3);
+					Resources->set_gamespace(tmp, Y1, 1, 2);
+					Resources->set_gamespace(tmp_1, Y2, 1, 2);
+					Resources->set_gamespace(tmp_2, Y3, 1, 2);
+					Board_Vector[Y1][X1]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					Board_Vector[Y2][X2]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					Board_Vector[Y3][X3]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					LineEdits_Vector[j]->setText(QString(tmp) + "," + QString::number(Y1 + 1));
+					LineEdits_Vector[j + 1]->setText(QString(tmp_1) + "," + QString::number(Y2 + 1));
+					LineEdits_Vector[j + 2]->setText(QString(tmp_2) + "," + QString::number(Y3 + 1));
+					i += 1;
+					j += 3;
+				}
 			}
 		}
-	}
-	for (int i = 0; i < 1; ) {
-		int X1 = rand() % 10;
-		int Y1 = rand() % 10;
-		int X2 = rand() % 10;
-		int Y2 = rand() % 10;
-		int X3 = rand() % 10;
-		int Y3 = rand() % 10;
-		int X4 = rand() % 10;
-		int Y4 = rand() % 10;
+		else if (i == 9) {
+			int X1 = rand() % 10;
+			int Y1 = rand() % 10;
+			int X2 = rand() % 10;
+			int Y2 = rand() % 10;
+			int X3 = rand() % 10;
+			int Y3 = rand() % 10;
+			int X4 = rand() % 10;
+			int Y4 = rand() % 10;
 
-		bool flag = Resources->check_the_ships(X1, Y1);
-		bool flag_1 = Resources->check_the_ships(X2, Y2);
-		bool flag_2 = Resources->check_the_ships(X3, Y3);
-		bool flag_3 = Resources->check_the_ships(X4, Y4);
-		bool flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-		bool flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
-		bool flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
-		bool flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+			bool flag = Resources->check_the_ships(X1, Y1);
+			bool flag_1 = Resources->check_the_ships(X2, Y2);
+			bool flag_2 = Resources->check_the_ships(X3, Y3);
+			bool flag_3 = Resources->check_the_ships(X4, Y4);
+			bool flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+			bool flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+			bool flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
+			bool flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
 
-		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
-			if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
-				const char* tmp = Resources->cordsX_for_Bot(X1);
-				const char* tmp_1 = Resources->cordsX_for_Bot(X2);
-				const char* tmp_2 = Resources->cordsX_for_Bot(X3);
-				const char* tmp_3 = Resources->cordsX_for_Bot(X4);
-				Resources->set_gamespace(tmp, Y1, 1, 2);
-				Resources->set_gamespace(tmp_1, Y2, 1, 2);
-				Resources->set_gamespace(tmp_2, Y3, 1, 2);
-				Resources->set_gamespace(tmp_3, Y4, 1, 2);
-				Board_Vector[Y1][X1]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				Board_Vector[Y2][X2]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				Board_Vector[Y3][X3]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				Board_Vector[Y4][X4]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-				LineEdits_Vector[j]->setText(QString(tmp) + "," + QString::number(Y1 + 1));
-				LineEdits_Vector[j + 1]->setText(QString(tmp_1) + "," + QString::number(Y2 + 1));
-				LineEdits_Vector[j + 2]->setText(QString(tmp_2) + "," + QString::number(Y3 + 1));
-				LineEdits_Vector[j + 3]->setText(QString(tmp_3) + "," + QString::number(Y4 + 1));
-				i += 1;
+			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
+				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
+					const char* tmp = Resources->cordsX_for_Bot(X1);
+					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
+					const char* tmp_2 = Resources->cordsX_for_Bot(X3);
+					const char* tmp_3 = Resources->cordsX_for_Bot(X4);
+					Resources->set_gamespace(tmp, Y1, 1, 2);
+					Resources->set_gamespace(tmp_1, Y2, 1, 2);
+					Resources->set_gamespace(tmp_2, Y3, 1, 2);
+					Resources->set_gamespace(tmp_3, Y4, 1, 2);
+					Board_Vector[Y1][X1]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					Board_Vector[Y2][X2]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					Board_Vector[Y3][X3]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					Board_Vector[Y4][X4]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+					LineEdits_Vector[j]->setText(QString(tmp) + "," + QString::number(Y1 + 1));
+					LineEdits_Vector[j + 1]->setText(QString(tmp_1) + "," + QString::number(Y2 + 1));
+					LineEdits_Vector[j + 2]->setText(QString(tmp_2) + "," + QString::number(Y3 + 1));
+					LineEdits_Vector[j + 3]->setText(QString(tmp_3) + "," + QString::number(Y4 + 1));
+					i += 1;
+				}
 			}
 		}
 	}
@@ -955,7 +945,7 @@ void MainWindow::shot_for_player() {
 
 		}
 		shot += 1;
-		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
+		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot) + "\n Tura gracza");
 	}
 	else {
 		int check = Player_2->check_shot(x, y);
@@ -992,6 +982,7 @@ void MainWindow::shot_for_player() {
 			if (Player_1->counter == 20) {
 				ui.widget_GP->hide();
 				ui.widget_EG->show();
+				//score->score_at_end = shot+=1;
 				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
 				ui.label_11->setText("Gratulacje wygrales");
 				return;
@@ -1014,7 +1005,6 @@ void MainWindow::shot_for_player() {
 			Player_2->set_gamespace_after_shoot(x, y, 3);
 			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png)");
 			Buttons_Vector_GP[y][x]->setDisabled(true);
-
 		}
 		shot += 1;
 		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
@@ -1086,12 +1076,22 @@ void MainWindow::schot_for_second_player() {
 
 void MainWindow::schot_for_bot() {
 	if (lastShotHit) {
-		/*Zawê¿enie obszaru strza³u do pola 3x3*/
-		/*LastHitX + rand() % 3 - 1 - dodaje -1, 0 lub 1 do aktualnego strz³u*/
-		/*min(LastHitX + rand() % 3 - 1, 9) wyznaczenie górnego zakresu losowania liczb, 9 by liczby nie wyszly poza indeksy tablicy*/
-		/*max(0,... wyznacznie dolnego zakresu losowania, 0 by liczby nie wyszly poza indeksy tablicy*/
-		BotX = max(0, min(LastHitX + rand() % 3 - 1, 9));
-		BotY = max(0, min(LastHitY + rand() % 3 - 1, 9));
+		/*Zawê¿enie obszaru strza³u do pola 3x3 i iteracja po elementach w poszukiwaniu statku*/
+		/*Wartoœci min(...) i max(...) nie pozwalaj¹ wyjœæ pêtli poza zakres tablice*/
+		for (int i = max(0, LastHitX - 1); i <= min(9, LastHitX + 1); i++){
+			for (int j = max(0, LastHitY - 1); j <= min(9, LastHitY + 1); j++) {
+				int tmp = Player_1->check_shot(i, j);
+				if (tmp == 1) {
+					BotX = i;
+					BotY = j;
+					break;
+				}
+			}
+		}
+		lastShotHit = false;
+		BotShot->start(1500);
+		/*Je¿eli zostanie znaleziony statek pêtla i if siê przerywa i bot przechodzi do strza³u,
+		je¿eli nie zostanie znaleziony strza³ jest resetowany do wartoœci tablicy 9x9*/
 	}
 	else
 	{
@@ -1099,11 +1099,12 @@ void MainWindow::schot_for_bot() {
 		BotY = rand() % 10;
 	}
 	int check = Player_1->check_shot(BotX, BotY);
+	ui.textBrowser->setText("Tura bota");
 	if (check == 0) {
 		Board_Vector_GP[BotY][BotX]->setStyleSheet("Background-color: grey;");
 		Player_1->set_gamespace_after_shoot(BotX, BotY, 2);
 		lastShotHit = false;
-
+		ui.textBrowser->setText("Tura gracza");
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				int tmp = Bot->check_shot(i, j);
@@ -1122,6 +1123,7 @@ void MainWindow::schot_for_bot() {
 	else if (check == 1){
 		Board_Vector_GP[BotY][BotX]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
 		Bot->counter += 1;
+		botcounter += 1;
 		LastHitX = BotX;
 		LastHitY = BotY;
 		lastShotHit = true;
@@ -1134,6 +1136,7 @@ void MainWindow::schot_for_bot() {
 		}
 		Player_1->set_gamespace_after_shoot(BotX, BotY, 3);
 		BotShot->start(1500);
+
 	}
 	else if (check == 2 or check == 3) {
 		BotShot->start(1500);

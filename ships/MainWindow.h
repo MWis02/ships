@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
 #include "resources.h"
+#include "ScoreBoard.h"
 #include <QVector>
 #include <QLabel>
 #include <QlineEdit>
@@ -24,10 +25,11 @@ private:
 	resources* Player_1;
 	resources* Player_2;
 	resources* Bot;
+	ScoreBoard* score;
 	QTimer* BotShot;
 	int count, x, y, shot, shot_1, BotX, BotY;
 	QLocale polishLng;
-	int LastHitX, LastHitY;
+	int LastHitX, LastHitY, botcounter;
 	bool lastShotHit;
 
 	/*Zmienne do pobrania koordynatow*/

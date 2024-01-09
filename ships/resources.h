@@ -7,7 +7,7 @@ class resources
 {
 private:
 	int gamespace[10][10]; //ustawienie pola gry
-
+	
 public:
 	resources();
 	resources(const resources& other);

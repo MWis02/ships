@@ -17881,6 +17881,9 @@ ntext-align: center;
       <property name="text">
        <string>Nie</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="pushButton_NS_2">
       <property name="geometry">
