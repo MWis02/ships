@@ -1,14 +1,11 @@
 #include "resources.h"
 
-using namespace std;
-
 resources::resources() {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++)
 			gamespace[i][j] = 0;
 	}
 	counter = 0;
-	//name = "Quest";
 }
 
 resources::resources(const resources& other) {
@@ -200,17 +197,22 @@ bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek
 	return true;  //Brak statku w otaczaj¹cych komórkach
 }
 
-bool resources::check_for_other_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
+vector<pair<int, int>> resources::check_for_other_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
 	/*pêtla iteruje po komorkach 1 w gore, i w dó³ od podanych koordyntów,
-	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek*/
+	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek, 
+	nastêpnie przypisuje je do vectora który jest zwracany*/
+
+	vector<pair<int, int>> pairs_to_return;
 	for (int i = max(0, x - 1); i <= min(9, x + 1); i++)/*max(...), min(...) unikniecie wyjscia poza tablicê*/ {
 		for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
-			if (gamespace[j][i] == 1 and (i != x and j != y)) {
-				return true;  //Statek jest obecny w otaczaj¹cych komórkach
+			if (gamespace[j][i] == 3 and (i != x and j != y)) {
+				pairs_to_return.emplace_back(i, j);
 			}
 		}
 	}
-	return false;  //Brak statku w otaczaj¹cych komórkach
+	if (sizeof(pairs_to_return) != 0) {
+		return pairs_to_return;
+	}
 }
 
 bool resources :: test_correct_positioning(int x, int y, int x1, int y1, int height)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {

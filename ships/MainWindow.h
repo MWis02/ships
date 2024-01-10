@@ -4,12 +4,16 @@
 #include "ui_MainWindow.h"
 #include "resources.h"
 #include "ScoreBoard.h"
+#include <vector>
+#include <string>
 #include <QVector>
 #include <QLabel>
 #include <QlineEdit>
 #include <QpushButton>
 #include <QSignalMapper>
 #include <Qtimer>
+
+using namespace std;
 
 class MainWindow : public QMainWindow
 {
@@ -27,10 +31,14 @@ private:
 	resources* Bot;
 	ScoreBoard* score;
 	QTimer* BotShot;
+	QTimer* Delay;
 	int count, x, y, shot, shot_1, BotX, BotY;
 	QLocale polishLng;
 	int LastHitX, LastHitY, botcounter;
 	bool lastShotHit;
+	vector<pair<int, int >> vector_for_fields;
+	string name_for_first_player;
+	string name_for_second_player;
 
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;
@@ -59,6 +67,7 @@ private:
 	void shot_for_player();
 	void schot_for_second_player();
 	void schot_for_bot();
+	vector<pair<int, int>> check_fields(int xCord, int yCord, resources* object);
 
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/

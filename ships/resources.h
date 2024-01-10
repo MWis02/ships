@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include <string>
+#include <vector>
 
+using namespace std;
 
 class resources
 {
@@ -19,11 +20,10 @@ public:
 	void set_to_defaults(); //funkcja przywracajaca tablice do wartosci podstawowych
 	void set_gamespace(const char* x, int y, int value, int pointer); //funkcja do ustawiania statków
 	void set_gamespace_after_shoot(int x, int y, int value); //funkcja do zmienienia tablicy po wykonaniu ruchu
-	bool check_for_other_ships(int x, int y); //funkcja sprawdzaj¹ca czy strafiony statek jest wiecej niz jedno masztowy
+	vector<pair<int, int >> check_for_other_ships(int x, int y); //funkcja sprawdzaj¹ca czy strafiony statek jest wiecej niz jedno masztowy
 	bool test_correct_positioning(int x, int y, int x1, int y1, int height); //sprawdzenie czy podane koordynaty statków 2 masztowych s¹ zgodne z zasadami gry
 	bool check_the_ships(int x, int y); //sprawdzenie czy statek mo¿e zostaæ postawiony w danym miejscu
 	int check_cord_for_Bot(int x, int y); //sprawdzenie czy mo¿e byæ ustawiony statek dla bota
 	int check_shot(int x, int y) const; //sprawdzenie gdzie trafi³ nasz strza³
 	int counter;
-	//string name;
 };

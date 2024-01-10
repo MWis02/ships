@@ -1,5 +1,8 @@
 #pragma once
 #include <ctime>
+#include <string>
+
+using namespace std;
 
 class ScoreBoard
 {
@@ -11,6 +14,7 @@ public:
 	int game_time;
 	int score_at_end;
 	int calculate_points(int moves);
+	string name;
 
 	struct tm {
 		int tm_mday; /*Dzieñ miesi¹ca 1-31*/
