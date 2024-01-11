@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include <QVector>
+#include <QButtonGroup>
 #include <QLabel>
 #include <QlineEdit>
 #include <QpushButton>
@@ -34,9 +35,11 @@ private:
 	QTimer* BotShot;
 	QTimer* Delay;
 	ScoreWidget* widget;
+	QButtonGroup* radiogroup;
 	int count, x, y, shot, shot_1, BotX, BotY;
 	QLocale polishLng;
 	int LastHitX, LastHitY, botcounter;
+	int check_choise;
 	bool lastShotHit;
 	vector<pair<int, int >> vector_for_fields;
 	string name_for_first_player;
@@ -71,6 +74,7 @@ private:
 	void shot_for_second_player();
 	void shot_for_bot();
 	vector<pair<int, int>> check_fields(int xCord, int yCord, resources* object);
+	bool check_ships();
 
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/

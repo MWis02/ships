@@ -6,7 +6,8 @@ MainWindow::MainWindow(QWidget* parent)
 	BotShot(new QTimer),
 	Delay(new QTimer),
 	score(new ScoreBoard),
-	widget(new ScoreWidget)
+	widget(new ScoreWidget),
+	radiogroup(new QButtonGroup)
 {   
 	count = 0;
 	x = 0;
@@ -19,6 +20,7 @@ MainWindow::MainWindow(QWidget* parent)
 	botcounter = 0;
 	BotX = 0;
 	BotY = 0;
+	check_choise = 0;
 	name_for_first_player = "";
 	name_for_second_player = "";
 	score_at_end = 0;
@@ -38,6 +40,9 @@ MainWindow::MainWindow(QWidget* parent)
 	initialize_Buttons_GP_1();
 	srand(time(NULL));
 	connect(BotShot, &QTimer::timeout, this, &MainWindow::shot_for_bot);
+
+	radiogroup->addButton(ui.radioButton_0, 0);
+	radiogroup->addButton(ui.radioButton_1, 1);
 }
 
 MainWindow::~MainWindow()
@@ -71,6 +76,7 @@ void MainWindow::on_pushButton_Ch_1_clicked() {
 void MainWindow::on_pushButton_Ch_2_clicked() {
 	ui.widget_title->hide();
 	ui.widget_NS->show();
+	ui.pushButton_3->setDisabled(true);
 	ui.pushButton_14->show();
 	ui.label_17->show();
 	ui.Edit_name_2->show();
@@ -97,15 +103,14 @@ void MainWindow::on_pushButton_NS_1_clicked() {
 
 void MainWindow::on_pushButton_NS_2_clicked() {
 	if (count == 0) {
-
 		name_for_first_player = ui.Edit_name_1->text().toStdString();
 		if (name_for_first_player.empty()) {
 			name_for_first_player = "Player 1";
 		}
-
 		ui.widget_NS->hide();
 		ui.widget_GS->show();
 		ui.pushButton_14->hide();
+		check_choise = radiogroup->checkedId();
 	}
 	else {
 		name_for_first_player = ui.Edit_name_1->text().toStdString();
@@ -113,7 +118,7 @@ void MainWindow::on_pushButton_NS_2_clicked() {
 		if (name_for_first_player.empty()) {
 			name_for_first_player = "Player 1";
 		}
-		else if (name_for_second_player.empty()) {
+		if (name_for_second_player.empty()) {
 			name_for_second_player = "Player 2";
 		}
 		ui.widget_NS->hide();
@@ -140,40 +145,48 @@ void MainWindow::on_pushButton_2_clicked() {
 
 void MainWindow::on_pushButton_3_clicked() {
 	if (count == 0) {
-		Player_1 = new resources(*Resources);
-		cords_for_bot();
-		Bot = new resources(*Resources);
+		bool flag = check_ships();
+		if(flag){
+			Player_1 = new resources(*Resources);
+			cords_for_bot();
+			Bot = new resources(*Resources);
 
-		ui.widget_GS->hide();
-		ui.widget_GP->show();
-		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				if (Player_1->check_shot(i, j) == 1) {
-					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+			ui.widget_GS->hide();
+			ui.widget_GP->show();
+			ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\nTura gracza: " + QString::fromStdString(name_for_first_player));
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					if (Player_1->check_shot(i, j) == 1) {
+						Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+					}
 				}
 			}
+			score->Start_time();
+			return;
 		}
-		score->Start_time();
-		return;
+		else ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
 	else {
-		Player_2 = new resources(*Resources);
-		ui.widget_GS->hide();
-		ui.widget_GP->show();
-		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				if (Player_1->check_shot(i, j) == 1) {
-					Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
-				}
-				if (Player_2->check_shot(i, j) == 1) {
-					Board_Vector_GP_1[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+		bool flag = check_ships();
+		if (flag) {
+			Player_2 = new resources(*Resources);
+			ui.widget_GS->hide();
+			ui.widget_GP->show();
+			ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\nTura gracza: " + QString::fromStdString(name_for_first_player));
+			ui.textBrowser_1->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura gracza: " + QString::fromStdString(name_for_second_player));
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					if (Player_1->check_shot(i, j) == 1) {
+						Board_Vector_GP[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+					}
+					if (Player_2->check_shot(i, j) == 1) {
+						Board_Vector_GP_1[j][i]->setStyleSheet("background-image: url(:/ships/ship1.png)");
+					}
 				}
 			}
+			score->Start_time();
+			return;
 		}
-		score->Start_time();
-		return;
 	}
 	return;
 }
@@ -196,372 +209,453 @@ void MainWindow::on_pushButton_EG_3_clicked() {
 
 void MainWindow::on_pushButton_4_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_0->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-
-	QString x1 = CordsParts_1.at(0); /*Pobranie pierwszej wartości od użytkownika*/
-	string X1 = x1.toStdString(); /*zmiana Qstring na string*/
-	int Y1 = CordsParts_1.at(1).toInt(); /*Pobranie drugiej wartości od użytkownika */
-
-	int X_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int Y_tmp = Resources->cordsY_to_numbers(Y1);
-
-	bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
-	if (flag and X_tmp != -1 and Y_tmp != -1) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1); /*X.c_str() wyłuskanie wskaźnika "const char*"*/
-		ui.pushButton_4->setDisabled(true);
-		ui.lineEdit_0->setDisabled(true);
-		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or !CordsFromPlayer_1.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else{
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0); /*Pobranie pierwszej wartości od użytkownika*/
+		string X1 = x1.toStdString(); /*zmiana Qstring na string*/
+		int Y1 = CordsParts_1.at(1).toInt(); /*Pobranie drugiej wartości od użytkownika */
+
+		int X_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int Y_tmp = Resources->cordsY_to_numbers(Y1);
+
+		bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
+		if (flag and X_tmp != -1 and Y_tmp != -1) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1); /*X.c_str() wyłuskanie wskaźnika "const char*"*/
+			ui.pushButton_4->setDisabled(true);
+			ui.lineEdit_0->setDisabled(true);
+			Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else ui.label_6->setText("Wprowadź poprawne koordynaty");
+	}
 }
 
 void MainWindow::on_pushButton_5_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_1->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x = CordsParts_1.at(0);
-	string X = x.toStdString();
-	int Y = CordsParts_1.at(1).toInt();
-
-	int X_tmp = Resources->cordsX_to_numbers(X.c_str());
-	int Y_tmp = Resources->cordsY_to_numbers(Y);
-
-	bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
-
-	if (flag and X_tmp != -1 and Y_tmp != -1) {
-		Resources->set_gamespace(X.c_str(), Y, 1, 1);
-		ui.pushButton_5->setDisabled(true);
-		ui.lineEdit_1->setDisabled(true);
-		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or !CordsFromPlayer_1.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x = CordsParts_1.at(0);
+		string X = x.toStdString();
+		int Y = CordsParts_1.at(1).toInt();
+
+		int X_tmp = Resources->cordsX_to_numbers(X.c_str());
+		int Y_tmp = Resources->cordsY_to_numbers(Y);
+
+		bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
+
+		if (flag and X_tmp != -1 and Y_tmp != -1) {
+			Resources->set_gamespace(X.c_str(), Y, 1, 1);
+			ui.pushButton_5->setDisabled(true);
+			ui.lineEdit_1->setDisabled(true);
+			Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else ui.label_6->setText("Wprowadź poprawne koordynaty");
+	}
 }
 
 void MainWindow::on_pushButton_6_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_2->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x = CordsParts_1.at(0);
-	string X = x.toStdString();
-	int Y = CordsParts_1.at(1).toInt();
-
-	int X_tmp = Resources->cordsX_to_numbers(X.c_str());
-	int Y_tmp = Resources->cordsY_to_numbers(Y);
-
-	bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
-	if (flag and X_tmp != -1 and Y_tmp != -1) {
-		Resources->set_gamespace(X.c_str(), Y, 1, 1);
-		ui.pushButton_6->setDisabled(true);
-		ui.lineEdit_2->setDisabled(true);
-		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or !CordsFromPlayer_1.contains(',')) {
+		ui.label_6->setText("Wprowadź poprwane koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x = CordsParts_1.at(0);
+		string X = x.toStdString();
+		int Y = CordsParts_1.at(1).toInt();
+
+		int X_tmp = Resources->cordsX_to_numbers(X.c_str());
+		int Y_tmp = Resources->cordsY_to_numbers(Y);
+
+		bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
+		if (flag and X_tmp != -1 and Y_tmp != -1) {
+			Resources->set_gamespace(X.c_str(), Y, 1, 1);
+			ui.pushButton_6->setDisabled(true);
+			ui.lineEdit_2->setDisabled(true);
+			Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_7_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_3->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x = CordsParts_1.at(0);
-	string X = x.toStdString();
-	int Y = CordsParts_1.at(1).toInt();
-
-	int X_tmp = Resources->cordsX_to_numbers(X.c_str());
-	int Y_tmp = Resources->cordsY_to_numbers(Y);
-
-	bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
-	if (flag and X_tmp != -1 and Y_tmp != -1) {
-		Resources->set_gamespace(X.c_str(), Y, 1, 1);
-		ui.pushButton_7->setDisabled(true);
-		ui.lineEdit_3->setDisabled(true);
-		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or !CordsFromPlayer_1.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x = CordsParts_1.at(0);
+		string X = x.toStdString();
+		int Y = CordsParts_1.at(1).toInt();
+
+		int X_tmp = Resources->cordsX_to_numbers(X.c_str());
+		int Y_tmp = Resources->cordsY_to_numbers(Y);
+
+		bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
+		if (flag and X_tmp != -1 and Y_tmp != -1) {
+			Resources->set_gamespace(X.c_str(), Y, 1, 1);
+			ui.pushButton_7->setDisabled(true);
+			ui.lineEdit_3->setDisabled(true);
+			Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_8_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_4->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x1 = CordsParts_1.at(0);
-	string X1 = x1.toStdString();
-	int Y1 = CordsParts_1.at(1).toInt();
-
 	CordsFromPlayer_2 = ui.lineEdit_5->text();
-	CordsParts_2 = CordsFromPlayer_2.split(",");
-
-	QString x2 = CordsParts_2.at(0);
-	string X2 = x2.toStdString();
-	int Y2 = CordsParts_2.at(1).toInt();
-
-	int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
-	int Y1_tmp = Resources->cordsY_to_numbers(Y1);
-	int Y2_tmp = Resources->cordsY_to_numbers(Y2);
-
-	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
-	bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
-	bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-	 
-	if (flag and flag_1 and flag_2) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
-		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
-		ui.pushButton_8->setDisabled(true);
-		ui.lineEdit_4->setDisabled(true);
-		ui.lineEdit_5->setDisabled(true);
-		Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty()
+		or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0);
+		string X1 = x1.toStdString();
+		int Y1 = CordsParts_1.at(1).toInt();
+
+		CordsParts_2 = CordsFromPlayer_2.split(",");
+
+		QString x2 = CordsParts_2.at(0);
+		string X2 = x2.toStdString();
+		int Y2 = CordsParts_2.at(1).toInt();
+
+		int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
+		int Y1_tmp = Resources->cordsY_to_numbers(Y1);
+		int Y2_tmp = Resources->cordsY_to_numbers(Y2);
+
+		bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
+		bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
+		bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
+
+		if (flag and flag_1 and flag_2) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
+			Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
+			ui.pushButton_8->setDisabled(true);
+			ui.lineEdit_4->setDisabled(true);
+			ui.lineEdit_5->setDisabled(true);
+			Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_9_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_6->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x1 = CordsParts_1.at(0);
-	string X1 = x1.toStdString();
-	int Y1 = CordsParts_1.at(1).toInt();
-
 	CordsFromPlayer_2 = ui.lineEdit_7->text();
-	CordsParts_2 = CordsFromPlayer_2.split(",");
-
-	QString x2 = CordsParts_2.at(0);
-	string X2 = x2.toStdString();
-	int Y2 = CordsParts_2.at(1).toInt();
-
-	int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
-	int Y1_tmp = Resources->cordsY_to_numbers(Y1);
-	int Y2_tmp = Resources->cordsY_to_numbers(Y2);
-
-
-	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
-	bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
-	bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-
-	if (flag and flag_1 and flag_2) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
-		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
-		ui.pushButton_9->setDisabled(true);
-		ui.lineEdit_6->setDisabled(true);
-		ui.lineEdit_7->setDisabled(true);
-		Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty()
+		or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0);
+		string X1 = x1.toStdString();
+		int Y1 = CordsParts_1.at(1).toInt();
+
+		CordsParts_2 = CordsFromPlayer_2.split(",");
+
+		QString x2 = CordsParts_2.at(0);
+		string X2 = x2.toStdString();
+		int Y2 = CordsParts_2.at(1).toInt();
+
+		int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
+		int Y1_tmp = Resources->cordsY_to_numbers(Y1);
+		int Y2_tmp = Resources->cordsY_to_numbers(Y2);
+
+
+		bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
+		bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
+		bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
+
+		if (flag and flag_1 and flag_2) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
+			Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
+			ui.pushButton_9->setDisabled(true);
+			ui.lineEdit_6->setDisabled(true);
+			ui.lineEdit_7->setDisabled(true);
+			Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_10_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_8->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x1 = CordsParts_1.at(0);
-	string X1 = x1.toStdString();
-	int Y1 = CordsParts_1.at(1).toInt();
-
 	CordsFromPlayer_2 = ui.lineEdit_9->text();
-	CordsParts_2 = CordsFromPlayer_2.split(",");
-
-	QString x2 = CordsParts_2.at(0);
-	string X2 = x2.toStdString();
-	int Y2 = CordsParts_2.at(1).toInt();
-
-	int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
-	int Y1_tmp = Resources->cordsY_to_numbers(Y1);
-	int Y2_tmp = Resources->cordsY_to_numbers(Y2);
-
-	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
-	bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
-	bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-
-	if (flag and flag_1 and flag_2) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
-		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
-		ui.pushButton_10->setDisabled(true);
-		ui.lineEdit_8->setDisabled(true);
-		ui.lineEdit_9->setDisabled(true);
-		Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty() 
+		or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0);
+		string X1 = x1.toStdString();
+		int Y1 = CordsParts_1.at(1).toInt();
+
+
+		CordsParts_2 = CordsFromPlayer_2.split(",");
+
+		QString x2 = CordsParts_2.at(0);
+		string X2 = x2.toStdString();
+		int Y2 = CordsParts_2.at(1).toInt();
+
+		int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
+		int Y1_tmp = Resources->cordsY_to_numbers(Y1);
+		int Y2_tmp = Resources->cordsY_to_numbers(Y2);
+
+		bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
+		bool flag_1 = Resources->check_the_ships(X1_tmp, Y1_tmp);
+		bool flag_2 = Resources->check_the_ships(X2_tmp, Y2_tmp);
+
+		if (flag and flag_1 and flag_2) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
+			Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
+			ui.pushButton_10->setDisabled(true);
+			ui.lineEdit_8->setDisabled(true);
+			ui.lineEdit_9->setDisabled(true);
+			Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_11_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_10->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x1 = CordsParts_1.at(0);
-	string X1 = x1.toStdString();
-	int Y1 = CordsParts_1.at(1).toInt();
-
 	CordsFromPlayer_2 = ui.lineEdit_11->text();
-	CordsParts_2 = CordsFromPlayer_2.split(",");
-
-	QString x2 = CordsParts_2.at(0);
-	string X2 = x2.toStdString();
-	int Y2 = CordsParts_2.at(1).toInt();
-
 	CordsFromPlayer_3 = ui.lineEdit_12->text();
-	CordsParts_3 = CordsFromPlayer_3.split(",");
-
-	QString x3 = CordsParts_3.at(0);
-	string X3 = x3.toStdString();
-	int Y3 = CordsParts_3.at(1).toInt();
-
-	int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
-	int X3_tmp = Resources->cordsX_to_numbers(X3.c_str());
-	int Y1_tmp = Resources->cordsY_to_numbers(Y1);
-	int Y2_tmp = Resources->cordsY_to_numbers(Y2);
-	int Y3_tmp = Resources->cordsY_to_numbers(Y3);
-
-	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
-	bool flag_1 = Resources->test_correct_positioning(X2_tmp, Y2_tmp, X3_tmp, Y3_tmp, 2);
-	bool flag_2 = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X3_tmp, Y3_tmp, 3);
-	bool flag_3 = Resources->check_the_ships(X1_tmp, Y1_tmp);
-	bool flag_4 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-	bool flag_5 = Resources->check_the_ships(X3_tmp, Y3_tmp);
-
-	if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
-		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
-		Resources->set_gamespace(X3.c_str(), Y3, 1, 1);
-		ui.pushButton_11->setDisabled(true);
-		ui.lineEdit_10->setDisabled(true);
-		ui.lineEdit_11->setDisabled(true);
-		ui.lineEdit_12->setDisabled(true);
-		Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y3_tmp][X3_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty() 
+		or CordsFromPlayer_3.isEmpty() or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',') or !CordsFromPlayer_3.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0);
+		string X1 = x1.toStdString();
+		int Y1 = CordsParts_1.at(1).toInt();
+
+		CordsParts_2 = CordsFromPlayer_2.split(",");
+
+		QString x2 = CordsParts_2.at(0);
+		string X2 = x2.toStdString();
+		int Y2 = CordsParts_2.at(1).toInt();
+
+		CordsParts_3 = CordsFromPlayer_3.split(",");
+
+		QString x3 = CordsParts_3.at(0);
+		string X3 = x3.toStdString();
+		int Y3 = CordsParts_3.at(1).toInt();
+
+		int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
+		int X3_tmp = Resources->cordsX_to_numbers(X3.c_str());
+		int Y1_tmp = Resources->cordsY_to_numbers(Y1);
+		int Y2_tmp = Resources->cordsY_to_numbers(Y2);
+		int Y3_tmp = Resources->cordsY_to_numbers(Y3);
+
+		bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
+		bool flag_1 = Resources->test_correct_positioning(X2_tmp, Y2_tmp, X3_tmp, Y3_tmp, 2);
+		bool flag_2 = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X3_tmp, Y3_tmp, 3);
+		bool flag_3 = Resources->check_the_ships(X1_tmp, Y1_tmp);
+		bool flag_4 = Resources->check_the_ships(X2_tmp, Y2_tmp);
+		bool flag_5 = Resources->check_the_ships(X3_tmp, Y3_tmp);
+
+		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
+			Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
+			Resources->set_gamespace(X3.c_str(), Y3, 1, 1);
+			ui.pushButton_11->setDisabled(true);
+			ui.lineEdit_10->setDisabled(true);
+			ui.lineEdit_11->setDisabled(true);
+			ui.lineEdit_12->setDisabled(true);
+			Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y3_tmp][X3_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_12_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_13->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x1 = CordsParts_1.at(0);
-	string X1 = x1.toStdString();
-	int Y1 = CordsParts_1.at(1).toInt();
-
 	CordsFromPlayer_2 = ui.lineEdit_14->text();
-	CordsParts_2 = CordsFromPlayer_2.split(",");
-
-	QString x2 = CordsParts_2.at(0);
-	string X2 = x2.toStdString();
-	int Y2 = CordsParts_2.at(1).toInt();
-
 	CordsFromPlayer_3 = ui.lineEdit_15->text();
-	CordsParts_3 = CordsFromPlayer_3.split(",");
-
-	QString x3 = CordsParts_3.at(0);
-	string X3 = x3.toStdString();
-	int Y3 = CordsParts_3.at(1).toInt();
-
-	int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
-	int X3_tmp = Resources->cordsX_to_numbers(X3.c_str());
-	int Y1_tmp = Resources->cordsY_to_numbers(Y1);
-	int Y2_tmp = Resources->cordsY_to_numbers(Y2);
-	int Y3_tmp = Resources->cordsY_to_numbers(Y3);
-
-	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
-	bool flag_1 = Resources->test_correct_positioning(X2_tmp, Y2_tmp, X3_tmp, Y3_tmp, 2);
-	bool flag_2 = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X3_tmp, Y3_tmp, 3);
-	bool flag_3 = Resources->check_the_ships(X1_tmp, Y1_tmp);
-	bool flag_4 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-	bool flag_5 = Resources->check_the_ships(X3_tmp, Y3_tmp);
-
-	if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
-		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
-		Resources->set_gamespace(X3.c_str(), Y3, 1, 1);
-		ui.pushButton_12->setDisabled(true);
-		ui.lineEdit_13->setDisabled(true);
-		ui.lineEdit_14->setDisabled(true);
-		ui.lineEdit_15->setDisabled(true);
-		Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y3_tmp][X3_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty() or CordsFromPlayer_3.isEmpty()
+		or CordsFromPlayer_3.isEmpty() or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',') or !CordsFromPlayer_3.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0);
+		string X1 = x1.toStdString();
+		int Y1 = CordsParts_1.at(1).toInt();
+
+		CordsParts_2 = CordsFromPlayer_2.split(",");
+
+		QString x2 = CordsParts_2.at(0);
+		string X2 = x2.toStdString();
+		int Y2 = CordsParts_2.at(1).toInt();
+
+		CordsParts_3 = CordsFromPlayer_3.split(",");
+
+		QString x3 = CordsParts_3.at(0);
+		string X3 = x3.toStdString();
+		int Y3 = CordsParts_3.at(1).toInt();
+
+		int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
+		int X3_tmp = Resources->cordsX_to_numbers(X3.c_str());
+		int Y1_tmp = Resources->cordsY_to_numbers(Y1);
+		int Y2_tmp = Resources->cordsY_to_numbers(Y2);
+		int Y3_tmp = Resources->cordsY_to_numbers(Y3);
+
+		bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
+		bool flag_1 = Resources->test_correct_positioning(X2_tmp, Y2_tmp, X3_tmp, Y3_tmp, 2);
+		bool flag_2 = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X3_tmp, Y3_tmp, 3);
+		bool flag_3 = Resources->check_the_ships(X1_tmp, Y1_tmp);
+		bool flag_4 = Resources->check_the_ships(X2_tmp, Y2_tmp);
+		bool flag_5 = Resources->check_the_ships(X3_tmp, Y3_tmp);
+
+		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
+			Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
+			Resources->set_gamespace(X3.c_str(), Y3, 1, 1);
+			ui.pushButton_12->setDisabled(true);
+			ui.lineEdit_13->setDisabled(true);
+			ui.lineEdit_14->setDisabled(true);
+			ui.lineEdit_15->setDisabled(true);
+			Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y3_tmp][X3_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+	}
 }
 
 void MainWindow::on_pushButton_13_clicked() {
-
 	CordsFromPlayer_1 = ui.lineEdit_16->text();
-	CordsParts_1 = CordsFromPlayer_1.split(",");
-
-	QString x1 = CordsParts_1.at(0);
-	string X1 = x1.toStdString();
-	int Y1 = CordsParts_1.at(1).toInt();
-
 	CordsFromPlayer_2 = ui.lineEdit_17->text();
-	CordsParts_2 = CordsFromPlayer_2.split(",");
-
-	QString x2 = CordsParts_2.at(0);
-	string X2 = x2.toStdString();
-	int Y2 = CordsParts_2.at(1).toInt();
-
 	CordsFromPlayer_3 = ui.lineEdit_18->text();
-	CordsParts_3 = CordsFromPlayer_3.split(",");
-
-	QString x3 = CordsParts_3.at(0);
-	string X3 = x3.toStdString();
-	int Y3 = CordsParts_3.at(1).toInt();
-
 	CordsFromPlayer_4 = ui.lineEdit_19->text();
-	CordsParts_4 = CordsFromPlayer_4.split(",");
-
-	QString x4 = CordsParts_4.at(0);
-	string X4 = x4.toStdString();
-	int Y4 = CordsParts_4.at(1).toInt();
-
-	int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
-	int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
-	int X3_tmp = Resources->cordsX_to_numbers(X3.c_str());
-	int X4_tmp = Resources->cordsX_to_numbers(X4.c_str());
-	int Y1_tmp = Resources->cordsY_to_numbers(Y1);
-	int Y2_tmp = Resources->cordsY_to_numbers(Y2);
-	int Y3_tmp = Resources->cordsY_to_numbers(Y3);
-	int Y4_tmp = Resources->cordsY_to_numbers(Y4);
-
-	bool flag = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X2_tmp, Y2_tmp, 2);
-	bool flag_1 = Resources->test_correct_positioning(X2_tmp, Y2_tmp, X3_tmp, Y3_tmp, 2);
-	bool flag_2 = Resources->test_correct_positioning(X3_tmp, Y3_tmp, X4_tmp, Y4_tmp, 2);
-	bool flag_3 = Resources->test_correct_positioning(X1_tmp, Y1_tmp, X4_tmp, Y4_tmp, 4);
-	bool flag_4 = Resources->check_the_ships(X1_tmp, Y1_tmp);
-	bool flag_5 = Resources->check_the_ships(X2_tmp, Y2_tmp);
-	bool flag_6 = Resources->check_the_ships(X3_tmp, Y3_tmp);
-	bool flag_7 = Resources->check_the_ships(X4_tmp, Y4_tmp);
-	
-
-	if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
-		Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
-		Resources->set_gamespace(X3.c_str(), Y3, 1, 1);
-		Resources->set_gamespace(X4.c_str(), Y4, 1, 1);
-		ui.pushButton_13->setDisabled(true); 
-		ui.lineEdit_16->setDisabled(true);
-		ui.lineEdit_17->setDisabled(true);
-		ui.lineEdit_18->setDisabled(true);
-		ui.lineEdit_19->setDisabled(true);
-		Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y3_tmp][X3_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
-		Board_Vector[Y4_tmp][X4_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty() or CordsFromPlayer_3.isEmpty() or CordsFromPlayer_4.isEmpty()
+		or CordsFromPlayer_3.isEmpty() or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',') or !CordsFromPlayer_3.contains(',') or !CordsFromPlayer_4.contains(',')) {
+		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
-	else return;
+	else {
+		CordsParts_1 = CordsFromPlayer_1.split(",");
+
+		QString x1 = CordsParts_1.at(0);
+		string X1 = x1.toStdString();
+		int Y1 = CordsParts_1.at(1).toInt();
+
+		CordsParts_2 = CordsFromPlayer_2.split(",");
+
+		QString x2 = CordsParts_2.at(0);
+		string X2 = x2.toStdString();
+		int Y2 = CordsParts_2.at(1).toInt();
+
+		CordsParts_3 = CordsFromPlayer_3.split(",");
+
+		QString x3 = CordsParts_3.at(0);
+		string X3 = x3.toStdString();
+		int Y3 = CordsParts_3.at(1).toInt();
+
+		CordsParts_4 = CordsFromPlayer_4.split(",");
+
+		QString x4 = CordsParts_4.at(0);
+		string X4 = x4.toStdString();
+		int Y4 = CordsParts_4.at(1).toInt();
+
+		int X1_tmp = Resources->cordsX_to_numbers(X1.c_str());
+		int X2_tmp = Resources->cordsX_to_numbers(X2.c_str());
+		int X3_tmp = Resources->cordsX_to_numbers(X3.c_str());
+		int X4_tmp = Resources->cordsX_to_numbers(X4.c_str());
+		int Y1_tmp = Resources->cordsY_to_numbers(Y1);
+		int Y2_tmp = Resources->cordsY_to_numbers(Y2);
+		int Y3_tmp = Resources->cordsY_to_numbers(Y3);
+		int Y4_tmp = Resources->cordsY_to_numbers(Y4);
+
+		bool flag = Resources->check_the_ships(X1_tmp, Y1_tmp);
+		bool flag_1 = Resources->check_the_ships(X2_tmp, Y2_tmp);
+		bool flag_2 = Resources->check_the_ships(X3_tmp, Y3_tmp);
+		bool flag_3 = Resources->check_the_ships(X4_tmp, Y4_tmp);
+			
+		bool flag_4, flag_5, flag_6, flag_7;
+		if (check_choise == 1) {
+			flag_4 = Resources->test_correct_positioning(X1_tmp, Y1, X2_tmp, Y2, 2);
+			flag_5 = Resources->test_correct_positioning(X2_tmp, Y2, X3_tmp, Y3, 2);
+			flag_6 = Resources->test_correct_positioning(X3_tmp, Y3, X4_tmp, Y4, 2);
+			flag_7 = Resources->test_correct_positioning(X1_tmp, Y1, X4_tmp, Y4, 4);
+		}
+		else if (check_choise == 0) {
+			flag_4 = Resources->test_correct_positioning(X1_tmp, Y1, X2_tmp, Y2, 2);
+			flag_5 = Resources->test_correct_positioning(X2_tmp, Y2, X3_tmp, Y3, 2);
+			flag_6 = Resources->test_correct_positioning(X1_tmp, Y1, X3_tmp, Y3, 3);
+			flag_7 = Resources->test_correct_positioning(X3_tmp, Y3, X4_tmp, Y4, 2);
+		}
+		else return;
+
+		if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
+			Resources->set_gamespace(X1.c_str(), Y1, 1, 1);
+			Resources->set_gamespace(X2.c_str(), Y2, 1, 1);
+			Resources->set_gamespace(X3.c_str(), Y3, 1, 1);
+			Resources->set_gamespace(X4.c_str(), Y4, 1, 1);
+			ui.pushButton_13->setDisabled(true);
+			ui.lineEdit_16->setDisabled(true);
+			ui.lineEdit_17->setDisabled(true);
+			ui.lineEdit_18->setDisabled(true);
+			ui.lineEdit_19->setDisabled(true);
+			Board_Vector[Y1_tmp][X1_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y2_tmp][X2_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y3_tmp][X3_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			Board_Vector[Y4_tmp][X4_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
+			ui.label_6->setText("Poprawne koordynaty");
+		}
+		else return;
+
+	}
 }
 
 void MainWindow::on_pushButton_14_clicked() {
-	ui.pushButton_14->setDisabled(true);
-	Player_1 = new resources(*Resources);
-	resetGame();
+	bool flag = check_ships();
+	if (flag) {
+		ui.pushButton_14->setDisabled(true);
+		Player_1 = new resources(*Resources);
+		ui.pushButton_3->setDisabled(false);
+		resetGame();
+	}
 }
 
 void MainWindow::initialize_Border() {
@@ -773,10 +867,19 @@ void MainWindow::cords_for_bot() {
 			bool flag_1 = Resources->check_the_ships(X2, Y2);
 			bool flag_2 = Resources->check_the_ships(X3, Y3);
 			bool flag_3 = Resources->check_the_ships(X4, Y4);
-			bool flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-			bool flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
-			bool flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
-			bool flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+			bool flag_4, flag_5, flag_6, flag_7;
+			if (check_choise == 1){
+				flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+				flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+				flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
+				flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+			}
+			else if (check_choise == 0 and X2 != X4 and Y2 != Y4) {
+				flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+				flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+				flag_6 = Resources->test_correct_positioning(X1, Y1, X3, Y3, 3);
+				flag_7 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
+			}
 
 			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
 				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
@@ -898,12 +1001,21 @@ void MainWindow::gen_Ships_for_players() {
 			bool flag_1 = Resources->check_the_ships(X2, Y2);
 			bool flag_2 = Resources->check_the_ships(X3, Y3);
 			bool flag_3 = Resources->check_the_ships(X4, Y4);
-			bool flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
-			bool flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
-			bool flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
-			bool flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+			bool flag_4, flag_5, flag_6, flag_7, flag_8;
+			if (check_choise == 1){
+				flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+				flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+				flag_6 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
+				flag_7 = Resources->test_correct_positioning(X1, Y1, X4, Y4, 4);
+			}
+			else if (check_choise == 0 and X2 != X4 and Y2 != Y4) {
+				flag_4 = Resources->test_correct_positioning(X1, Y1, X2, Y2, 2);
+				flag_5 = Resources->test_correct_positioning(X2, Y2, X3, Y3, 2);
+				flag_6 = Resources->test_correct_positioning(X1, Y1, X3, Y3, 3);
+				flag_7 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
+			}
 
-			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
+			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7 and flag_8) {
 				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
 					const char* tmp = Resources->cordsX_for_Bot(X1);
 					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
@@ -956,6 +1068,7 @@ void MainWindow::shot_for_player() {
 		if (check == 0) {
 			Buttons_Vector_GP[y][x]->setStyleSheet("Background-color: grey;");
 			BotShot->start(1500);
+			ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura Bota");
 			for (int i = 0; i < 10; i++) {
 				for (int j = 0; j < 10; j++) {
 					Buttons_Vector_GP[j][i]->setDisabled(true);
@@ -990,7 +1103,7 @@ void MainWindow::shot_for_player() {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
 			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
-			ui.label_11->setText("Gratulacje wygrales");
+			ui.label_11->setText("Gratulacje wygrałeś: " + QString::fromStdString(name_for_first_player));
 			score->name = name_for_first_player;
 			score->Stop_time();
 			shot += 1;
@@ -998,10 +1111,8 @@ void MainWindow::shot_for_player() {
 			ui.textBrowser_2->setText("Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 			return;
 		}
-
 		shot += 1;
-		ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\n Tura gracza");
-		
+		ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\nTura gracza: " + QString::fromStdString(name_for_first_player));
 	}
 	else {
 		Delay->stop();
@@ -1065,7 +1176,7 @@ void MainWindow::shot_for_player() {
 				ui.widget_GP->hide();
 				ui.widget_EG->show();
 				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
-				ui.label_11->setText("Gratulacje wygrales");
+				ui.label_11->setText("Gratulacje wygrałeś: " + QString::fromStdString(name_for_first_player));
 				score->name = name_for_first_player;
 				score->Stop_time();
 				score_at_end = score->calculate_points(shot);
@@ -1073,7 +1184,7 @@ void MainWindow::shot_for_player() {
 			}
 		}
 		shot += 1;
-		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
+		ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\nTura gracza: " + QString::fromStdString(name_for_first_player));
 	}
 }
 
@@ -1139,7 +1250,7 @@ void MainWindow::shot_for_second_player() {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
 			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
-			ui.label_11->setText("Gratulacje wygrałeś ");
+			ui.label_11->setText("Gratulacje wygrałeś: " + QString::fromStdString(name_for_second_player));
 			score->name = name_for_second_player;
 			score->Stop_time();
 			score_at_end = score->calculate_points(shot_1);
@@ -1149,10 +1260,11 @@ void MainWindow::shot_for_second_player() {
 
 	}
 	shot_1 += 1;
-	ui.textBrowser_1->setText("Liczba oddanych strzalow : " + QString::number(shot_1));
+	ui.textBrowser_1->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura gracza: " + QString::fromStdString(name_for_second_player));
 }
 
 void MainWindow::shot_for_bot() {
+	ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura Bota");
 	if (lastShotHit) {
 		/*Zawężenie obszaru strzału do pola 3x3 i iteracja po elementach w poszukiwaniu statku*/
 		/*Wartości min(...) i max(...) nie pozwalają wyjść pętli poza zakres tablice*/
@@ -1177,12 +1289,11 @@ void MainWindow::shot_for_bot() {
 		BotY = rand() % 10;
 	}
 	int check = Player_1->check_shot(BotX, BotY);
-	ui.textBrowser->setText("Tura bota");
 	if (check == 0) {
 		Board_Vector_GP[BotY][BotX]->setStyleSheet("Background-color: grey;");
 		Player_1->set_gamespace_after_shoot(BotX, BotY, 2);
 		lastShotHit = false;
-		ui.textBrowser->setText("Tura gracza");
+		ui.textBrowser->setText("Tura gracza : " + QString::fromStdString(name_for_first_player));
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				int tmp = Bot->check_shot(i, j);
@@ -1225,7 +1336,7 @@ void MainWindow::shot_for_bot() {
 				}
 			}
 		}
-
+		ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura Bota");
 		if (Bot->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
@@ -1234,7 +1345,7 @@ void MainWindow::shot_for_bot() {
 			score->name = "Bot";
 			score->Stop_time();
 			score_at_end = score->calculate_points(shot_1);
-			ui.textBrowser_2->setText("Wygrał bot \n Liczba zgromadzonych punktów: " + QString::number(score_at_end));
+			ui.textBrowser_2->setText("Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 			return;
 		}
 		shot_1 += 1;
@@ -1300,4 +1411,14 @@ vector<pair<int, int>> MainWindow::check_fields(int xCord, int yCord, resources*
 	znajdują się już one w środku vectora jeżeli nie to dodajemy je na koniec*/
 
 	return vector_to_return;
+}\
+
+bool MainWindow::check_ships() {
+	for (int i = 0; i < 20; i++) {
+		bool tmp = LineEdits_Vector[i]->text().isEmpty();
+		if (tmp == true) {
+			return false;
+		}
+	}
+	return true;
 }

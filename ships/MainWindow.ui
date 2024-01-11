@@ -17928,7 +17928,7 @@ ntext-align: center;
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton">
+     <widget class="QRadioButton" name="radioButton_0">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -18068,12 +18068,12 @@ ntext-align: center;
     </widget>
    </widget>
    <zorder>widget_GP_1</zorder>
-   <zorder>widget_GS</zorder>
-   <zorder>widget_NS</zorder>
-   <zorder>widget_GP</zorder>
    <zorder>widget_EG</zorder>
    <zorder>widget_blank</zorder>
    <zorder>widget_title</zorder>
+   <zorder>widget_GP</zorder>
+   <zorder>widget_GS</zorder>
+   <zorder>widget_NS</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
