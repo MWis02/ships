@@ -23,15 +23,18 @@ int ScoreBoard::calculate_points(int moves) {
 		score_at_end += moves * (sec * 2);
 	}
 	else return 0;
-	tm data;
-	int mon = data.tm_mon += 1;
-	int day = data.tm_mday;
-	int year = data.tm_year;
+
+	time_t timenow = time(nullptr);
+	tm* data = localtime(&timenow);
+
+	int mon = data->tm_mon += 1;
+	int day = data->tm_mday;
+	int year = data->tm_year + 1900;
 
 	fstream plik;
 	plik.open("Data.txt", ios::out | ios::app);
 	if (plik.good() == true) {
-		plik << "Gracz: " + name + ", zdobyte punkty: " + to_string(score_at_end) + "Liczba ruchów: " + to_string(moves) + "Data: " + to_string(day) + "-" + to_string(mon) + "-" + to_string(year);
+		plik << "Gracz: " + name + "\n -zdobyte punkty: " + to_string(score_at_end) + "\n -Liczba ruchów: " + to_string(moves) + "\n -Data: " + to_string(day) + "-" + to_string(mon) + "-" + to_string(year)<<endl;
 		plik.close();
 	}
 	return score_at_end;

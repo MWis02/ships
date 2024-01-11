@@ -1,1 +1,4 @@
-Gracz: Marcin, zdobyte punkty: 20Data: 0-1-1258117632Gracz: Marcin, zdobyte punkty: 3040Liczba ruchów: 20Data: 134217731-21-3
+Gracz: Marcin
+ -zdobyte punkty: 2960
+ -Liczba ruchów: 20
+ -Data: 11-1-2024

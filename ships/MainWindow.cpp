@@ -956,7 +956,8 @@ void MainWindow::shot_for_player() {
 			}
 			Bot->set_gamespace_after_shoot(x, y, 2);
 		}
-		else if (check == 1){	
+		else if (check == 1){
+			Player_1->counter += 1;
 			Bot->set_gamespace_after_shoot(x, y, 3);
 			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
 			Buttons_Vector_GP[y][x]->setDisabled(true);
@@ -978,8 +979,6 @@ void MainWindow::shot_for_player() {
 				}
 			}
 		}
-
-		Player_1->counter += 1;
 		if (Player_1->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
@@ -987,7 +986,7 @@ void MainWindow::shot_for_player() {
 			ui.label_11->setText("Gratulacje wygrales");
 			score->name = name_for_first_player;
 			score->Stop_time();
-			score_at_end = score->calculate_points(shot+=1);
+			score_at_end = score->calculate_points(shot);
 			ui.textBrowser_2->setText("Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 			return;
 		}
@@ -1061,7 +1060,7 @@ void MainWindow::shot_for_player() {
 				ui.label_11->setText("Gratulacje wygrales");
 				score->name = name_for_first_player;
 				score->Stop_time();
-				score_at_end = score->calculate_points(shot += 1);
+				score_at_end = score->calculate_points(shot);
 				return;
 			}
 		}
@@ -1135,7 +1134,7 @@ void MainWindow::shot_for_second_player() {
 			ui.label_11->setText("Gratulacje wygrałeś ");
 			score->name = name_for_second_player;
 			score->Stop_time();
-			score_at_end = score->calculate_points(shot_1 += 1);
+			score_at_end = score->calculate_points(shot_1);
 	
 			return;
 		}
@@ -1226,7 +1225,7 @@ void MainWindow::shot_for_bot() {
 			ui.label_11->setText("Niestety tym razem przegrales");
 			score->name = "Bot";
 			score->Stop_time();
-			score_at_end = score->calculate_points(shot_1 += 1);
+			score_at_end = score->calculate_points(shot_1);
 			ui.textBrowser_2->setText("Wygrał bot \n Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 			return;
 		}
