@@ -16,14 +16,14 @@ int ScoreBoard::calculate_points(int moves) {
 		score_at_end = 10000;
 	}
 	else if (moves > 20 and moves < 36) {
-		score_at_end += 10000 - (moves * game_time) / 4;
+		score_at_end += 10000 - (moves * game_time) / 6;
 	}
 	else if (moves >= 36 and moves < 56) {
-		score_at_end += 10000 - (moves * game_time) / 2;
+		score_at_end += 10000 - (moves * game_time) / 4;
 	}
 	else if (moves >= 56 and moves < 99)
 	{
-		score_at_end += 10000 - (moves * game_time);
+		score_at_end += 10000 - (moves * game_time) / 2;
 	}
 	else return 0;
 
