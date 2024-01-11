@@ -5,7 +5,8 @@ MainWindow::MainWindow(QWidget* parent)
 	Resources(new resources),
 	BotShot(new QTimer),
 	Delay(new QTimer),
-	score(new ScoreBoard)
+	score(new ScoreBoard),
+	widget(new ScoreWidget)
 {   
 	count = 0;
 	x = 0;
@@ -78,6 +79,11 @@ void MainWindow::on_pushButton_Ch_2_clicked() {
 	ui.Edit_name_2->setPlaceholderText("Wpisz nazwe gracza");
 	count = 1;
 	resetGame();
+}
+
+void MainWindow::on_pushButton_TB_clicked() {
+	widget->read_data();
+	widget->show();
 }
 
 void MainWindow::on_pushButton_NS_1_clicked() {
@@ -175,11 +181,12 @@ void MainWindow::on_pushButton_3_clicked() {
 void MainWindow::on_pushButton_EG_1_clicked() {
 	resetGame();
 	ui.widget_EG->hide();
-	ui.widget_title->hide();
+	ui.widget_title->show();
 }
 
 void MainWindow::on_pushButton_EG_2_clicked() {
-
+	widget->read_data();
+	widget->show();
 }
 
 void MainWindow::on_pushButton_EG_3_clicked() {
@@ -986,6 +993,7 @@ void MainWindow::shot_for_player() {
 			ui.label_11->setText("Gratulacje wygrales");
 			score->name = name_for_first_player;
 			score->Stop_time();
+			shot += 1;
 			score_at_end = score->calculate_points(shot);
 			ui.textBrowser_2->setText("Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 			return;

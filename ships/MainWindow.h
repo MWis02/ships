@@ -4,6 +4,7 @@
 #include "ui_MainWindow.h"
 #include "resources.h"
 #include "ScoreBoard.h"
+#include "ScoreWidget.h"
 #include <vector>
 #include <string>
 #include <QVector>
@@ -32,6 +33,7 @@ private:
 	ScoreBoard* score;
 	QTimer* BotShot;
 	QTimer* Delay;
+	ScoreWidget* widget;
 	int count, x, y, shot, shot_1, BotX, BotY;
 	QLocale polishLng;
 	int LastHitX, LastHitY, botcounter;
@@ -73,6 +75,7 @@ private:
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/
 	void on_pushButton_Ch_2_clicked(); /*dwuoosobowa gra*/
+	void on_pushButton_TB_clicked(); /*dwuoosobowa gra*/
 	void on_pushButton_NS_1_clicked(); /*powrót*/
 	void on_pushButton_NS_2_clicked(); /*dalej*/
 	void on_pushButton_EG_1_clicked(); /*Zagraj jeszcze raz*/

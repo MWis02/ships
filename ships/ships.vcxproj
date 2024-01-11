@@ -98,16 +98,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ScoreBoard.cpp" />
+    <ClCompile Include="ScoreWidget.cpp" />
     <QtRcc Include="ships.qrc" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="resources.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="ScoreWidget.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h" />
+    <QtMoc Include="ScoreWidget.h" />
     <QtMoc Include="ScoreBoard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Data.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

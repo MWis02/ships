@@ -3,6 +3,7 @@
 #include <string>
 #include <QTimer>
 #include <fstream>
+#include <QString>
 
 using namespace std;
 
@@ -17,7 +18,6 @@ public:
 	int calculate_points(int moves);
 	void Start_time();
 	void Stop_time();
-	int Return_time();
 	void Update_time();
 	QTimer* timer;
 	string name;

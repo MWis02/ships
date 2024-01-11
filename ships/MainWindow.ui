@@ -4892,7 +4892,7 @@ border: none;
 background: none;
 background-color: rgba(225, 225, 225, 0.85);
 }
-QPushButton, QTextBrowser{
+QPushButton, QTextBrowser#textBrowser{
 background: none;
 background-color: rgba(225, 225, 225, 0.85);
 }
@@ -11383,6 +11383,24 @@ ntext-align: center;
       <string>Gra Wieloosobowa</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_TB">
+     <property name="geometry">
+      <rect>
+       <x>1310</x>
+       <y>660</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Tabela wyników</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="widget_blank" native="true">
     <property name="geometry">
@@ -11432,7 +11450,7 @@ ntext-align: center;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel, QTextBrowser, QPushButton{
+     <string notr="true">QLabel, QTextBrowser#textBrowser_2, QPushButton{
 background: none;
 background-color: rgba(225, 225, 225, 0.85);
 }</string>
@@ -11515,8 +11533,8 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QTextBrowser" name="textBrowser_2">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>200</y>
+       <x>510</x>
+       <y>190</y>
        <width>491</width>
        <height>271</height>
       </rect>
@@ -18049,13 +18067,13 @@ ntext-align: center;
      </widget>
     </widget>
    </widget>
-   <zorder>widget_GP</zorder>
    <zorder>widget_GP_1</zorder>
    <zorder>widget_GS</zorder>
    <zorder>widget_NS</zorder>
+   <zorder>widget_GP</zorder>
+   <zorder>widget_EG</zorder>
    <zorder>widget_blank</zorder>
    <zorder>widget_title</zorder>
-   <zorder>widget_EG</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
