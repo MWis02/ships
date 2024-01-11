@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+ï»¿#include "MainWindow.h"
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget* parent)
 	BotY = 0;
 	name_for_first_player = "";
 	name_for_second_player = "";
+	score_at_end = 0;
 
     ui.setupUi(this);
 	ui.widget_GS->hide();
@@ -35,7 +36,7 @@ MainWindow::MainWindow(QWidget* parent)
 	initialize_Border_GP_1();
 	initialize_Buttons_GP_1();
 	srand(time(NULL));
-	connect(BotShot, &QTimer::timeout, this, &MainWindow::schot_for_bot);
+	connect(BotShot, &QTimer::timeout, this, &MainWindow::shot_for_bot);
 }
 
 MainWindow::~MainWindow()
@@ -61,7 +62,7 @@ void MainWindow::on_pushButton_Ch_1_clicked() {
 	ui.label_17->hide();
 	ui.Edit_name_2->hide();
 	ui.label_15->setText("Wpisz nazwe dla gracza");
-	ui.Edit_name_1->setPlaceholderText("Wpisz nazwe gracza");
+	ui.Edit_name_1->setPlaceholderText("Wpisz nazwÄ™ gracza");
 	count = 0;
 	resetGame();
 }
@@ -84,8 +85,8 @@ void MainWindow::on_pushButton_NS_1_clicked() {
 	ui.widget_NS->hide();
 	name_for_second_player = "";
 	name_for_first_player = "";
-	ui.Edit_name_1->setPlaceholderText("Wpisz nazwe gracza");
-	ui.Edit_name_2->setPlaceholderText("Wpisz nazwe gracza");
+	ui.Edit_name_1->setPlaceholderText("Wpisz nazwÄ™ gracza");
+	ui.Edit_name_2->setPlaceholderText("Wpisz nazwÄ™ gracza");
 }
 
 void MainWindow::on_pushButton_NS_2_clicked() {
@@ -121,6 +122,8 @@ void MainWindow::on_pushButton_clicked() {
 	ui.widget_title->show();
 	ui.pushButton_14->setEnabled(true);
 	Resources->set_to_defaults();
+	ui.Edit_name_1->clear();
+	ui.Edit_name_2->clear();
 	return;
 }
 
@@ -145,7 +148,7 @@ void MainWindow::on_pushButton_3_clicked() {
 				}
 			}
 		}
-		score->game_time = time(NULL);
+		score->Start_time();
 		return;
 	}
 	else {
@@ -163,8 +166,24 @@ void MainWindow::on_pushButton_3_clicked() {
 				}
 			}
 		}
+		score->Start_time();
 		return;
 	}
+	return;
+}
+
+void MainWindow::on_pushButton_EG_1_clicked() {
+	resetGame();
+	ui.widget_EG->hide();
+	ui.widget_title->hide();
+}
+
+void MainWindow::on_pushButton_EG_2_clicked() {
+
+}
+
+void MainWindow::on_pushButton_EG_3_clicked() {
+	QApplication::quit();
 	return;
 }
 
@@ -173,16 +192,16 @@ void MainWindow::on_pushButton_4_clicked() {
 	CordsParts_1 = CordsFromPlayer_1.split(",");
 
 
-	QString x1 = CordsParts_1.at(0); /*Pobranie pierwszej wartoœci od u¿ytkownika*/
+	QString x1 = CordsParts_1.at(0); /*Pobranie pierwszej wartoÅ›ci od uÅ¼ytkownika*/
 	string X1 = x1.toStdString(); /*zmiana Qstring na string*/
-	int Y1 = CordsParts_1.at(1).toInt(); /*Pobranie drugiej wartoœci od u¿ytkownika */
+	int Y1 = CordsParts_1.at(1).toInt(); /*Pobranie drugiej wartoÅ›ci od uÅ¼ytkownika */
 
 	int X_tmp = Resources->cordsX_to_numbers(X1.c_str());
 	int Y_tmp = Resources->cordsY_to_numbers(Y1);
 
 	bool flag = Resources->check_the_ships(X_tmp, Y_tmp);
 	if (flag and X_tmp != -1 and Y_tmp != -1) {
-		Resources->set_gamespace(X1.c_str(), Y1, 1, 1); /*X.c_str() wy³uskanie wskaŸnika "const char*"*/
+		Resources->set_gamespace(X1.c_str(), Y1, 1, 1); /*X.c_str() wyÅ‚uskanie wskaÅºnika "const char*"*/
 		ui.pushButton_4->setDisabled(true);
 		ui.lineEdit_0->setDisabled(true);
 		Board_Vector[Y_tmp][X_tmp]->setStyleSheet("background-image: url(:/ships/ship1.png);");
@@ -585,8 +604,8 @@ void MainWindow::initialize_Buttons_GP() {
 		}
 		Buttons_Vector_GP.push_back(columnLabel);
 	}
-	/*Po³¹czenie vectora z przyciskami 
-	i przekazanie wartoœci który przycik zosta³ wciœniêty dalej*/
+	/*PoÅ‚Ä…czenie vectora z przyciskami 
+	i przekazanie wartoÅ›ci ktÃ³ry przycik zostaÅ‚ wciÅ›niÄ™ty dalej*/
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
 			connect(Buttons_Vector_GP[j][i], &QPushButton::clicked, this, [this, j, i]() {
@@ -625,14 +644,14 @@ void MainWindow::initialize_Buttons_GP_1(){
 		}
 		Buttons_Vector_GP_1.push_back(columnLabel);
 	}
-	/*Po³¹czenie vectora z przyciskami
-	i przekazanie wartoœci który przycik zosta³ wciœniêty dalej*/
+	/*PoÅ‚Ä…czenie vectora z przyciskami
+	i przekazanie wartoÅ›ci ktÃ³ry przycik zostaÅ‚ wciÅ›niÄ™ty dalej*/
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
 			connect(Buttons_Vector_GP_1[j][i], &QPushButton::clicked, this, [this, j, i]() {
 				x = i;
 				y = j;
-				schot_for_second_player();
+				shot_for_second_player();
 				});
 		}
 	}
@@ -643,7 +662,7 @@ void MainWindow::resetGame() {
 	/*Resetowanie planszy*/
 	Resources->set_to_defaults();
 
-	/*Resetowanie przycisków*/
+	/*Resetowanie przyciskÃ³w*/
 	ui.pushButton_4->setEnabled(true);
 	ui.pushButton_5->setEnabled(true);
 	ui.pushButton_6->setEnabled(true);
@@ -655,7 +674,7 @@ void MainWindow::resetGame() {
 	ui.pushButton_12->setEnabled(true);
 	ui.pushButton_13->setEnabled(true);
 
-	/*Resetowanie t³a dla pokazania statków*/
+	/*Resetowanie tÅ‚a dla pokazania statkÃ³w*/
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
 			Board_Vector[j][i]->setStyleSheet("");
@@ -771,7 +790,7 @@ void MainWindow::cords_for_bot() {
 }
 
 void MainWindow::gen_Ships_for_players() {
-	/*Resetowanie wartoœæi oraz planszy dla ka¿dego generowania uk³adu*/
+	/*Resetowanie wartoÅ›Ä‡i oraz planszy dla kaÅ¼dego generowania ukÅ‚adu*/
 	Resources->set_to_defaults();
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
@@ -783,7 +802,7 @@ void MainWindow::gen_Ships_for_players() {
 		LineEdits_Vector[i]->setDisabled(true);
 	}
 	int j = 0;
-	/*Generowanie losowych koordynatów*/
+	/*Generowanie losowych koordynatÃ³w*/
 	for (int i = 0; i < 10; ) {
 		if (i < 4) {
 			int X = rand() % 10;
@@ -937,15 +956,7 @@ void MainWindow::shot_for_player() {
 			}
 			Bot->set_gamespace_after_shoot(x, y, 2);
 		}
-		else if (check == 1){
-			Player_1->counter += 1;
-			if (Player_1->counter == 20) {
-				ui.widget_GP->hide();
-				ui.widget_EG->show();
-				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
-				ui.label_11->setText("Gratulacje wygrales");
-				return;
-			}	
+		else if (check == 1){	
 			Bot->set_gamespace_after_shoot(x, y, 3);
 			Buttons_Vector_GP[y][x]->setStyleSheet("background-image: url(:/ships/hitted-ship_1.png);");
 			Buttons_Vector_GP[y][x]->setDisabled(true);
@@ -967,8 +978,22 @@ void MainWindow::shot_for_player() {
 				}
 			}
 		}
+
+		Player_1->counter += 1;
+		if (Player_1->counter == 20) {
+			ui.widget_GP->hide();
+			ui.widget_EG->show();
+			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+			ui.label_11->setText("Gratulacje wygrales");
+			score->name = name_for_first_player;
+			score->Stop_time();
+			score_at_end = score->calculate_points(shot+=1);
+			ui.textBrowser_2->setText("Liczba zgromadzonych punktÃ³w: " + QString::number(score_at_end));
+			return;
+		}
+
 		shot += 1;
-		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot) + "\n Tura gracza");
+		ui.textBrowser->setText("Liczba oddanych strzaÅ‚Ã³w: " + QString::number(shot) + "\n Tura gracza");
 		
 	}
 	else {
@@ -1032,18 +1057,20 @@ void MainWindow::shot_for_player() {
 			if (Player_1->counter == 20) {
 				ui.widget_GP->hide();
 				ui.widget_EG->show();
-				//score->score_at_end = shot+=1;
 				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
 				ui.label_11->setText("Gratulacje wygrales");
+				score->name = name_for_first_player;
+				score->Stop_time();
+				score_at_end = score->calculate_points(shot += 1);
 				return;
 			}
 		}
 		shot += 1;
-		ui.textBrowser->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot));
+		ui.textBrowser->setText("Liczba oddanych strzalow: " + QString::number(shot));
 	}
 }
 
-void MainWindow::schot_for_second_player() {
+void MainWindow::shot_for_second_player() {
 	Delay->stop();
 	int check = Player_1->check_shot(x, y);
 	if (check == 0) {
@@ -1105,19 +1132,23 @@ void MainWindow::schot_for_second_player() {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
 			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
-			ui.label_11->setText("Gratulacje wygrales");
+			ui.label_11->setText("Gratulacje wygraÅ‚eÅ› ");
+			score->name = name_for_second_player;
+			score->Stop_time();
+			score_at_end = score->calculate_points(shot_1 += 1);
+	
 			return;
 		}
 
 	}
 	shot_1 += 1;
-	ui.textBrowser_1->setText("<html>Liczba oddanych strzalow: </html>" + QString::number(shot_1));
+	ui.textBrowser_1->setText("Liczba oddanych strzalow : " + QString::number(shot_1));
 }
 
-void MainWindow::schot_for_bot() {
+void MainWindow::shot_for_bot() {
 	if (lastShotHit) {
-		/*Zawê¿enie obszaru strza³u do pola 3x3 i iteracja po elementach w poszukiwaniu statku*/
-		/*Wartoœci min(...) i max(...) nie pozwalaj¹ wyjœæ pêtli poza zakres tablice*/
+		/*ZawÄ™Å¼enie obszaru strzaÅ‚u do pola 3x3 i iteracja po elementach w poszukiwaniu statku*/
+		/*WartoÅ›ci min(...) i max(...) nie pozwalajÄ… wyjÅ›Ä‡ pÄ™tli poza zakres tablice*/
 		for (int i = max(0, LastHitX - 1); i <= min(9, LastHitX + 1); i++) {
 			for (int j = max(0, LastHitY - 1); j <= min(9, LastHitY + 1); j++) {
 				int tmp = Player_1->check_shot(i, j);
@@ -1130,9 +1161,8 @@ void MainWindow::schot_for_bot() {
 		}
 		lastShotHit = false;
 		BotShot->start(1500);
-		using namespace std;
-		/*Je¿eli zostanie znaleziony statek pêtla i if siê przerywa i bot przechodzi do strza³u,
-		je¿eli nie zostanie znaleziony strza³ jest resetowany do wartoœci tablicy 9x9*/
+		/*JeÅ¼eli zostanie znaleziony statek pÄ™tla i if siÄ™ przerywa i bot przechodzi do strzaÅ‚u,
+		jeÅ¼eli nie zostanie znaleziony strzaÅ‚ jest resetowany do wartoÅ›ci tablicy 9x9*/
 	}
 	else
 	{
@@ -1158,6 +1188,7 @@ void MainWindow::schot_for_bot() {
 				
 			}
 		}
+		shot_1 += 1;
 		BotShot->stop();
 		return;
 	}
@@ -1168,13 +1199,7 @@ void MainWindow::schot_for_bot() {
 		LastHitX = BotX;
 		LastHitY = BotY;
 		lastShotHit = true;
-		if (Bot->counter == 20) {
-			ui.widget_GP->hide();
-			ui.widget_EG->show();
-			ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Lose_2.png);");
-			ui.label_11->setText("Niestety tym razem przegrales");
-			return;
-		}
+		
 		Player_1->set_gamespace_after_shoot(BotX, BotY, 3);
 		vector_for_fields = check_fields(BotX, BotY, Player_1);
 		if (vector_for_fields.size() != 0) {
@@ -1193,8 +1218,20 @@ void MainWindow::schot_for_bot() {
 				}
 			}
 		}
-		BotShot->start(1500);
 
+		if (Bot->counter == 20) {
+			ui.widget_GP->hide();
+			ui.widget_EG->show();
+			ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Lose_2.png);");
+			ui.label_11->setText("Niestety tym razem przegrales");
+			score->name = "Bot";
+			score->Stop_time();
+			score_at_end = score->calculate_points(shot_1 += 1);
+			ui.textBrowser_2->setText("WygraÅ‚ bot \n Liczba zgromadzonych punktÃ³w: " + QString::number(score_at_end));
+			return;
+		}
+		shot_1 += 1;
+		BotShot->start(1500);
 	}
 	else if (check == 2 or check == 3) {
 		BotShot->start(1500);
@@ -1226,7 +1263,7 @@ vector<pair<int, int>> MainWindow::check_fields(int xCord, int yCord, resources*
 		else break;
 	}
 
-	/*---Sprawdzenie do góry---*/
+	/*---Sprawdzenie do gÃ³ry---*/
 	for (int y = yCord - 1; y >= 0; y--) {
 		int tmp = object->check_shot(xCord, y);
 		if (tmp == 3) vector_to_return.push_back({ xCord, y });
@@ -1237,7 +1274,7 @@ vector<pair<int, int>> MainWindow::check_fields(int xCord, int yCord, resources*
 		else break;
 	}
 
-	/*---Sprawdzenie w dó³---*/
+	/*---Sprawdzenie w dÃ³Å‚---*/
 	for (int y = yCord + 1; y < 10; y++) {
 		int tmp = object->check_shot(xCord, y);
 		if (tmp == 3) vector_to_return.push_back({ xCord, y });
@@ -1248,12 +1285,12 @@ vector<pair<int, int>> MainWindow::check_fields(int xCord, int yCord, resources*
 		else break;
 	}
 
-	/*---Wyelminowanie powtórzeñ---*/
+	/*---Wyelminowanie powtÃ³rzeÅ„---*/
 	if (std::find(vector_to_return.begin(), vector_to_return.end(), make_pair(xCord, yCord)) == vector_to_return.end()) {
 		vector_to_return.push_back({ xCord, yCord });
 	}
-	/*---.begin() i .end() wskazuj¹ na pocz¹tek i koniec vectora, tworz¹c pare kordynatów sprawdzamy czy 
-	znajduj¹ siê ju¿ one w œrodku vectora je¿eli nie to dodajemy je na koniec*/
+	/*---.begin() i .end() wskazujÄ… na poczÄ…tek i koniec vectora, tworzÄ…c pare kordynatÃ³w sprawdzamy czy 
+	znajdujÄ… siÄ™ juÅ¼ one w Å›rodku vectora jeÅ¼eli nie to dodajemy je na koniec*/
 
 	return vector_to_return;
 }

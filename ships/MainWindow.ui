@@ -11432,7 +11432,7 @@ ntext-align: center;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel{
+     <string notr="true">QLabel, QTextBrowser, QPushButton{
 background: none;
 background-color: rgba(225, 225, 225, 0.85);
 }</string>
@@ -11456,6 +11456,70 @@ background-color: rgba(225, 225, 225, 0.85);
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_EG_3">
+     <property name="geometry">
+      <rect>
+       <x>1310</x>
+       <y>620</y>
+       <width>221</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>17</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Zamknij</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_EG_2">
+     <property name="geometry">
+      <rect>
+       <x>1080</x>
+       <y>620</y>
+       <width>221</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>17</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Tablica Wyników</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_EG_1">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>620</y>
+       <width>221</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>17</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Zagraj jeszcze raz</string>
+     </property>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser_2">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>200</y>
+       <width>491</width>
+       <height>271</height>
+      </rect>
      </property>
     </widget>
    </widget>
@@ -17985,13 +18049,13 @@ ntext-align: center;
      </widget>
     </widget>
    </widget>
-   <zorder>widget_title</zorder>
    <zorder>widget_GP</zorder>
    <zorder>widget_GP_1</zorder>
-   <zorder>widget_EG</zorder>
    <zorder>widget_GS</zorder>
-   <zorder>widget_blank</zorder>
    <zorder>widget_NS</zorder>
+   <zorder>widget_blank</zorder>
+   <zorder>widget_title</zorder>
+   <zorder>widget_EG</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

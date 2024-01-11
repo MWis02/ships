@@ -51,8 +51,10 @@
     <ClInclude Include="resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScoreBoard.h">
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ScoreBoard.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
   </ItemGroup>
 </Project>

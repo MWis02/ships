@@ -1,19 +1,26 @@
 #pragma once
 #include <ctime>
 #include <string>
+#include <QTimer>
+#include <fstream>
 
 using namespace std;
 
-class ScoreBoard
+class ScoreBoard : public QObject
 {
-private:
+	Q_OBJECT;
 
+private:
+	int sec, min, game_time, score_at_end;
 public:
 	ScoreBoard();
 
-	int game_time;
-	int score_at_end;
 	int calculate_points(int moves);
+	void Start_time();
+	void Stop_time();
+	int Return_time();
+	void Update_time();
+	QTimer* timer;
 	string name;
 
 	struct tm {

@@ -39,6 +39,7 @@ private:
 	vector<pair<int, int >> vector_for_fields;
 	string name_for_first_player;
 	string name_for_second_player;
+	int score_at_end;
 
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;
@@ -65,8 +66,8 @@ private:
 	void cords_for_bot();
 	void gen_Ships_for_players();
 	void shot_for_player();
-	void schot_for_second_player();
-	void schot_for_bot();
+	void shot_for_second_player();
+	void shot_for_bot();
 	vector<pair<int, int>> check_fields(int xCord, int yCord, resources* object);
 
 private slots:
@@ -74,6 +75,9 @@ private slots:
 	void on_pushButton_Ch_2_clicked(); /*dwuoosobowa gra*/
 	void on_pushButton_NS_1_clicked(); /*powrót*/
 	void on_pushButton_NS_2_clicked(); /*dalej*/
+	void on_pushButton_EG_1_clicked(); /*Zagraj jeszcze raz*/
+	void on_pushButton_EG_2_clicked(); /*Tablica wyników*/
+	void on_pushButton_EG_3_clicked(); /*Zamknij*/
 	void on_pushButton_clicked(); /*Powrót*/
 	void on_pushButton_2_clicked(); /*Zamkniêcie aplikacji*/
 	void on_pushButton_3_clicked(); /*Graj*/
