@@ -8,3 +8,18 @@ Gracz: Marcin
  -Liczba ruchów: 20
  -Data: 11-1-2024
  -Czas rozgrywki: 1 min 10 sec
+Gracz: Marcin
+ -zdobyte punkty: 9474
+ -Liczba ruchów: 54
+ -Data: 12-1-2024
+ -Czas rozgrywki: 9 min 39 sec
+Gracz: Marcin
+ -zdobyte punkty: 10000
+ -Liczba ruchów: 20
+ -Data: 12-1-2024
+ -Czas rozgrywki: 0 min 55 sec
+Gracz: Marcin
+ -zdobyte punkty: 9794
+ -Liczba ruchów: 21
+ -Data: 12-1-2024
+ -Czas rozgrywki: 0 min 59 sec

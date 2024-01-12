@@ -11450,7 +11450,14 @@ ntext-align: center;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel, QTextBrowser#textBrowser_2, QPushButton{
+     <string notr="true">QLabel,QTextBrowser#textBrowser_2{
+background: none;
+background-color: rgba(225, 225, 225, 0.85);
+}
+QPushButton{
+background: none;
+}
+QLabel{
 background: none;
 background-color: rgba(225, 225, 225, 0.85);
 }</string>
@@ -11538,6 +11545,9 @@ background-color: rgba(225, 225, 225, 0.85);
        <width>491</width>
        <height>271</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
     </widget>
    </widget>
@@ -18065,15 +18075,24 @@ ntext-align: center;
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <zorder>radioButton_0</zorder>
+     <zorder>radioButton_1</zorder>
+     <zorder>pushButton_NS_2</zorder>
+     <zorder>pushButton_NS_1</zorder>
+     <zorder>Edit_name_2</zorder>
+     <zorder>label_16</zorder>
+     <zorder>Edit_name_1</zorder>
+     <zorder>label_17</zorder>
+     <zorder>label_18</zorder>
     </widget>
    </widget>
    <zorder>widget_GP_1</zorder>
-   <zorder>widget_EG</zorder>
-   <zorder>widget_blank</zorder>
    <zorder>widget_title</zorder>
    <zorder>widget_GP</zorder>
    <zorder>widget_GS</zorder>
    <zorder>widget_NS</zorder>
+   <zorder>widget_blank</zorder>
+   <zorder>widget_EG</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

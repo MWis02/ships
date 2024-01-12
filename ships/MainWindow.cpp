@@ -1102,7 +1102,7 @@ void MainWindow::shot_for_player() {
 		if (Player_1->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
-			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+			ui.widget_EG->setStyleSheet("QWidget#widget_EG{background-image: url(:/ships/EG_Win_1.png)} QLabel{background: none; background - color: rgba(225, 225, 225, 0.85);} QTextBrowser#textBrowser_2{background: none; background - color: rgba(225, 225, 225, 0.85);} QPushButton{background: none;};");
 			ui.label_11->setText("Gratulacje wygrałeś: " + QString::fromStdString(name_for_first_player));
 			score->name = name_for_first_player;
 			score->Stop_time();
@@ -1175,11 +1175,12 @@ void MainWindow::shot_for_player() {
 			if (Player_1->counter == 20) {
 				ui.widget_GP->hide();
 				ui.widget_EG->show();
-				ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+				ui.widget_EG->setStyleSheet("QWidget#widget_EG{background-image: url(:/ships/EG_Win_1.png)} QLabel{background: none; background - color: rgba(225, 225, 225, 0.85);} QTextBrowser#textBrowser_2{background: none; background - color: rgba(225, 225, 225, 0.85);} QPushButton{background: none;};");
 				ui.label_11->setText("Gratulacje wygrałeś: " + QString::fromStdString(name_for_first_player));
 				score->name = name_for_first_player;
 				score->Stop_time();
 				score_at_end = score->calculate_points(shot);
+				ui.textBrowser_2->setText("Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 				return;
 			}
 		}
@@ -1249,11 +1250,12 @@ void MainWindow::shot_for_second_player() {
 		if (Player_2->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
-			ui.widget_EG->setStyleSheet("QWidget {background-image: url(:/ships/EG_Win_1.png);} QLabel {background: none; background-color: rgba(225, 225, 225, 0.85);}");
+			ui.widget_EG->setStyleSheet("QWidget#widget_EG{background-image: url(:/ships/EG_Win_1.png)} QLabel{background: none; background - color: rgba(225, 225, 225, 0.85);} QTextBrowser#textBrowser_2{background: none; background - color: rgba(225, 225, 225, 0.85);} QPushButton{background: none;};");
 			ui.label_11->setText("Gratulacje wygrałeś: " + QString::fromStdString(name_for_second_player));
 			score->name = name_for_second_player;
 			score->Stop_time();
 			score_at_end = score->calculate_points(shot_1);
+			ui.textBrowser_2->setText("Liczba zgromadzonych punktów: " + QString::number(score_at_end));
 	
 			return;
 		}
@@ -1340,7 +1342,7 @@ void MainWindow::shot_for_bot() {
 		if (Bot->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
-			ui.widget_EG->setStyleSheet("background-image: url(:/ships/EG_Lose_2.png);");
+			ui.widget_EG->setStyleSheet("QWidget#widget_EG{background-image: url(:/ships/EG_Lose_2.png)} QLabel#label_11{background: none; background - color: rgba(225, 225, 225, 0.85);} QTextBrowser#textBrowser_2{background: none; background - color: rgba(225, 225, 225, 0.85);} QPushButton{background: none;};");
 			ui.label_11->setText("Niestety tym razem przegrales");
 			score->name = "Bot";
 			score->Stop_time();
