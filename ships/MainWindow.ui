@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1550</width>
-    <height>775</height>
+    <width>1451</width>
+    <height>697</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1550</width>
-    <height>775</height>
+    <width>1450</width>
+    <height>697</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1550</width>
-    <height>775</height>
+    <height>805</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -29,13 +29,13 @@
    <property name="minimumSize">
     <size>
      <width>1550</width>
-     <height>775</height>
+     <height>750</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>1550</width>
-     <height>775</height>
+     <height>750</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -92,8 +92,8 @@ ntext-align: center;
     <widget class="QWidget" name="widget_1" native="true">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>150</y>
+       <x>30</x>
+       <y>160</y>
        <width>471</width>
        <height>421</height>
       </rect>
@@ -120,8 +120,38 @@ ntext-align: center;
       <property name="spacing">
        <number>0</number>
       </property>
-      <item row="6" column="5">
-       <widget class="QLabel" name="GS_45">
+      <item row="0" column="3">
+       <widget class="QLabel" name="GSN_3">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="8">
+       <widget class="QLabel" name="GS_78">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -150,8 +180,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="8" column="7">
-       <widget class="QLabel" name="GS_67">
+      <item row="4" column="2">
+       <widget class="QLabel" name="GS_13">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -180,8 +210,788 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
-       <widget class="QLabel" name="GS_08">
+      <item row="5" column="5">
+       <widget class="QLabel" name="GS_44">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="10">
+       <widget class="QLabel" name="GS_91">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLabel" name="GS_22">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="6">
+       <widget class="QLabel" name="GS_53">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="GSN_2">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>B</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="GSN_1">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string>background: none;</string>
+        </property>
+        <property name="text">
+         <string>A</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="GSN_16">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="GSN_15">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6">
+       <widget class="QLabel" name="GS_50">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="GS_05">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QLabel" name="GS_31">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="10">
+       <widget class="QLabel" name="GS_97">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="GSN_13">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="GSN_17">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="6">
+       <widget class="QLabel" name="GS_58">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QLabel" name="GS_17">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="QLabel" name="GS_42">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="10">
+       <widget class="QLabel" name="GS_98">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="10">
+       <widget class="QLabel" name="GS_95">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="3">
+       <widget class="QLabel" name="GS_29">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="3">
+       <widget class="QLabel" name="GS_25">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="6">
+       <widget class="QLabel" name="GS_55">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="3">
+       <widget class="QLabel" name="GS_28">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <widget class="QLabel" name="GSN_8">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>H</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="6">
+       <widget class="QLabel" name="GS_59">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="8">
+       <widget class="QLabel" name="GS_72">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="6">
+       <widget class="QLabel" name="GS_54">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -240,8 +1050,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="5" column="10">
-       <widget class="QLabel" name="GS_94">
+      <item row="10" column="1">
+       <widget class="QLabel" name="GS_09">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -270,8 +1080,248 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="9" column="7">
-       <widget class="QLabel" name="GS_68">
+      <item row="0" column="9">
+       <widget class="QLabel" name="GSN_9">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>I</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="5">
+       <widget class="QLabel" name="GS_47">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QLabel" name="GS_19">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QLabel" name="GS_23">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLabel" name="GS_04">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="4">
+       <widget class="QLabel" name="GS_36">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="10">
+       <widget class="QLabel" name="GS_96">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="8">
+       <widget class="QLabel" name="GS_71">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="7">
+       <widget class="QLabel" name="GS_64">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -360,8 +1410,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="7" column="6">
-       <widget class="QLabel" name="GS_56">
+      <item row="1" column="9">
+       <widget class="QLabel" name="GS_80">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -390,38 +1440,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="QLabel" name="GSN_3">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>C</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="7">
-       <widget class="QLabel" name="GS_69">
+      <item row="7" column="7">
+       <widget class="QLabel" name="GS_66">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -450,8 +1470,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="3" column="4">
-       <widget class="QLabel" name="GS_32">
+      <item row="5" column="4">
+       <widget class="QLabel" name="GS_34">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -480,8 +1500,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="4" column="6">
-       <widget class="QLabel" name="GS_53">
+      <item row="4" column="7">
+       <widget class="QLabel" name="GS_63">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -510,8 +1530,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="9" column="10">
-       <widget class="QLabel" name="GS_98">
+      <item row="8" column="4">
+       <widget class="QLabel" name="GS_37">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -540,8 +1560,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="3" column="5">
-       <widget class="QLabel" name="GS_42">
+      <item row="9" column="4">
+       <widget class="QLabel" name="GS_38">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -570,8 +1590,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="8" column="2">
-       <widget class="QLabel" name="GS_17">
+      <item row="3" column="10">
+       <widget class="QLabel" name="GS_92">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -600,8 +1620,68 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="6" column="10">
-       <widget class="QLabel" name="GS_95">
+      <item row="1" column="10">
+       <widget class="QLabel" name="GS_90">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="3">
+       <widget class="QLabel" name="GS_26">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="7">
+       <widget class="QLabel" name="GS_67">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -660,428 +1740,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="8" column="9">
-       <widget class="QLabel" name="GS_87">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="8">
-       <widget class="QLabel" name="GS_76">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2">
-       <widget class="QLabel" name="GS_13">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="GSN_16">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>6</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="10">
-       <widget class="QLabel" name="GS_97">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="7">
-       <widget class="QLabel" name="GS_62">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="8">
-       <widget class="QLabel" name="GS_70">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="3">
-       <widget class="QLabel" name="GS_27">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QLabel" name="GS_11">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="8">
-       <widget class="QLabel" name="GS_74">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="6">
-       <widget class="QLabel" name="GS_54">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="6">
-       <widget class="QLabel" name="GS_57">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="6">
-       <widget class="QLabel" name="GS_51">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="GSN_20">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>10</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="9">
-       <widget class="QLabel" name="GS_85">
+      <item row="10" column="8">
+       <widget class="QLabel" name="GS_79">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1140,8 +1800,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="8" column="4">
-       <widget class="QLabel" name="GS_37">
+      <item row="5" column="3">
+       <widget class="QLabel" name="GS_24">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1170,8 +1830,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="3" column="6">
-       <widget class="QLabel" name="GS_52">
+      <item row="7" column="1">
+       <widget class="QLabel" name="GS_06">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1200,8 +1860,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="QLabel" name="GS_02">
+      <item row="1" column="5">
+       <widget class="QLabel" name="GS_40">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1230,338 +1890,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="9" column="8">
-       <widget class="QLabel" name="GS_78">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QLabel" name="GSN_4">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>D</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="GSN_12">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>2</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="GSN_19">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>9</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="9">
-       <widget class="QLabel" name="GS_83">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="QLabel" name="GS_21">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="GS_10">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="6">
-       <widget class="QLabel" name="GS_58">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="5">
-       <widget class="QLabel" name="GS_44">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="5">
-       <widget class="QLabel" name="GS_43">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="7">
-       <widget class="QLabel" name="GS_65">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="2">
-       <widget class="QLabel" name="GS_18">
+      <item row="3" column="7">
+       <widget class="QLabel" name="GS_62">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1620,38 +1950,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="GSN_13">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>3</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="7">
-       <widget class="QLabel" name="GS_66">
+      <item row="9" column="9">
+       <widget class="QLabel" name="GS_88">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1680,8 +1980,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="9" column="3">
-       <widget class="QLabel" name="GS_28">
+      <item row="8" column="3">
+       <widget class="QLabel" name="GS_27">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1710,8 +2010,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="5" column="3">
-       <widget class="QLabel" name="GS_24">
+      <item row="10" column="4">
+       <widget class="QLabel" name="GS_39">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1740,8 +2040,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="8" column="1">
-       <widget class="QLabel" name="GS_07">
+      <item row="7" column="8">
+       <widget class="QLabel" name="GS_76">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1770,38 +2070,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="2" column="4">
-       <widget class="QLabel" name="GS_31">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="2">
-       <widget class="QLabel" name="GS_14">
+      <item row="8" column="6">
+       <widget class="QLabel" name="GS_57">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -1890,936 +2160,6 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="0" column="10">
-       <widget class="QLabel" name="GSN_10">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>J</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="3">
-       <widget class="QLabel" name="GS_25">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="10">
-       <widget class="QLabel" name="GS_92">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="7">
-       <widget class="QLabel" name="GSN_7">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>G</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="3">
-       <widget class="QLabel" name="GS_23">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="10">
-       <widget class="QLabel" name="GS_96">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="10">
-       <widget class="QLabel" name="GS_90">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="4">
-       <widget class="QLabel" name="GS_38">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="9">
-       <widget class="QLabel" name="GS_84">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="4">
-       <widget class="QLabel" name="GS_33">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="4">
-       <widget class="QLabel" name="GS_34">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="5">
-       <widget class="QLabel" name="GS_46">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QLabel" name="GS_12">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="6">
-       <widget class="QLabel" name="GS_50">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="7">
-       <widget class="QLabel" name="GS_60">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="5">
-       <widget class="QLabel" name="GS_47">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="9">
-       <widget class="QLabel" name="GS_88">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="3">
-       <widget class="QLabel" name="GS_26">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="4">
-       <widget class="QLabel" name="GS_39">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="9">
-       <widget class="QLabel" name="GS_81">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="8">
-       <widget class="QLabel" name="GS_79">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="9">
-       <widget class="QLabel" name="GS_89">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="3">
-       <widget class="QLabel" name="GS_22">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="6">
-       <widget class="QLabel" name="GSN_6">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>F</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="GS_00">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="5">
-       <widget class="QLabel" name="GS_41">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="8">
-       <widget class="QLabel" name="GS_77">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLabel" name="GSN_2">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>B</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="9">
-       <widget class="QLabel" name="GS_80">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="6">
-       <widget class="QLabel" name="GS_59">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="9">
-       <widget class="QLabel" name="GSN_9">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>I</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
        <widget class="QLabel" name="GS_01">
         <property name="minimumSize">
@@ -2850,8 +2190,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="2" column="10">
-       <widget class="QLabel" name="GS_91">
+      <item row="1" column="8">
+       <widget class="QLabel" name="GS_70">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -2880,8 +2220,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="2" column="8">
-       <widget class="QLabel" name="GS_71">
+      <item row="10" column="7">
+       <widget class="QLabel" name="GS_69">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -2910,8 +2250,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="9" column="5">
-       <widget class="QLabel" name="GS_48">
+      <item row="6" column="5">
+       <widget class="QLabel" name="GS_45">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -2940,248 +2280,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="7" column="2">
-       <widget class="QLabel" name="GS_16">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="5">
-       <widget class="QLabel" name="GS_49">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLabel" name="GS_04">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="3">
-       <widget class="QLabel" name="GS_29">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="GSN_15">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>5</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="GSN_1">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string>background: none;</string>
-        </property>
-        <property name="text">
-         <string>A</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="8">
-       <widget class="QLabel" name="GS_73">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="GSN_18">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>8</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="4">
-       <widget class="QLabel" name="GS_36">
+      <item row="2" column="6">
+       <widget class="QLabel" name="GS_51">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -3240,8 +2340,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="4" column="7">
-       <widget class="QLabel" name="GS_63">
+      <item row="2" column="5">
+       <widget class="QLabel" name="GS_41">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -3270,278 +2370,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="6" column="6">
-       <widget class="QLabel" name="GS_55">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="1">
-       <widget class="QLabel" name="GS_06">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QLabel" name="GS_20">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="7">
-       <widget class="QLabel" name="GS_64">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="GSN_11">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>1</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QLabel" name="GS_09">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="8">
-       <widget class="QLabel" name="GSN_8">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string>H</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QLabel" name="GS_05">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="2">
-       <widget class="QLabel" name="GS_19">
-        <property name="minimumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>41</width>
-          <height>36</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>19</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="10">
-       <widget class="QLabel" name="GS_93">
+      <item row="4" column="4">
+       <widget class="QLabel" name="GS_33">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -3600,8 +2430,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="1" column="5">
-       <widget class="QLabel" name="GS_40">
+      <item row="9" column="2">
+       <widget class="QLabel" name="GS_18">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -3630,8 +2460,8 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="GSN_17">
+      <item row="6" column="9">
+       <widget class="QLabel" name="GS_85">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -3653,7 +2483,157 @@ ntext-align: center;
          <string notr="true">background: none;</string>
         </property>
         <property name="text">
-         <string>7</string>
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="9">
+       <widget class="QLabel" name="GS_81">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="9">
+       <widget class="QLabel" name="GS_84">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="5">
+       <widget class="QLabel" name="GS_48">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="10">
+       <widget class="QLabel" name="GSN_10">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>J</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="GSN_18">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>8</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -3690,8 +2670,1028 @@ ntext-align: center;
         </property>
        </widget>
       </item>
-      <item row="3" column="8">
-       <widget class="QLabel" name="GS_72">
+      <item row="1" column="0">
+       <widget class="QLabel" name="GSN_11">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="10">
+       <widget class="QLabel" name="GS_94">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="GS_00">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="5">
+       <widget class="QLabel" name="GS_49">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLabel" name="GSN_7">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>G</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="9">
+       <widget class="QLabel" name="GS_87">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="5">
+       <widget class="QLabel" name="GS_46">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="6">
+       <widget class="QLabel" name="GS_52">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="GS_11">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="GS_10">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="5">
+       <widget class="QLabel" name="GS_43">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="8">
+       <widget class="QLabel" name="GS_77">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLabel" name="GS_08">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="6">
+       <widget class="QLabel" name="GS_56">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="GSN_19">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QLabel" name="GS_60">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="GS_20">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLabel" name="GS_07">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="GSN_20">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="GSN_12">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="7">
+       <widget class="QLabel" name="GS_68">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="GS_02">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="8">
+       <widget class="QLabel" name="GS_73">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QLabel" name="GS_32">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="7">
+       <widget class="QLabel" name="GS_65">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="QLabel" name="GSN_6">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>F</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QLabel" name="GS_16">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="GS_14">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="10">
+       <widget class="QLabel" name="GS_93">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="9">
+       <widget class="QLabel" name="GS_83">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="9">
+       <widget class="QLabel" name="GS_89">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QLabel" name="GS_21">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="GSN_4">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string>D</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="GS_12">
+        <property name="minimumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>19</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="8">
+       <widget class="QLabel" name="GS_74">
         <property name="minimumSize">
          <size>
           <width>41</width>
@@ -3725,7 +3725,7 @@ ntext-align: center;
     <widget class="QLabel" name="label_1">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>250</x>
        <y>10</y>
        <width>931</width>
        <height>121</height>
@@ -3752,10 +3752,10 @@ ntext-align: center;
     <widget class="QWidget" name="widget_2" native="true">
      <property name="geometry">
       <rect>
-       <x>610</x>
-       <y>150</y>
-       <width>831</width>
-       <height>551</height>
+       <x>550</x>
+       <y>140</y>
+       <width>791</width>
+       <height>521</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -3828,7 +3828,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -3915,7 +3915,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -3939,7 +3939,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -3963,7 +3963,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -4171,7 +4171,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -4235,7 +4235,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -4341,7 +4341,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -4413,7 +4413,7 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
            </property>
           </widget>
          </item>
@@ -4474,6 +4474,54 @@ background-color: rgba(225, 225, 225, 0.65);
          <property name="horizontalSpacing">
           <number>3</number>
          </property>
+         <item row="1" column="7">
+          <widget class="QPushButton" name="pushButton_gen">
+           <property name="minimumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Generuj statki</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="6">
+          <widget class="QPushButton" name="pushButton_res">
+           <property name="minimumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Resetuj</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="4">
           <widget class="QPushButton" name="pushButton_13">
            <property name="minimumSize">
@@ -4494,7 +4542,76 @@ background-color: rgba(225, 225, 225, 0.65);
             </font>
            </property>
            <property name="text">
-            <string>Dodaj Statki</string>
+            <string>Dodaj Statek</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="lineEdit_18">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="6">
+          <widget class="QLabel" name="label_5">
+           <property name="maximumSize">
+            <size>
+             <width>450</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
+           </property>
+           <property name="text">
+            <string>Podaj koordynaty dla statku czteromasztowego</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_17">
+           <property name="minimumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>41</width>
+             <height>36</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: none;</string>
            </property>
           </widget>
          </item>
@@ -4546,130 +4663,51 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_17">
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="lineEdit_18">
-           <property name="minimumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>41</width>
-             <height>36</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>13</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="7">
-          <widget class="QPushButton" name="pushButton_gen">
-           <property name="minimumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Generuj statki</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" colspan="6">
-          <widget class="QLabel" name="label_5">
-           <property name="maximumSize">
-            <size>
-             <width>450</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: none;</string>
-           </property>
-           <property name="text">
-            <string>Podaj koordynaty dla statku czteromasztowego</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="6">
-          <widget class="QPushButton" name="pushButton_res">
-           <property name="minimumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Resetuj</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </item>
       <item>
        <widget class="QWidget" name="widget_12" native="true">
         <layout class="QGridLayout" name="gridLayout_10">
-         <item row="8" column="7">
+         <item row="6" column="10">
+          <widget class="QPushButton" name="pushButton_14">
+           <property name="minimumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>156</width>
+             <height>41</height>
+            </size>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+             <bold>false</bold>
+             <stylestrategy>PreferDefault</stylestrategy>
+            </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>ArrowCursor</cursorShape>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::ClickFocus</enum>
+           </property>
+           <property name="text">
+            <string>Dodaj 2 gracza</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="9">
           <widget class="QPushButton" name="pushButton">
            <property name="minimumSize">
             <size>
@@ -4707,31 +4745,7 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="8" column="8">
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="minimumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Zamknij</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="8">
+         <item row="9" column="10">
           <widget class="QPushButton" name="pushButton_3">
            <property name="minimumSize">
             <size>
@@ -4773,14 +4787,14 @@ background-color: rgba(225, 225, 225, 0.65);
           <widget class="QLabel" name="label_7">
            <property name="minimumSize">
             <size>
-             <width>126</width>
-             <height>116</height>
+             <width>120</width>
+             <height>100</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>126</width>
-             <height>116</height>
+             <width>120</width>
+             <height>100</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -4794,8 +4808,20 @@ background-color: rgba(225, 225, 225, 0.65);
            </property>
           </widget>
          </item>
-         <item row="6" column="1">
+         <item row="6" column="1" rowspan="3">
           <widget class="QLabel" name="label_6">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>100</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>100</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>15</pointsize>
@@ -4805,46 +4831,8 @@ background-color: rgba(225, 225, 225, 0.65);
             <string notr="true">background: none;</string>
            </property>
            <property name="text">
-            <string>Koordynaty statków wpisz po kolei 
-oraz odziel &quot;,&quot;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="7">
-          <widget class="QPushButton" name="pushButton_14">
-           <property name="minimumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>156</width>
-             <height>41</height>
-            </size>
-           </property>
-           <property name="sizeIncrement">
-            <size>
-             <width>1</width>
-             <height>1</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>16</pointsize>
-             <bold>false</bold>
-             <stylestrategy>PreferDefault</stylestrategy>
-            </font>
-           </property>
-           <property name="cursor">
-            <cursorShape>ArrowCursor</cursorShape>
-           </property>
-           <property name="focusPolicy">
-            <enum>Qt::ClickFocus</enum>
-           </property>
-           <property name="text">
-            <string>Dodaj 2 gracza</string>
+            <string>Koordynaty statków wpisz 
+po kolei oraz odziel &quot;,&quot;</string>
            </property>
           </widget>
          </item>
@@ -4903,7 +4891,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>280</y>
+       <y>240</y>
        <width>471</width>
        <height>421</height>
       </rect>
@@ -8656,7 +8644,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>280</y>
+       <y>240</y>
        <width>471</width>
        <height>421</height>
       </rect>
@@ -11188,8 +11176,8 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>490</x>
-       <y>30</y>
+       <x>470</x>
+       <y>10</y>
        <width>661</width>
        <height>141</height>
       </rect>
@@ -11210,7 +11198,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>220</y>
+       <y>180</y>
        <width>201</width>
        <height>51</height>
       </rect>
@@ -11231,7 +11219,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>220</y>
+       <y>180</y>
        <width>201</width>
        <height>51</height>
       </rect>
@@ -11251,8 +11239,8 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QTextBrowser" name="textBrowser">
      <property name="geometry">
       <rect>
-       <x>1040</x>
-       <y>280</y>
+       <x>1010</x>
+       <y>240</y>
        <width>401</width>
        <height>421</height>
       </rect>
@@ -11386,8 +11374,8 @@ ntext-align: center;
     <widget class="QPushButton" name="pushButton_TB">
      <property name="geometry">
       <rect>
-       <x>1310</x>
-       <y>660</y>
+       <x>1240</x>
+       <y>590</y>
        <width>191</width>
        <height>61</height>
       </rect>
@@ -11450,14 +11438,10 @@ ntext-align: center;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel,QTextBrowser#textBrowser_2{
-background: none;
-background-color: rgba(225, 225, 225, 0.85);
+     <string notr="true">QWidget{
+background-image: url(:/ships/EG_Lose_1.png);
 }
-QPushButton{
-background: none;
-}
-QLabel{
+QPushButton, QLabel, QTextBrowser{
 background: none;
 background-color: rgba(225, 225, 225, 0.85);
 }</string>
@@ -11486,15 +11470,15 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QPushButton" name="pushButton_EG_3">
      <property name="geometry">
       <rect>
-       <x>1310</x>
-       <y>620</y>
-       <width>221</width>
-       <height>91</height>
+       <x>1280</x>
+       <y>580</y>
+       <width>161</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>17</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
@@ -11504,15 +11488,15 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QPushButton" name="pushButton_EG_2">
      <property name="geometry">
       <rect>
-       <x>1080</x>
-       <y>620</y>
-       <width>221</width>
-       <height>91</height>
+       <x>1110</x>
+       <y>580</y>
+       <width>161</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>17</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
@@ -11522,15 +11506,15 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QPushButton" name="pushButton_EG_1">
      <property name="geometry">
       <rect>
-       <x>850</x>
-       <y>620</y>
-       <width>221</width>
-       <height>91</height>
+       <x>940</x>
+       <y>580</y>
+       <width>161</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>17</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="text">
@@ -11545,6 +11529,11 @@ background-color: rgba(225, 225, 225, 0.85);
        <width>491</width>
        <height>271</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true"/>
@@ -11600,7 +11589,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>280</y>
+       <y>240</y>
        <width>471</width>
        <height>421</height>
       </rect>
@@ -15232,8 +15221,8 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QWidget" name="widget_6" native="true">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>280</y>
+       <x>20</x>
+       <y>240</y>
        <width>471</width>
        <height>421</height>
       </rect>
@@ -17766,7 +17755,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>490</x>
-       <y>30</y>
+       <y>20</y>
        <width>661</width>
        <height>141</height>
       </rect>
@@ -17786,8 +17775,8 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>220</y>
+       <x>20</x>
+       <y>180</y>
        <width>201</width>
        <height>51</height>
       </rect>
@@ -17808,7 +17797,7 @@ background-color: rgba(225, 225, 225, 0.85);
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>220</y>
+       <y>180</y>
        <width>201</width>
        <height>51</height>
       </rect>
@@ -17828,8 +17817,8 @@ background-color: rgba(225, 225, 225, 0.85);
     <widget class="QTextBrowser" name="textBrowser_1">
      <property name="geometry">
       <rect>
-       <x>1040</x>
-       <y>280</y>
+       <x>1020</x>
+       <y>240</y>
        <width>401</width>
        <height>421</height>
       </rect>
@@ -17891,7 +17880,7 @@ ntext-align: center;
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>30</y>
+       <y>10</y>
        <width>1011</width>
        <height>131</height>
       </rect>
@@ -17912,9 +17901,9 @@ ntext-align: center;
      <property name="geometry">
       <rect>
        <x>380</x>
-       <y>170</y>
-       <width>831</width>
-       <height>531</height>
+       <y>160</y>
+       <width>801</width>
+       <height>501</height>
       </rect>
      </property>
      <widget class="QLabel" name="label_18">
@@ -17980,8 +17969,8 @@ ntext-align: center;
      <widget class="QPushButton" name="pushButton_NS_2">
       <property name="geometry">
        <rect>
-        <x>680</x>
-        <y>470</y>
+        <x>650</x>
+        <y>440</y>
         <width>141</width>
         <height>51</height>
        </rect>
@@ -17998,8 +17987,8 @@ ntext-align: center;
      <widget class="QPushButton" name="pushButton_NS_1">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>470</y>
+        <x>500</x>
+        <y>440</y>
         <width>141</width>
         <height>51</height>
        </rect>
@@ -18087,10 +18076,10 @@ ntext-align: center;
     </widget>
    </widget>
    <zorder>widget_GP_1</zorder>
-   <zorder>widget_title</zorder>
    <zorder>widget_GP</zorder>
-   <zorder>widget_GS</zorder>
    <zorder>widget_NS</zorder>
+   <zorder>widget_title</zorder>
+   <zorder>widget_GS</zorder>
    <zorder>widget_blank</zorder>
    <zorder>widget_EG</zorder>
   </widget>
@@ -18099,7 +18088,7 @@ ntext-align: center;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1550</width>
+     <width>1451</width>
      <height>22</height>
     </rect>
    </property>

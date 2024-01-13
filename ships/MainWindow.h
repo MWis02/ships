@@ -86,7 +86,6 @@ private slots:
 	void on_pushButton_EG_2_clicked(); /*Tablica wyników*/
 	void on_pushButton_EG_3_clicked(); /*Zamknij*/
 	void on_pushButton_clicked(); /*Powrót*/
-	void on_pushButton_2_clicked(); /*Zamkniêcie aplikacji*/
 	void on_pushButton_3_clicked(); /*Graj*/
 	void on_pushButton_4_clicked(); /*statek 1_1*/
 	void on_pushButton_5_clicked(); /*statek 2_1*/
