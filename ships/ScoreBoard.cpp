@@ -10,7 +10,13 @@ ScoreBoard::ScoreBoard() :
 
 	connect(timer, &QTimer::timeout, this, &ScoreBoard::Update_time);
 }
-
+ScoreBoard::~ScoreBoard() {
+	game_time = 0;
+	score_at_end = 0;
+	sec = 0;
+	min = 0;
+	game_time = 0;
+}
 int ScoreBoard::calculate_points(int moves) {
 	if (moves == 20) {
 		score_at_end = 10000;
@@ -33,6 +39,7 @@ int ScoreBoard::calculate_points(int moves) {
 	int mon = data->tm_mon += 1;
 	int day = data->tm_mday;
 	int year = data->tm_year + 1900;
+
 	fstream plik;
 	plik.open("Data.txt", ios::out | ios::app);
 	if (plik.good() == true) {

@@ -14,11 +14,9 @@ class ScoreWidget : public QMainWindow
 public:
 	ScoreWidget(QWidget *parent = nullptr);
 	~ScoreWidget();
+	void read_data();
 
 private:
 	Ui::ScoreWidgetClass ui;
 	string text;
-
-public:
-	void read_data();
 };

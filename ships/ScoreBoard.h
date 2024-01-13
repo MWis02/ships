@@ -15,6 +15,7 @@ private:
 	int sec, min, game_time, score_at_end;
 public:
 	ScoreBoard();
+	~ScoreBoard();
 	int calculate_points(int moves);
 	void Start_time();
 	void Stop_time();

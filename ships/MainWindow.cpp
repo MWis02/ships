@@ -49,6 +49,10 @@ MainWindow::~MainWindow()
 {
 	delete Resources;
 	delete BotShot;
+	delete Delay;
+	delete score;
+	delete widget;
+	delete radiogroup;
 
 	count = 0;
 	x = 0;
@@ -58,8 +62,13 @@ MainWindow::~MainWindow()
 	LastHitX = 0;
 	LastHitY = 0;
 	lastShotHit = false;
+	botcounter = 0;
 	BotX = 0;
 	BotY = 0;
+	check_choise = 0;
+	name_for_first_player = "";
+	name_for_second_player = "";
+	score_at_end = 0;
 }
 
 void MainWindow::on_pushButton_Ch_1_clicked() {
@@ -98,8 +107,8 @@ void MainWindow::on_pushButton_NS_1_clicked() {
 	ui.widget_NS->hide();
 	name_for_second_player = "";
 	name_for_first_player = "";
-	ui.Edit_name_1->setPlaceholderText("Wpisz nazwę gracza");
-	ui.Edit_name_2->setPlaceholderText("Wpisz nazwę gracza");
+	ui.Edit_name_1->clear();
+	ui.Edit_name_2->clear();
 }
 
 void MainWindow::on_pushButton_NS_2_clicked() {
@@ -506,8 +515,8 @@ void MainWindow::on_pushButton_12_clicked() {
 	CordsFromPlayer_1 = ui.lineEdit_13->text();
 	CordsFromPlayer_2 = ui.lineEdit_14->text();
 	CordsFromPlayer_3 = ui.lineEdit_15->text();
-	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty() or CordsFromPlayer_3.isEmpty()
-		or CordsFromPlayer_3.isEmpty() or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',') or !CordsFromPlayer_3.contains(',')) {
+	if (CordsFromPlayer_1.isEmpty() or CordsFromPlayer_2.isEmpty() or CordsFromPlayer_3.isEmpty() or 
+		CordsFromPlayer_3.isEmpty() or !CordsFromPlayer_1.contains(',') or !CordsFromPlayer_2.contains(',') or !CordsFromPlayer_3.contains(',')) {
 		ui.label_6->setText("Wprowadź poprawne koordynaty");
 	}
 	else {
@@ -673,6 +682,7 @@ void MainWindow::initialize_Labels() {
 		QLineEdit* Line_S = findChild<QLineEdit*>(Line_N);
 		LineEdits_Vector.push_back(Line_S);
 	}
+	return;
 }
 
 void MainWindow::initialize_Border_GP() {
@@ -775,6 +785,10 @@ void MainWindow::resetGame() {
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
 			Board_Vector[j][i]->setStyleSheet("");
+			Board_Vector_GP[j][i]->setStyleSheet("");
+			Board_Vector_GP_1[j][i]->setStyleSheet("");
+			Buttons_Vector_GP[j][i]->setStyleSheet("");
+			Buttons_Vector_GP_1[j][i]->setStyleSheet("");
 		}
 	}
 
@@ -1011,7 +1025,7 @@ void MainWindow::gen_Ships_for_players() {
 				flag_7 = Resources->test_correct_positioning(X3, Y3, X4, Y4, 2);
 			}
 
-			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7 and flag_8) {
+			if (flag and flag_1 and flag_2 and flag_3 and flag_4 and flag_5 and flag_6 and flag_7) {
 				if (Resources->check_cord_for_Bot(Y1, X1) == 0 and Resources->check_cord_for_Bot(Y2, X2) == 0 and Resources->check_cord_for_Bot(Y3, X3) == 0 and Resources->check_cord_for_Bot(Y4, X4) == 0) {
 					const char* tmp = Resources->cordsX_for_Bot(X1);
 					const char* tmp_1 = Resources->cordsX_for_Bot(X2);
@@ -1335,7 +1349,7 @@ void MainWindow::shot_for_bot() {
 		if (Bot->counter == 20) {
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
-			ui.label_11->setText("Niestety tym razem przegrales");
+			ui.label_11->setText("Niestety tym razem przegrałeś");
 			score->name = "Bot";
 			score->Stop_time();
 			score_at_end = score->calculate_points(shot_1);
@@ -1346,7 +1360,7 @@ void MainWindow::shot_for_bot() {
 		BotShot->start(1500);
 	}
 	else if (check == 2 or check == 3) {
-		BotShot->start(1500);
+		BotShot->start(500);
 	}
 }
 

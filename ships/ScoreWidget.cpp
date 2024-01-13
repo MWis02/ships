@@ -4,16 +4,17 @@ ScoreWidget::ScoreWidget(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	text = "";
 }
 
 ScoreWidget::~ScoreWidget()
 {
 	ui.textBrowser->clear();
-	text = " ";
+	text = "";
 }
 
 void ScoreWidget::read_data() {
-	fstream file;
+	ifstream file;
 	file.open("Data.txt", ios::in);
 	if (file.good()) {
 		ui.textBrowser->clear();
