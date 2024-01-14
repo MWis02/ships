@@ -43,10 +43,32 @@
     <ClCompile Include="resources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ScoreBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ScoreBoard.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ScoreWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ScoreWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Data.txt" />
   </ItemGroup>
 </Project>

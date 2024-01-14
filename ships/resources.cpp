@@ -1,6 +1,5 @@
-#include "resources.h"
 
-using namespace std;
+#include "resources.h"
 
 resources::resources() {
 	for (int i = 0; i < 10; i++) {
@@ -8,7 +7,13 @@ resources::resources() {
 			gamespace[i][j] = 0;
 	}
 	counter = 0;
-	//name = "Quest";
+}
+resources::~resources() {
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++)
+			gamespace[i][j] = 0;
+	}
+	counter = 0;
 }
 
 resources::resources(const resources& other) {
@@ -17,16 +22,6 @@ resources::resources(const resources& other) {
 			this->gamespace[j][i] = other.gamespace[j][i];
 	}
 	this->counter = other.counter;
-}
-
-resources& resources::operator=(const resources& other) {
-	if (this != &other) {
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++)
-				this->gamespace[j][i] = other.gamespace[j][i];
-		}
-	}
-	return *this;
 }
 
 void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
@@ -51,17 +46,12 @@ void resources::set_gamespace(const char* x, int y, int value, int pointer)/*fun
 	{
 		int x1 = cordsX_to_numbers(x);
 		gamespace[y][x1] = value;
-
 	}
 	return;
 }
 
 void resources::set_gamespace_after_shoot(int x, int y, int value)/*Ustawienie tablicy wartoœci po strzale*/ {
 	gamespace[y][x] = value;
-}
-
-int(&resources::reviev())[10][10]/*funkcja do sprawdzenia tablicy*/{
-	return gamespace;
 }
 
 int resources::check_shot(int x, int y) const/*Funkcja sprawdzaj¹ca czy strza³ zosta³ trafiony*/ {
@@ -198,19 +188,6 @@ bool resources :: check_the_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek
 		}
 	}
 	return true;  //Brak statku w otaczaj¹cych komórkach
-}
-
-bool resources::check_for_other_ships(int x, int y)/*Funkcja sprawdzaj¹ca czy statek mo¿e zostaæ ustawiony w danym miejscu*/ {
-	/*pêtla iteruje po komorkach 1 w gore, i w dó³ od podanych koordyntów,
-	w celu sprawdzenia czy na s¹siaduj¹cych polach znajduje siê statek*/
-	for (int i = max(0, x - 1); i <= min(9, x + 1); i++)/*max(...), min(...) unikniecie wyjscia poza tablicê*/ {
-		for (int j = max(0, y - 1); j <= min(9, y + 1); j++) {
-			if (gamespace[j][i] == 1 and (i != x and j != y)) {
-				return true;  //Statek jest obecny w otaczaj¹cych komórkach
-			}
-		}
-	}
-	return false;  //Brak statku w otaczaj¹cych komórkach
 }
 
 bool resources :: test_correct_positioning(int x, int y, int x1, int y1, int height)/*funkcja sprawdzj¹ca poprawnoœæ wpisywanych koordynat*/ {

@@ -3,12 +3,19 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
 #include "resources.h"
+#include "ScoreBoard.h"
+#include "ScoreWidget.h"
+#include <vector>
+#include <string>
 #include <QVector>
+#include <QButtonGroup>
 #include <QLabel>
 #include <QlineEdit>
 #include <QpushButton>
 #include <QSignalMapper>
 #include <Qtimer>
+
+using namespace std;
 
 class MainWindow : public QMainWindow
 {
@@ -24,11 +31,20 @@ private:
 	resources* Player_1;
 	resources* Player_2;
 	resources* Bot;
+	ScoreBoard* score;
 	QTimer* BotShot;
+	QTimer* Delay;
+	ScoreWidget* widget;
+	QButtonGroup* radiogroup;
 	int count, x, y, shot, shot_1, BotX, BotY;
 	QLocale polishLng;
-	int LastHitX, LastHitY;
+	int LastHitX, LastHitY, botcounter;
+	int check_choise;
 	bool lastShotHit;
+	vector<pair<int, int >> vector_for_fields;
+	string name_for_first_player;
+	string name_for_second_player;
+	int score_at_end;
 
 	/*Zmienne do pobrania koordynatow*/
 	QString CordsFromPlayer_1;
@@ -55,16 +71,21 @@ private:
 	void cords_for_bot();
 	void gen_Ships_for_players();
 	void shot_for_player();
-	void schot_for_second_player();
-	void schot_for_bot();
+	void shot_for_second_player();
+	void shot_for_bot();
+	vector<pair<int, int>> check_fields(int xCord, int yCord, resources* object);
+	bool check_ships();
 
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/
 	void on_pushButton_Ch_2_clicked(); /*dwuoosobowa gra*/
+	void on_pushButton_TB_clicked(); /*dwuoosobowa gra*/
 	void on_pushButton_NS_1_clicked(); /*powrót*/
 	void on_pushButton_NS_2_clicked(); /*dalej*/
+	void on_pushButton_EG_1_clicked(); /*Zagraj jeszcze raz*/
+	void on_pushButton_EG_2_clicked(); /*Tablica wyników*/
+	void on_pushButton_EG_3_clicked(); /*Zamknij*/
 	void on_pushButton_clicked(); /*Powrót*/
-	void on_pushButton_2_clicked(); /*Zamkniêcie aplikacji*/
 	void on_pushButton_3_clicked(); /*Graj*/
 	void on_pushButton_4_clicked(); /*statek 1_1*/
 	void on_pushButton_5_clicked(); /*statek 2_1*/

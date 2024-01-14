@@ -38,7 +38,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtModules>core;gui;widgets</QtModules>
-    <QtBuildConfig>debug</QtBuildConfig>
+    <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>6.6.0_msvc2019_64</QtInstall>
@@ -61,6 +61,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
   </PropertyGroup>
   <PropertyGroup Label="QtDeploy" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtDeploy>true</QtDeploy>
@@ -71,7 +72,18 @@
     </CustomBuildStep>
     <ClCompile>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(Qt_INCLUDEPATH_)</AdditionalIncludeDirectories>
     </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile />
+    <Link />
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(Qt_INCLUDEPATH_)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(Qt_LIBS_);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -88,8 +100,8 @@
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DebugInformationFormat>None</DebugInformationFormat>
-      <Optimization>MaxSpeed</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -97,15 +109,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ScoreBoard.cpp" />
+    <ClCompile Include="ScoreWidget.cpp" />
     <QtRcc Include="ships.qrc" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="resources.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="ScoreWidget.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h" />
+    <QtMoc Include="ScoreWidget.h" />
+    <QtMoc Include="ScoreBoard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Data.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
