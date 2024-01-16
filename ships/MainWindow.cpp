@@ -1361,6 +1361,7 @@ void MainWindow::shot_for_bot() {
 		ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura Bota");
 		if (Bot->counter == 20) {
 			BotShot->stop();
+			lastShotHit = false;
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
 			ui.label_11->setText("Niestety tym razem przegrałeś");
