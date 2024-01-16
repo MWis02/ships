@@ -2,26 +2,51 @@
 #include "resources.h"
 
 resources::resources() {
+	gamespace = new int* [10];
 	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++)
+		gamespace[i] = new int[10];
+		for (int j = 0; j < 10; j++) {
 			gamespace[i][j] = 0;
-	}
-	counter = 0;
-}
-resources::~resources() {
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++)
-			gamespace[i][j] = 0;
+		}
 	}
 	counter = 0;
 }
 
-resources::resources(const resources& other) {
+resources::~resources() {
 	for (int i = 0; i < 10; i++) {
+		delete[] gamespace[i];
+	}
+	delete[] gamespace;
+	gamespace = nullptr;
+	counter = 0;
+}
+
+resources::resources(const resources& other) {
+	this->gamespace = new int* [10];
+	for (int i = 0; i < 10; i++) {
+		this->gamespace[i] = new int[10];
 		for (int j = 0; j < 10; j++)
-			this->gamespace[j][i] = other.gamespace[j][i];
+			this->gamespace[i][j] = other.gamespace[i][j];
 	}
 	this->counter = other.counter;
+}
+
+resources& resources::operator=(const resources& other) {
+	if (this != &other) {
+		for (int i = 0; i < 10; i++) {
+			delete[] gamespace[i];
+		}
+		delete[] gamespace;
+		gamespace = new int* [10];
+		for (int i = 0; i < 10; i++) {
+			gamespace[i] = new int[10];
+			for (int j = 0; j < 10; j++) {
+				gamespace[i][j] = other.gamespace[i][j];
+			}
+		}
+		counter = other.counter;
+	}
+	return *this;
 }
 
 void resources::set_to_defaults()/*Wyzerowanie wartoœci w tablicy*/ {
