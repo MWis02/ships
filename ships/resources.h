@@ -4,15 +4,16 @@
 
 using namespace std;
 
-class resources
+class resources	
 {
 private:
-	int gamespace[10][10]; //ustawienie pola gry
+	int** gamespace; //ustawienie pola gry
 	
 public:
 	resources();
 	~resources();
 	resources(const resources& other);
+	resources& operator=(const resources& other);
 	int cordsX_to_numbers(const char* x); //zmiana koordynatów X na dane zgodne z tablicami
 	int cordsY_to_numbers(int y); //zmiana koordynatów Y na dane zgodne z tablicami
 	const char* cordsX_for_Bot(int x); //zmiana koordynat liczbowych na wskaŸnik dla bota

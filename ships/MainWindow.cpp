@@ -24,6 +24,9 @@ MainWindow::MainWindow(QWidget* parent)
 	name_for_first_player = "";
 	name_for_second_player = "";
 	score_at_end = 0;
+	Bot = nullptr;
+	Player_1 = nullptr;
+	Player_2 = nullptr;
 
     ui.setupUi(this);
 	ui.widget_GS->hide();
@@ -155,7 +158,6 @@ void MainWindow::on_pushButton_3_clicked() {
 			Player_1 = new resources(*Resources);
 			cords_for_bot();
 			Bot = new resources(*Resources);
-
 			ui.widget_GS->hide();
 			ui.widget_GP->show();
 			ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\nTura gracza: " + QString::fromStdString(name_for_first_player));
@@ -197,9 +199,18 @@ void MainWindow::on_pushButton_3_clicked() {
 }
 
 void MainWindow::on_pushButton_EG_1_clicked() {
-	resetGame();
+	//resetGame();
 	ui.widget_EG->hide();
 	ui.widget_title->show();
+	if (Player_1 != nullptr) {
+		delete Player_1;
+	}
+	if (Player_2 != nullptr) {
+		delete Player_2;
+	}
+	if (Bot != nullptr) {
+		delete Bot;
+	}
 }
 
 void MainWindow::on_pushButton_EG_2_clicked() {
@@ -796,6 +807,8 @@ void MainWindow::resetGame() {
 		LineEdits_Vector[i]->clear();
 		LineEdits_Vector[i]->setEnabled(true);
 	}
+	shot = 0;
+	shot_1 = 0;
 }
 
 void MainWindow::cords_for_bot() {
@@ -1347,6 +1360,8 @@ void MainWindow::shot_for_bot() {
 		}
 		ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot_1) + "\nTura Bota");
 		if (Bot->counter == 20) {
+			BotShot->stop();
+			lastShotHit = false;
 			ui.widget_GP->hide();
 			ui.widget_EG->show();
 			ui.label_11->setText("Niestety tym razem przegrałeś");
@@ -1360,7 +1375,7 @@ void MainWindow::shot_for_bot() {
 		BotShot->start(1500);
 	}
 	else if (check == 2 or check == 3) {
-		BotShot->start(500);
+		BotShot->start(100);
 	}
 }
 
