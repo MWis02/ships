@@ -72,8 +72,12 @@
     </CustomBuildStep>
     <ClCompile>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(Qt_INCLUDEPATH_)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(Qt_INCLUDEPATH_);$(SolutionDir)\linking\MySQL\include</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)\linking\MySQL\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile />
@@ -109,6 +113,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MySQL.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />
     <ClCompile Include="ScoreWidget.cpp" />
     <QtRcc Include="ships.qrc" />
@@ -120,6 +125,7 @@
     <QtUic Include="ScoreWidget.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MySQL.h" />
     <ClInclude Include="resources.h" />
     <QtMoc Include="ScoreWidget.h" />
     <QtMoc Include="ScoreBoard.h" />
