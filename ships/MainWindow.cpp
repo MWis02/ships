@@ -133,6 +133,10 @@ void MainWindow::on_pushButton_N_clicked() {
 			ui.widget_NS->show();
 			ui.widget_login->hide();
 		}
+		else {
+			ui.label_prompt->setText("Nazwa użytkownika jest zajęta ");
+			ui.label_prompt->show();
+		}
 	}
 	else {
 		ui.label_prompt->setText("Wprowadź poprawne dane ");
@@ -280,6 +284,8 @@ void MainWindow::on_pushButton_clicked() {
 	ui.widget_title->show();
 	ui.pushButton_14->setEnabled(true);
 	Resources->set_to_defaults();
+	ui.lineEdit_L->clear();
+	ui.lineEdit_H->clear();
 	return;
 }
 
@@ -923,6 +929,9 @@ void MainWindow::resetGame() {
 	ui.pushButton_11->setEnabled(true);
 	ui.pushButton_12->setEnabled(true);
 	ui.pushButton_13->setEnabled(true);
+
+	ui.lineEdit_L->clear();
+	ui.lineEdit_H->clear();
 
 	/*Resetowanie tła dla pokazania statków*/
 	for (int i = 0; i < 10; i++) {
