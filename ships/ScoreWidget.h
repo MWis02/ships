@@ -15,8 +15,8 @@ public:
 	ScoreWidget(QWidget *parent = nullptr);
 	~ScoreWidget();
 	void read_data();
+	Ui::ScoreWidgetClass ui;
 
 private:
-	Ui::ScoreWidgetClass ui;
 	string text;
 };

@@ -102,7 +102,27 @@ void MainWindow::on_pushButton_Ch_2_clicked() {
 }
 
 void MainWindow::on_pushButton_TB_clicked() {
-	widget->read_data();
+	//widget->read_data();
+	// Wykonanie zapytania SQL
+	ResultSet* res = mysql->select_querry();
+
+	// Tworzenie tekstu do wypisania
+	QString output;
+
+	// Przetwarzanie wyników zapytania
+	while (res->next()) {
+		// Pobranie wartości z kolumn
+		QString column1 = QString::fromStdString(res->getString(1));
+		QString column2 = QString::fromStdString(res->getString(2));
+
+		// Dodanie wyniku do tekstu wyjściowego
+		output += "Id: " + column1 + ", Login: " + column2 + "\n";
+	}
+
+	// Wstawienie tekstu do textBrowser
+	widget->ui.textBrowser->setText(output);
+
+	// Wyświetlenie widgetu
 	widget->show();
 }
 

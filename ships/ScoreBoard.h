@@ -7,6 +7,7 @@
 
 using namespace std;
 
+
 class ScoreBoard : public QObject
 {
 	Q_OBJECT;
@@ -22,5 +23,6 @@ public:
 	void Update_time();
 	QTimer* timer;
 	string name;
+	void show_query(QString input);
 };
 

@@ -2,10 +2,11 @@
 
 MySQL::MySQL() {
     try {
-        // Po³¹czenie z baz¹ danych
         driver = get_driver_instance();
         con = driver->connect(IP, user, password);
         con->setSchema(database);
+        stmt = con->createStatement();
+        res = nullptr;
     }
     catch (SQLException& e) {
         // Obs³uga b³êdów
@@ -18,10 +19,14 @@ MySQL::MySQL() {
 }
 
 MySQL::~MySQL() {
-
+    delete stmt;
+    delete con;
+    if (res != nullptr) {
+        delete res;
+    }
 }
 
-void MySQL::connect_to_database(){
-    
-	return;
+ResultSet* MySQL::select_querry(){
+    res = stmt->executeQuery("SELECT * FROM players");
+	return res;
 }

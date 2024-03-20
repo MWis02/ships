@@ -17,13 +17,13 @@ private:
 	ResultSet* res;
 
 	string IP = "tcp://127.0.0.1:3306";
-	string user = "admin";
+	string user = "root";
 	string password = "";
 	string database = "project_data_base";
 
 public:
 	MySQL();
 	~MySQL();
-	void connect_to_database();
+	ResultSet* select_querry();
 };
 

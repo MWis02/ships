@@ -15,6 +15,7 @@
 #include <QpushButton>
 #include <QSignalMapper>
 #include <Qtimer>
+#include <jdbc/cppconn/resultset.h>
 
 using namespace std;
 
@@ -81,11 +82,11 @@ private:
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/
 	void on_pushButton_Ch_2_clicked(); /*dwuoosobowa gra*/
-	void on_pushButton_TB_clicked(); /*dwuoosobowa gra*/
+	void on_pushButton_TB_clicked(); /*ToDo Tablica wyników*/
 	void on_pushButton_NS_1_clicked(); /*powrót*/
 	void on_pushButton_NS_2_clicked(); /*dalej*/
 	void on_pushButton_EG_1_clicked(); /*Zagraj jeszcze raz*/
-	void on_pushButton_EG_2_clicked(); /*Tablica wyników*/
+	void on_pushButton_EG_2_clicked(); /*ToDo Tablica wyników*/
 	void on_pushButton_EG_3_clicked(); /*Zamknij*/
 	void on_pushButton_clicked(); /*Powrót*/
 	void on_pushButton_3_clicked(); /*Graj*/
