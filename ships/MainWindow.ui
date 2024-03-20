@@ -17931,7 +17931,7 @@ ntext-align: center;
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>80</y>
+        <y>90</y>
         <width>111</width>
         <height>41</height>
        </rect>
@@ -17949,7 +17949,7 @@ ntext-align: center;
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>130</y>
+        <y>150</y>
         <width>91</width>
         <height>41</height>
        </rect>
@@ -18002,86 +18002,253 @@ ntext-align: center;
        <string>Wróć</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="Edit_name_2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>420</y>
-        <width>381</width>
-        <height>61</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>170</y>
-        <width>271</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>26</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Gracz 1:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="Edit_name_1">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>260</y>
-        <width>381</width>
-        <height>61</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>330</y>
-        <width>271</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>26</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Gracz 2:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
      <zorder>radioButton_0</zorder>
      <zorder>radioButton_1</zorder>
      <zorder>pushButton_NS_2</zorder>
      <zorder>pushButton_NS_1</zorder>
-     <zorder>Edit_name_2</zorder>
-     <zorder>label_16</zorder>
-     <zorder>Edit_name_1</zorder>
-     <zorder>label_17</zorder>
      <zorder>label_18</zorder>
     </widget>
    </widget>
+   <widget class="QWidget" name="widget_login" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1550</width>
+      <height>775</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1550</width>
+      <height>775</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1550</width>
+      <height>775</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget#widget_login{
+background-image: url(:/ships/warships_gen_1.png);
+}
+QLabel{
+background: none;
+background-color: rgba(225, 225, 225, 0.85);
+border:none;
+}</string>
+    </property>
+    <widget class="QLabel" name="label_prompt">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>540</y>
+       <width>521</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Test</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Login">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>160</y>
+       <width>261</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Zaloguj się</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Sinin">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>260</y>
+       <width>261</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Utwórz konto</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_L">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>260</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_H">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>390</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_L">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>190</y>
+       <width>231</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Login:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_H">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>320</y>
+       <width>231</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Hasło</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_Tt">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>20</y>
+       <width>621</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Zaloguj się by rozgrać rozgrywkę</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_WL">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>360</y>
+       <width>261</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Kontynuuj
+bez logowania</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_N">
+     <property name="geometry">
+      <rect>
+       <x>1270</x>
+       <y>580</y>
+       <width>131</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Dalej</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_N_2">
+     <property name="geometry">
+      <rect>
+       <x>1120</x>
+       <y>580</y>
+       <width>131</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Wróć</string>
+     </property>
+    </widget>
+    <zorder>label_prompt</zorder>
+    <zorder>pushButton_Login</zorder>
+    <zorder>pushButton_Sinin</zorder>
+    <zorder>label_Tt</zorder>
+    <zorder>pushButton_WL</zorder>
+    <zorder>pushButton_N</zorder>
+    <zorder>pushButton_N_2</zorder>
+    <zorder>label_L</zorder>
+    <zorder>lineEdit_H</zorder>
+    <zorder>label_H</zorder>
+    <zorder>lineEdit_L</zorder>
+   </widget>
+   <zorder>widget_title</zorder>
    <zorder>widget_GP_1</zorder>
    <zorder>widget_GP</zorder>
-   <zorder>widget_NS</zorder>
-   <zorder>widget_title</zorder>
+   <zorder>widget_EG</zorder>
    <zorder>widget_GS</zorder>
    <zorder>widget_blank</zorder>
-   <zorder>widget_EG</zorder>
+   <zorder>widget_NS</zorder>
+   <zorder>widget_login</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

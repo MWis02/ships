@@ -3,6 +3,7 @@
 #include <jdbc/cppconn/exception.h>
 #include <jdbc/cppconn/resultset.h>
 #include <jdbc/cppconn/statement.h>
+#include <sstream>
 
 using namespace std;
 using namespace sql;
@@ -25,5 +26,7 @@ public:
 	MySQL();
 	~MySQL();
 	ResultSet* select_querry();
+	bool insert_player(string login, string pswd);
+	ResultSet* return_pswd(string login);
 };
 

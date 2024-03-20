@@ -39,7 +39,7 @@ private:
 	QTimer* Delay;
 	ScoreWidget* widget;
 	QButtonGroup* radiogroup;
-	int count, x, y, shot, shot_1, BotX, BotY;
+	int count, count_1, x, y, shot, shot_1, BotX, BotY;
 	QLocale polishLng;
 	int LastHitX, LastHitY, botcounter;
 	int check_choise;
@@ -103,4 +103,10 @@ private slots:
 	void on_pushButton_14_clicked(); /*dodanie 2 gracza*/
 	void on_pushButton_gen_clicked(); /*generowanie randomowo staków*/
 	void on_pushButton_res_clicked(); /*resetowanie ustawienia*/
+	void on_pushButton_N_clicked(); /*dalej*/
+	void on_pushButton_N_2_clicked(); /*wróc*/
+	void on_pushButton_Login_clicked(); /*logowanie*/
+	void on_pushButton_Sinin_clicked(); /*rejestracja*/
+	void on_pushButton_WL_clicked(); /*bez logowania*/
+	
 };

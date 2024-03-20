@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget* parent)
 	radiogroup(new QButtonGroup)
 {   
 	count = 0;
+	count_1 = 0;
 	x = 0;
 	y = 0;
 	shot = 0;
@@ -36,6 +37,13 @@ MainWindow::MainWindow(QWidget* parent)
 	ui.widget_GP_1->hide();
 	ui.widget_NS->hide();
 	ui.widget_EG->hide();
+	ui.widget_login->hide();
+	ui.label_L->hide();
+	ui.label_H->hide();
+	ui.label_prompt->hide();
+	ui.lineEdit_H->hide();
+	ui.lineEdit_L->hide();
+	ui.pushButton_N->hide();
 	initialize_Border();
 	initialize_Labels();
 	initialize_Border_GP();
@@ -77,12 +85,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_Ch_1_clicked() {
 	ui.widget_title->hide();
-	ui.widget_NS->show();
-	ui.label_17->hide();
-	ui.Edit_name_2->hide();
+	ui.widget_login->show();
 	ui.pushButton_3->setDisabled(false);
-	ui.label_15->setText("Wpisz nazwe dla gracza");
-	ui.Edit_name_1->setPlaceholderText("Wpisz nazwę gracza");
 	count = 0;
 	resetGame();
 }
@@ -90,15 +94,129 @@ void MainWindow::on_pushButton_Ch_1_clicked() {
 void MainWindow::on_pushButton_Ch_2_clicked() {
 	ui.widget_title->hide();
 	ui.widget_NS->show();
-	ui.pushButton_3->setDisabled(true);
-	ui.pushButton_14->show();
-	ui.label_17->show();
-	ui.Edit_name_2->show();
-	ui.label_15->setText("Wpisz nazwy dla graczy");
-	ui.Edit_name_1->setPlaceholderText("Wpisz nazwe gracza");
-	ui.Edit_name_2->setPlaceholderText("Wpisz nazwe gracza");
+	ui.pushButton_3->setDisabled(true); 
 	count = 1;
 	resetGame();
+}
+
+void MainWindow::on_pushButton_N_clicked() {
+	QString login = ui.lineEdit_L->text();
+	QString paswd = ui.lineEdit_H->text();
+
+	if (count_1 == 1 and !login.isEmpty() and !paswd.isEmpty()) {
+		name_for_first_player = login.toStdString();
+		ResultSet* res = mysql->return_pswd(name_for_first_player);
+
+		if (res && res->next()) { // Sprawdzenie, czy wynik jest poprawny i jest co najmniej jeden rekord
+			QString output = QString::fromStdString(res->getString(1));
+			if(paswd == output){
+				ui.widget_NS->show();
+				ui.widget_login->hide();
+			}
+			else {
+				ui.label_prompt->setText("Nieprawidłowe hasło");
+				ui.label_prompt->show();
+			}
+		}
+		else {
+			ui.label_prompt->setText("Nieprawidłowa nazwa");
+			ui.label_prompt->show();
+		}
+
+		// Zwolnienie zasobów ResultSet
+		delete res;
+	}
+	else if (count_1 == 2 and !login.isEmpty() and !paswd.isEmpty()) {
+		name_for_first_player = login.toStdString();
+		bool flag = mysql->insert_player(login.toStdString(), paswd.toStdString());
+		if (flag) {
+			ui.widget_NS->show();
+			ui.widget_login->hide();
+		}
+	}
+	else {
+		ui.label_prompt->setText("Wprowadź poprawne dane ");
+		ui.label_prompt->show();
+	}
+}
+
+void MainWindow::on_pushButton_N_2_clicked() {
+	if (count_1 == 0) {
+		ui.widget_title->show();
+		ui.widget_login->hide();
+		name_for_second_player = "";
+		name_for_first_player = "";
+		ui.lineEdit_L->clear();
+		ui.lineEdit_H->clear();
+
+		ui.pushButton_N->hide();
+		ui.label_L->hide();
+		ui.lineEdit_L->hide();
+		ui.label_H->hide();
+		ui.lineEdit_H->hide();
+		ui.label_prompt->hide();
+		ui.pushButton_Login->show();
+		ui.pushButton_Sinin->show();
+		ui.pushButton_WL->show();
+		ui.label_Tt->setText("Zaloguj się by rozgrać rozgrywkę");
+	}
+	else {
+		ui.pushButton_N->hide();
+		ui.label_L->hide();
+		ui.lineEdit_L->hide();
+		ui.label_H->hide();
+		ui.lineEdit_H->hide();
+		ui.label_prompt->hide();
+		ui.pushButton_Login->show();
+		ui.pushButton_Sinin->show();
+		ui.pushButton_WL->show();
+		ui.lineEdit_L->clear();
+		ui.lineEdit_H->clear();
+		ui.label_Tt->setText("Zaloguj się by rozgrać rozgrywkę");
+		count_1 = 0;
+	}
+}
+
+void MainWindow::on_pushButton_Login_clicked() {
+	ui.pushButton_N->show();
+	ui.label_L->show();
+	ui.lineEdit_L->show();
+	ui.label_H->show();
+	ui.lineEdit_H->setEchoMode(QLineEdit::Password);
+	ui.lineEdit_H->show();
+	ui.pushButton_Login->hide();
+	ui.pushButton_Sinin->hide();
+	ui.pushButton_WL->hide();
+	ui.label_Tt->setText("Zaloguj się na swoje konto swoje konto");
+	ui.pushButton_N->setText("Zaloguj się");
+	count_1 = 1;
+}
+
+void MainWindow::on_pushButton_Sinin_clicked() {
+	ui.pushButton_N->show();
+	ui.label_L->show();
+	ui.lineEdit_L->show();
+	ui.label_H->show();
+	ui.lineEdit_H->show();
+	ui.lineEdit_H->setEchoMode(QLineEdit::Password);
+	ui.pushButton_Login->hide();
+	ui.pushButton_Sinin->hide();
+	ui.pushButton_WL->hide();
+	ui.label_Tt->setText("Stwórz swoje konto");
+	ui.pushButton_N->setText("Zarejestruj się");
+	count_1 = 2;
+
+}
+
+void MainWindow::on_pushButton_WL_clicked() {
+	if (count == 0) {
+		name_for_first_player = "Player_1";
+	}
+	else
+	{
+		name_for_first_player = "Player_1";
+		name_for_second_player = "Player_2";
+	}
 }
 
 void MainWindow::on_pushButton_TB_clicked() {
@@ -131,13 +249,10 @@ void MainWindow::on_pushButton_NS_1_clicked() {
 	ui.widget_NS->hide();
 	name_for_second_player = "";
 	name_for_first_player = "";
-	ui.Edit_name_1->clear();
-	ui.Edit_name_2->clear();
 }
 
 void MainWindow::on_pushButton_NS_2_clicked() {
 	if (count == 0) {
-		name_for_first_player = ui.Edit_name_1->text().toStdString();
 		if (name_for_first_player.empty()) {
 			name_for_first_player = "Player 1";
 		}
@@ -147,8 +262,6 @@ void MainWindow::on_pushButton_NS_2_clicked() {
 		check_choise = radiogroup->checkedId();
 	}
 	else {
-		name_for_first_player = ui.Edit_name_1->text().toStdString();
-		name_for_second_player = ui.Edit_name_2->text().toStdString();
 		if (name_for_first_player.empty()) {
 			name_for_first_player = "Player 1";
 		}
@@ -157,7 +270,7 @@ void MainWindow::on_pushButton_NS_2_clicked() {
 		}
 		ui.widget_NS->hide();
 		ui.widget_GS->show();
-		ui.Edit_name_2->show();
+		//ui.Edit_name_2->show();
 		
 	}
 }
@@ -167,8 +280,6 @@ void MainWindow::on_pushButton_clicked() {
 	ui.widget_title->show();
 	ui.pushButton_14->setEnabled(true);
 	Resources->set_to_defaults();
-	ui.Edit_name_1->clear();
-	ui.Edit_name_2->clear();
 	return;
 }
 
