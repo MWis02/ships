@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget* parent)
 	Resources(new resources),
 	BotShot(new QTimer),
 	Delay(new QTimer),
+	mysql(new MySQL),
 	score(new ScoreBoard),
 	widget(new ScoreWidget),
 	radiogroup(new QButtonGroup)

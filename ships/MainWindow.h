@@ -5,6 +5,7 @@
 #include "resources.h"
 #include "ScoreBoard.h"
 #include "ScoreWidget.h"
+#include "MySQL.h"
 #include <vector>
 #include <string>
 #include <QVector>
@@ -31,6 +32,7 @@ private:
 	resources* Player_1;
 	resources* Player_2;
 	resources* Bot;
+	MySQL *mysql;
 	ScoreBoard* score;
 	QTimer* BotShot;
 	QTimer* Delay;

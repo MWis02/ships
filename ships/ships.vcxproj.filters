@@ -49,9 +49,15 @@
     <ClCompile Include="ScoreWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MySQL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MySQL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
