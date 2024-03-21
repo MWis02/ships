@@ -4,6 +4,7 @@
 #include <jdbc/cppconn/resultset.h>
 #include <jdbc/cppconn/statement.h>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 using namespace sql;
@@ -26,7 +27,9 @@ public:
 	MySQL();
 	~MySQL();
 	ResultSet* select_querry();
-	bool insert_player(string login, string pswd);
-	ResultSet* return_pswd(string login);
+	bool insert_player(const string& login, const string& pswd);
+	bool insert_points(const string& login, int points, int moves, int min, int sec, int day, int mon, int year);
+	ResultSet* return_pswd(const string& login);
+	int return_ID(const string& login);
 };
 

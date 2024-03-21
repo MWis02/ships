@@ -27,11 +27,11 @@ MySQL::~MySQL() {
 }
 
 ResultSet* MySQL::select_querry(){
-    res = stmt->executeQuery("SELECT * FROM players");
+    res = stmt->executeQuery("SELECT * FROM players INNER JOIN scoreboard ON players.Id = scoreboard.player_id ORDER BY points DESC LIMIT 10");
 	return res;
 }
 
-bool MySQL::insert_player(string login, string pswd) {
+bool MySQL::insert_player(const string& login, const string& pswd) {
     try {
         // Tworzenie zapytania INSERT INTO
         std::stringstream query;
@@ -59,10 +59,64 @@ bool MySQL::insert_player(string login, string pswd) {
     return false;
 }
 
-ResultSet* MySQL::return_pswd(string login) {
-    // Tworzenie zapytania INSERT INTO
+ResultSet* MySQL::return_pswd(const string& login) {
+    // Tworzenie zapytania SELECT
     stringstream query;
     query << "SELECT password FROM players where name LIKE '" << login << "'";
     res = stmt->executeQuery(query.str());
     return res;
+}
+
+bool MySQL::insert_points(const string& login, int points, int moves, int min, int sec, int day, int mon, int year) {
+    try {
+        stringstream query;
+        int id = return_ID(login);
+
+        /*setw ustawienie szerokosci pola na 2, setfill je¿eli nie bêdzie 2 cyfr automatycznie wypelni do 2*/
+        query << "INSERT INTO scoreboard (player_id, points, moves, time, date) VALUES ('"
+            << id << "', '" << points << "', '" << moves << "', '"
+            << setw(2) << setfill('0') << ":" << setw(2) << setfill('0') << min << ":" << setw(2) << setfill('0') << sec
+            << "', '" << year << "-" << setw(2) << setfill('0') << mon << "-" << setw(2) << setfill('0') << day << "')";
+
+        res = stmt->executeQuery(query.str());
+
+        return true;
+    }
+    catch (SQLException& e) {
+        // Obs³uga b³êdów
+        cout << "SQLException: " << e.what() << endl;
+    }
+    catch (std::runtime_error& e) {
+        // Obs³uga b³êdów
+        cout << "RuntimeError: " << e.what() << endl;
+    }
+
+    return false;
+}
+
+int MySQL::return_ID(const std::string& login) {
+    // Tworzenie zapytania SQL
+    stringstream query;
+    query << "SELECT Id FROM players WHERE name LIKE '" << login << "'";
+
+    // Wykonanie zapytania
+    ResultSet* res = stmt->executeQuery(query.str());
+
+    // Sprawdzenie, czy wynik zapytania jest poprawny
+    if (res && res->next()) {
+        // Pobranie ID gracza
+        int playerId = res->getInt("Id");
+
+        // Zwolnienie zasobów ResultSet
+        delete res;
+
+        // Zwrócenie ID gracza
+        return playerId;
+    }
+    else {
+        // W przypadku braku wyniku lub b³êdu, zwróæ -1 (lub inn¹ wartoœæ oznaczaj¹c¹ b³¹d)
+        cout << "Nie znaleziono gracza o nazwie: " << login << endl;
+        delete res; // Zwolnienie zasobów ResultSet
+        return -1;
+    }
 }

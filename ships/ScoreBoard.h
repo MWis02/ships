@@ -4,6 +4,7 @@
 #include <QTimer>
 #include <fstream>
 #include <QString>
+#include "MySQL.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class ScoreBoard : public QObject
 
 private:
 	int sec, min, game_time, score_at_end;
+	MySQL* mysql;
 public:
 	ScoreBoard();
 	~ScoreBoard();
@@ -23,6 +25,5 @@ public:
 	void Update_time();
 	QTimer* timer;
 	string name;
-	void show_query(QString input);
 };
 

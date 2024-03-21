@@ -1,7 +1,9 @@
 ﻿#include "ScoreBoard.h"
 
 ScoreBoard::ScoreBoard() : 
-	timer(new QTimer){
+	timer(new QTimer),
+	mysql(new MySQL)
+{
 	game_time = 0;
 	score_at_end = 0;
 	sec = 0;
@@ -39,6 +41,11 @@ int ScoreBoard::calculate_points(int moves) {
 	int mon = data->tm_mon += 1;
 	int day = data->tm_mday;
 	int year = data->tm_year + 1900;
+	bool flag = mysql->insert_points(name, score_at_end, moves, min, sec, day, mon, year);
+
+	if (flag) {
+		return score_at_end;
+	}
 
 	fstream plik;
 	plik.open("Data.txt", ios::out | ios::app);

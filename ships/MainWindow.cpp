@@ -337,7 +337,7 @@ void MainWindow::on_pushButton_3_clicked() {
 }
 
 void MainWindow::on_pushButton_EG_1_clicked() {
-	//resetGame();
+	resetGame();
 	ui.widget_EG->hide();
 	ui.widget_title->show();
 	if (Player_1 != nullptr) {
@@ -940,7 +940,9 @@ void MainWindow::resetGame() {
 			Board_Vector_GP[j][i]->setStyleSheet("");
 			Board_Vector_GP_1[j][i]->setStyleSheet("");
 			Buttons_Vector_GP[j][i]->setStyleSheet("");
+			Buttons_Vector_GP[j][i]->setEnabled(true);
 			Buttons_Vector_GP_1[j][i]->setStyleSheet("");
+			Buttons_Vector_GP_1[j][i]->setEnabled(true);
 		}
 	}
 

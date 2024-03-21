@@ -93,3 +93,13 @@ Gracz: Player 1
  -Liczba ruchów: 58
  -Data: 16-1-2024
  -Czas rozgrywki: 5 min 0 sec
+Gracz: Marcin
+ -zdobyte punkty: 9764
+ -Liczba ruchów: 59
+ -Data: 21-3-2024
+ -Czas rozgrywki: 3 min 8 sec
+Gracz: Bot
+ -zdobyte punkty: 9866
+ -Liczba ruchów: 49
+ -Data: 21-3-2024
+ -Czas rozgrywki: 2 min 11 sec
