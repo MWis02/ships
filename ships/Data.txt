@@ -103,3 +103,13 @@ Gracz: Bot
  -Liczba ruchów: 49
  -Data: 21-3-2024
  -Czas rozgrywki: 2 min 11 sec
+Gracz: Bot
+ -zdobyte punkty: 9519
+ -Liczba ruchów: 52
+ -Data: 21-3-2024
+ -Czas rozgrywki: 2 min 37 sec
+Gracz: Marcin
+ -zdobyte punkty: 18949
+ -Liczba ruchów: 57
+ -Data: 21-3-2024
+ -Czas rozgrywki: 4 min 20 sec

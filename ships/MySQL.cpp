@@ -73,8 +73,8 @@ bool MySQL::insert_points(const string& login, int points, int moves, int min, i
         int id = return_ID(login);
 
         /*setw ustawienie szerokosci pola na 2, setfill je¿eli nie bêdzie 2 cyfr automatycznie wypelni do 2*/
-        query << "INSERT INTO scoreboard (player_id, points, moves, time, date) VALUES ('"
-            << id << "', '" << points << "', '" << moves << "', '"
+        query << "INSERT INTO scoreboard (player_id, points, moves, time, date) VALUES ("
+            << id << "," << points << ", " << moves << ", '"
             << setw(2) << setfill('0') << ":" << setw(2) << setfill('0') << min << ":" << setw(2) << setfill('0') << sec
             << "', '" << year << "-" << setw(2) << setfill('0') << mon << "-" << setw(2) << setfill('0') << day << "')";
 
