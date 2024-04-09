@@ -46,7 +46,7 @@ int ScoreBoard::calculate_points(int moves) {
 	if (flag) {
 		return score_at_end;
 	}
-
+	/*
 	fstream plik;
 	plik.open("Data.txt", ios::out | ios::app);
 	if (plik.good() == true) {
@@ -58,6 +58,7 @@ int ScoreBoard::calculate_points(int moves) {
 			<< endl;
 		plik.close();
 	}
+	*/
 	return score_at_end;
 }
 

@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include "ui_ScoreWidget.h"
+#include "MySQL.h"
 #include <fstream>
 #include <string> 
 
@@ -19,4 +20,5 @@ public:
 
 private:
 	string text;
+	MySQL* mysql;
 };

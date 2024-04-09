@@ -26,11 +26,6 @@ MySQL::~MySQL() {
     }
 }
 
-ResultSet* MySQL::select_querry(){
-    res = stmt->executeQuery("SELECT * FROM players INNER JOIN scoreboard ON players.Id = scoreboard.player_id ORDER BY points DESC LIMIT 10");
-	return res;
-}
-
 bool MySQL::insert_player(const string& login, const string& pswd) {
     try {
         // Tworzenie zapytania INSERT INTO
@@ -100,7 +95,7 @@ int MySQL::return_ID(const std::string& login) {
     query << "SELECT Id FROM players WHERE name LIKE '" << login << "'";
 
     // Wykonanie zapytania
-    ResultSet* res = stmt->executeQuery(query.str());
+    res = stmt->executeQuery(query.str());
 
     // Sprawdzenie, czy wynik zapytania jest poprawny
     if (res && res->next()) {
@@ -119,4 +114,11 @@ int MySQL::return_ID(const std::string& login) {
         delete res; // Zwolnienie zasobów ResultSet
         return -1;
     }
+}
+
+ResultSet* MySQL::return_score() {
+    stringstream query;
+	query << "SELECT name, points, time, moves, date FROM players INNER JOIN scoreboard on players.Id = scoreboard.player_id ORDER BY points DESC LIMIT 10";
+    res = stmt->executeQuery(query.str());
+	return res;
 }

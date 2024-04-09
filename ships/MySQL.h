@@ -26,10 +26,10 @@ private:
 public:
 	MySQL();
 	~MySQL();
-	ResultSet* select_querry();
 	bool insert_player(const string& login, const string& pswd);
 	bool insert_points(const string& login, int points, int moves, int min, int sec, int day, int mon, int year);
 	ResultSet* return_pswd(const string& login);
+	ResultSet* return_score();
 	int return_ID(const string& login);
 };
 

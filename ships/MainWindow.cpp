@@ -224,21 +224,26 @@ void MainWindow::on_pushButton_WL_clicked() {
 }
 
 void MainWindow::on_pushButton_TB_clicked() {
-	//widget->read_data();
-	// Wykonanie zapytania SQL
-	ResultSet* res = mysql->select_querry();
+	// Odczyt wyników z bazy danych
+	ResultSet* res = mysql->return_score();
 
 	// Tworzenie tekstu do wypisania
 	QString output;
+
+	int i = 1;
 
 	// Przetwarzanie wyników zapytania
 	while (res->next()) {
 		// Pobranie wartości z kolumn
 		QString column1 = QString::fromStdString(res->getString(1));
 		QString column2 = QString::fromStdString(res->getString(2));
+		QString column3 = QString::fromStdString(res->getString(3));
+		QString column4 = QString::fromStdString(res->getString(4));	
+		QString column5 = QString::fromStdString(res->getString(5));
 
 		// Dodanie wyniku do tekstu wyjściowego
-		output += "Id: " + column1 + ", Login: " + column2 + "\n";
+		output += QString::number(i) + ". Gracz: " + column1 + "\n -zdobyte punkty: " + column2 + "\n -Liczba ruchów: " + column3 + "\n -Data: " + column5 + "\n -Czas rozgrywki: " + column4 + "\n\n";
+		i++;
 	}
 
 	// Wstawienie tekstu do textBrowser
