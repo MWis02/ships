@@ -46,19 +46,6 @@ int ScoreBoard::calculate_points(int moves) {
 	if (flag) {
 		return score_at_end;
 	}
-	/*
-	fstream plik;
-	plik.open("Data.txt", ios::out | ios::app);
-	if (plik.good() == true) {
-		plik << "Gracz: " + name +
-			"\n -zdobyte punkty: " + to_string(score_at_end) +
-			"\n -Liczba ruchów: " + to_string(moves) +
-			"\n -Data: " + to_string(day) + "-" + to_string(mon) + "-" + to_string(year) +
-			"\n -Czas rozgrywki: " + to_string(min) + " min " + to_string(sec) + " sec"
-			<< endl;
-		plik.close();
-	}
-	*/
 	return score_at_end;
 }
 
