@@ -4854,7 +4854,7 @@ po kolei oraz odziel &quot;,&quot;</string>
           </widget>
          </item>
          <item row="7" column="2">
-          <widget class="QRadioButton" name="radioButton_0">
+          <widget class="QRadioButton" name="radioCh_0">
            <property name="font">
             <font>
              <pointsize>10</pointsize>
@@ -4866,7 +4866,7 @@ po kolei oraz odziel &quot;,&quot;</string>
           </widget>
          </item>
          <item row="7" column="3">
-          <widget class="QRadioButton" name="radioButton_1">
+          <widget class="QRadioButton" name="radioCh_1">
            <property name="font">
             <font>
              <pointsize>10</pointsize>
@@ -17884,175 +17884,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="widget_NS" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1550</width>
-      <height>775</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>1550</width>
-      <height>775</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>1550</width>
-      <height>775</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget#widget_NS{
-background-image: url(:/ships/warships_gen_1.png);
-}
-QLabel, #widget_BNS{
-background: none;
-background-color: rgba(225, 225, 225, 0.85);
-ntext-align: center;
-}
-QPushButton{
-background: none;
-background-color: rgba(225, 225, 225, 0.85);
-ntext-align: center;
-}</string>
-    </property>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>10</y>
-       <width>1011</width>
-       <height>131</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>48</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QWidget" name="widget_BNS" native="true">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>160</y>
-       <width>801</width>
-       <height>501</height>
-      </rect>
-     </property>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>9</x>
-        <y>9</y>
-        <width>471</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Zdecyduj czy statki mogą być ustawiane w &quot;L&quot;:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioButton_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>111</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Tak</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioButton_6">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>150</y>
-        <width>91</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Nie</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_NS_2">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>440</y>
-        <width>141</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Dalej</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_NS_1">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>440</y>
-        <width>141</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Wróć</string>
-      </property>
-     </widget>
-     <zorder>radioButton_5</zorder>
-     <zorder>radioButton_6</zorder>
-     <zorder>pushButton_NS_2</zorder>
-     <zorder>pushButton_NS_1</zorder>
-     <zorder>label_18</zorder>
-    </widget>
-   </widget>
    <widget class="QWidget" name="widget_login" native="true">
     <property name="geometry">
      <rect>
@@ -18291,7 +18122,6 @@ bez logowania</string>
    <zorder>widget_login</zorder>
    <zorder>widget_blank</zorder>
    <zorder>widget_GP</zorder>
-   <zorder>widget_NS</zorder>
    <zorder>widget_GS</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">

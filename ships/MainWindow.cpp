@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget* parent)
 	ui.widget_blank->hide();
 	ui.widget_GP->hide();
 	ui.widget_GP_1->hide();
-	ui.widget_NS->hide();
 	ui.widget_EG->hide();
 	ui.widget_login->hide();
 	ui.label_L->hide();
@@ -53,9 +52,11 @@ MainWindow::MainWindow(QWidget* parent)
 	srand(time(NULL));
 	connect(BotShot, &QTimer::timeout, this, &MainWindow::shot_for_bot);
 
-	radiogroup->addButton(ui.radioButton_0, 0);
-	radiogroup->addButton(ui.radioButton_1, 1);
-	connect(radiogroup, SIGNAL(buttonClicked(int)), this, SLOT(onButtonClicked(int)));
+	radiogroup->addButton(ui.radioCh_0, 0);
+	radiogroup->addButton(ui.radioCh_1, 1);
+	connect(radiogroup, &QButtonGroup::buttonClicked, this, [this]() {
+		check_choise = radiogroup->checkedId();
+	});
 }
 
 MainWindow::~MainWindow()
@@ -87,6 +88,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_Ch_1_clicked() {
 	ui.widget_title->hide();
 	ui.widget_login->show();
+	ui.pushButton_14->hide();
 	ui.pushButton_3->setDisabled(false);
 	count = 0;
 	resetGame();
@@ -94,7 +96,6 @@ void MainWindow::on_pushButton_Ch_1_clicked() {
 
 void MainWindow::on_pushButton_Ch_2_clicked() {
 	ui.widget_title->hide();
-	ui.widget_NS->show();
 	ui.pushButton_3->setDisabled(true); 
 	count = 1;
 	resetGame();
@@ -131,7 +132,6 @@ void MainWindow::on_pushButton_N_clicked() {
 		name_for_first_player = login.toStdString();
 		bool flag = mysql->insert_player(login.toStdString(), paswd.toStdString());
 		if (flag) {
-			ui.widget_NS->show();
 			ui.widget_login->hide();
 		}
 		else {
@@ -252,37 +252,6 @@ void MainWindow::on_pushButton_TB_clicked() {
 
 	// Wyświetlenie widgetu
 	widget->show();
-}
-
-void MainWindow::on_pushButton_NS_1_clicked() {
-	ui.widget_title->show();
-	ui.widget_NS->hide();
-	name_for_second_player = "";
-	name_for_first_player = "";
-}
-
-void MainWindow::on_pushButton_NS_2_clicked() {
-	if (count == 0) {
-		if (name_for_first_player.empty()) {
-			name_for_first_player = "Player 1";
-		}
-		ui.widget_NS->hide();
-		ui.widget_GS->show();
-		ui.pushButton_14->hide();
-		check_choise = radiogroup->checkedId();
-	}
-	else {
-		if (name_for_first_player.empty()) {
-			name_for_first_player = "Player 1";
-		}
-		if (name_for_second_player.empty()) {
-			name_for_second_player = "Player 2";
-		}
-		ui.widget_NS->hide();
-		ui.widget_GS->show();
-		//ui.Edit_name_2->show();
-		
-	}
 }
 
 void MainWindow::on_pushButton_clicked() {
@@ -1593,8 +1562,4 @@ bool MainWindow::check_ships() {
 		}
 	}
 	return true;
-}
-
-void MainWindow::onButtonClicked(int id) {
-	check_choise = id;
 }
