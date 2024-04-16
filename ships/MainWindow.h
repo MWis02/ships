@@ -78,6 +78,7 @@ private:
 	void shot_for_bot();
 	vector<pair<int, int>> check_fields(int xCord, int yCord, resources* object);
 	bool check_ships();
+	void onButtonClicked(int id);
 
 private slots:
 	void on_pushButton_Ch_1_clicked(); /*jednoosobowa gra*/

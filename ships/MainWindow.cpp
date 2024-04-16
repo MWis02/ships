@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget* parent)
 	botcounter = 0;
 	BotX = 0;
 	BotY = 0;
-	check_choise = 0;
+	check_choise = 1;
 	name_for_first_player = "";
 	name_for_second_player = "";
 	score_at_end = 0;
@@ -55,6 +55,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 	radiogroup->addButton(ui.radioButton_0, 0);
 	radiogroup->addButton(ui.radioButton_1, 1);
+	connect(radiogroup, SIGNAL(buttonClicked(int)), this, SLOT(onButtonClicked(int)));
 }
 
 MainWindow::~MainWindow()
@@ -110,7 +111,7 @@ void MainWindow::on_pushButton_N_clicked() {
 		if (res && res->next()) { // Sprawdzenie, czy wynik jest poprawny i jest co najmniej jeden rekord
 			QString output = QString::fromStdString(res->getString(1));
 			if(paswd == output){
-				ui.widget_NS->show();
+				ui.widget_GS->show();
 				ui.widget_login->hide();
 			}
 			else {
@@ -1592,4 +1593,8 @@ bool MainWindow::check_ships() {
 		}
 	}
 	return true;
+}
+
+void MainWindow::onButtonClicked(int id) {
+	check_choise = id;
 }
