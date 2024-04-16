@@ -52,6 +52,7 @@ MainWindow::MainWindow(QWidget* parent)
 	srand(time(NULL));
 	connect(BotShot, &QTimer::timeout, this, &MainWindow::shot_for_bot);
 
+	/*Dynamiczny radiobutton*/
 	radiogroup->addButton(ui.radioCh_0, 0);
 	radiogroup->addButton(ui.radioCh_1, 1);
 	connect(radiogroup, &QButtonGroup::buttonClicked, this, [this]() {
@@ -96,6 +97,8 @@ void MainWindow::on_pushButton_Ch_1_clicked() {
 
 void MainWindow::on_pushButton_Ch_2_clicked() {
 	ui.widget_title->hide();
+	ui.widget_login->show();
+	ui.pushButton_14->show();
 	ui.pushButton_3->setDisabled(true); 
 	count = 1;
 	resetGame();
@@ -215,12 +218,18 @@ void MainWindow::on_pushButton_Sinin_clicked() {
 
 void MainWindow::on_pushButton_WL_clicked() {
 	if (count == 0) {
-		name_for_first_player = "Player_1";
+		name_for_first_player = "Gracz 1";
+		ui.widget_login->hide();
+		ui.widget_GS->show();
+		ui.pushButton_14->hide();
 	}
 	else
 	{
-		name_for_first_player = "Player_1";
-		name_for_second_player = "Player_2";
+		name_for_first_player = "Gracz 1";
+		name_for_second_player = "Gracz 2";
+		ui.widget_login->hide();
+		ui.widget_GS->show();
+		ui.pushButton_14->show();
 	}
 }
 
@@ -262,7 +271,7 @@ void MainWindow::on_pushButton_clicked() {
 	ui.lineEdit_L->clear();
 	ui.lineEdit_H->clear();
 	return;
-}
+} 
 
 void MainWindow::on_pushButton_3_clicked() {
 	if (count == 0) {
@@ -290,6 +299,7 @@ void MainWindow::on_pushButton_3_clicked() {
 		bool flag = check_ships();
 		if (flag) {
 			Player_2 = new resources(*Resources);
+			name_for_second_player = "Gracz 2";
 			ui.widget_GS->hide();
 			ui.widget_GP->show();
 			ui.textBrowser->setText("Liczba oddanych strzałów: " + QString::number(shot) + "\nTura gracza: " + QString::fromStdString(name_for_first_player));

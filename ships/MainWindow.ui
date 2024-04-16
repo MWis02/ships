@@ -18119,9 +18119,9 @@ bez logowania</string>
    <zorder>widget_title</zorder>
    <zorder>widget_GP_1</zorder>
    <zorder>widget_EG</zorder>
-   <zorder>widget_login</zorder>
-   <zorder>widget_blank</zorder>
    <zorder>widget_GP</zorder>
+   <zorder>widget_blank</zorder>
+   <zorder>widget_login</zorder>
    <zorder>widget_GS</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
